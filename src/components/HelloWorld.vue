@@ -33,6 +33,7 @@
       >
         <h2 class="headline font-weight-bold mb-5">
           What's next?
+          <router-link to="/newpage">Go to New Page</router-link>
         </h2>
 
         <v-row justify="center">
