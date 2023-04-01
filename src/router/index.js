@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import AppDashboard from '@/AppDashboard.vue'
+import App from '@/App.vue'
+import AppDashboard from '../views/AppDashboard.vue'
 import DashboardWalletInfo from '../views/DashboardWalletInfo.vue'
 
 const router = createRouter({
@@ -7,6 +8,11 @@ const router = createRouter({
   routes: [
     {
       path: '/',
+      name: 'app',
+      component: App
+    },
+    {
+      path: '/dashboard',
       name: 'dashboard',
       component: AppDashboard
     },
