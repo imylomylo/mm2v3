@@ -2,8 +2,8 @@
   <div>
     <h1>App Page</h1>
     <p>Welcome to the Home page!</p>
-    <router-link to="/dashboard" tag="button" >Dashboard</router-link>
-    <router-link to="/wallet" tag="button" >Wallet</router-link>
+    <v-btn to="/dashboard" text="Dashboard"></v-btn>
+    <v-btn to="/wallet" text="Wallet"></v-btn>
     <router-view></router-view>
   </div>
 </template>
