@@ -2,7 +2,6 @@
     <div>
       <h1>Dashboard</h1>
       <p>Welcome to the Dashboard!</p>
-      <v-btn to="/wallet" text="Wallet"></v-btn>
     </div>
-</template>
-
+  </template>
+  
