@@ -18,5 +18,11 @@ export default defineConfig({
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
     }
+  },
+
+  define: {
+    'process.env': {
+      VITE_VUE_APP_MMBOTURL: process.env.VITE_VUE_APP_MMBOTURL
+    }
   }
 })
