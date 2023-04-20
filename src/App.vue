@@ -1,15 +1,14 @@
 <script>
 
-import {RouterView} from "vue-router"
+import AppDashboard from "./views/AppDashboard.vue";
 
 export default
 {
-   name : "App"
+    name: "App",
+    components: { AppDashboard }
 }
 
 </script>
 <template>
-   <main>
-    <RouterView/>    
-   </main>
+   <AppDashboard></AppDashboard>
 </template> 
