@@ -112,7 +112,7 @@ export default {
       console.log("Getting enabled coins with MMBOTURL")
       axios
         .get(
-            process.env.VUE_APP_MMBOTURL +
+            process.env.VITE_VUE_APP_MMBOTURL +
             "/coinsenabled"
         )
         .then(response => {
