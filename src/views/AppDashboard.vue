@@ -54,9 +54,10 @@ import AppStrategy from "./AppStrategy.vue"
 import AppExport from "./AppExport.vue"
 import MyOrders from "./traderview/MyOrders.vue"
 import RecentSwaps from "./RecentSwaps.vue"
+import AppTraderViewVue from "./traderview/AppTraderView.vue"
 
 export default {
-  components: { DashboardWalletInfo, AppStrategy, AppExport, MyOrders, RecentSwaps },
+  components: { DashboardWalletInfo, AppStrategy, AppExport, MyOrders, RecentSwaps, AppTraderViewVue},
   data: function() {
     return {
       appName: "dashboard",

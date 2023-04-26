@@ -135,15 +135,15 @@
 </template>
 <script>
 import axios from "axios"
-import mm2 from './lib/mm2MiddlewareClient'
-import Description from "./Description"
-import FiatPrice from './FiatPrice'
-import MyOrders from "./MyOrders"
-import WalletInfo from "./WalletInfo"
-import AutomatedMarketMaking from "./AutomatedMarketMaking"
-import SingleOrder from "./SingleOrder"
-import MarketData from "./MarketData"
-import { log } from "util"
+import mm2 from './lib/mm2MiddlewareClient.js'
+import Description from "./Description.vue"
+import FiatPrice from './FiatPrice.vue'
+import MyOrders from "./MyOrders.vue"
+import WalletInfo from "./WalletInfo.vue"
+import AutomatedMarketMaking from "./AutomatedMarketMaking.vue"
+import SingleOrder from "./SingleOrder.vue"
+import MarketData from "./MarketData.vue"
+
 
 export default {
   name: "TraderView",
@@ -162,8 +162,8 @@ export default {
       componentReadyOrders: false,
       componentReadyMarket: false,
       marketOrders: [],
-      mePrivate: process.env.VUE_APP_MEPRIVATE,
-      mePublic: process.env.VUE_APP_MEPUBLIC,
+      mePrivate: process.env.VITE.VUE_APP_MEPRIVATE,
+      mePublic: process.env.VITE.VUE_APP_MEPUBLIC,
       myOrders: [],
       myOrdersThisMarket: [],
       priceuuid: [],
