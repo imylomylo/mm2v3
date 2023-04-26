@@ -10,6 +10,7 @@ import AppSettings from '../views/AppSettings.vue'
 import AppBinance from '../views/AppBinance.vue'
 import AppPaprika from '../views/AppPaprika.vue'
 import AppHome from '../views/AppHome.vue'
+import AppTraderView from '../views/traderview/AppTraderView.vue'
 
 
 const router = createRouter({
@@ -69,6 +70,11 @@ const router = createRouter({
       path: '/help',
       name: 'Help',
       component: AppHome
+    },
+    {
+      path: '/traderview',
+      name: 'Traderview',
+      component: AppTraderView
     }
   ]
 })

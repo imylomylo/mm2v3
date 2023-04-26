@@ -77,7 +77,7 @@
   </v-card>
 </template>
 <script>
-import CurrentStrategies from "./CurrentStrategies";
+import CurrentStrategies from "./CurrentStrategies.vue";
 
 export default {
   components: {
