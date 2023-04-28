@@ -1,4 +1,5 @@
 <template>
+  <v-main>
   <div>
     <div>
       <!-- <Description v-on:mmenable="mmenable()" v-bind="wallets" /> -->
@@ -132,6 +133,8 @@
       </v-layout>
     </div>
   </div>
+<router-view></router-view>
+</v-main>
 </template>
 <script>
 import axios from "axios"
@@ -143,6 +146,7 @@ import WalletInfo from "./WalletInfo.vue"
 import AutomatedMarketMaking from "./AutomatedMarketMaking.vue"
 import SingleOrder from "./SingleOrder.vue"
 import MarketData from "./MarketData.vue"
+
 
 
 export default {
