@@ -7,7 +7,7 @@ export default {
   }),
   methods: {
     gotoMarket() {
-      this.$router.push('/traderview')
+      this.$router.push('/wallet')
     },
     gotoHome(){
       this.$router.push('/')
@@ -24,10 +24,12 @@ export default {
         Dashboard
         <v-icon class="px-2">mdi-ballot</v-icon>
       </v-btn>
-      <v-btn rounded depressed dark large color="white" @click="gotoMarket()">
+      <router-link to="/withdraw">
+      <v-btn rounded depressed dark large color="white">
         <span>Markets</span>
         <v-icon class="px-2">mdi-apps</v-icon>
       </v-btn>
+      </router-link>
     </v-app-bar>
     <v-main>
       <router-view></router-view>
