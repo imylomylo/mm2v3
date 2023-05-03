@@ -18,6 +18,10 @@ const router = createRouter({
   routes: [
     {
       path: '/',
+      redirect: '/dashboard'
+    },
+    {
+      path: '/dashboard',
       name: 'dashboard',
       component: AppDashboard
     },
@@ -72,7 +76,7 @@ const router = createRouter({
       component: AppHome
     },
     {
-      path: '/traderview',
+      path: '/traderview/:base/:rel',
       name: 'Traderview',
       component: AppTraderView
     }
