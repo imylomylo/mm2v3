@@ -6,9 +6,7 @@ export default {
     dialog: false,
   }),
   methods: {
-    gotoMarket() {
-      this.$router.push('/wallet')
-    },
+    
     gotoHome(){
       this.$router.push('/')
     },
