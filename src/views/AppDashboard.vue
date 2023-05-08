@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <h2>{{ appName }}</h2>
+  <v-main>
+    <!-- <h2>{{ appName }}</h2> -->
     <v-layout>
       <v-flex md6 lg6>
         <v-row class="px-4">
@@ -44,7 +44,8 @@ not sure if something needed from this definition of component, keeping as comme
 -->
       </v-flex>
     </v-layout>
-  </div>
+    <router-view></router-view>
+  </v-main>
 </template>
 <script>
 import axios from "axios"

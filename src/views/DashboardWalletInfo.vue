@@ -1,11 +1,11 @@
 <template>
-  <v-card max-width="auto" class="mx-auto">
+  <v-card max-width="auto" class="mx-auto" style="width: 100%;">
     <v-toolbar flat dense color="blue-grey lighten-5">
       <v-toolbar-title>
         <span class="subheading">Wallets</span>
       </v-toolbar-title>
       <div class="flex-grow-1"></div>
-      <span class="ma-5 mt-11"><v-checkbox v-model="hideZero" :disabled="hideZeroDisable" label="Hide Zero Balance"></v-checkbox></span>
+      <span class="ma-5 mt-11"><v-checkbox v-model="hideZero" :disabled="hideZeroDisable" label="Hide Zero Balance" ></v-checkbox></span>
       <v-chip
         class="ma-2"
         color="purple"
@@ -92,6 +92,7 @@
       <v-btn color="success" @click="hideDepositOverlay">Dismiss</v-btn>
     </v-overlay>
   </v-card>
+  
 </template>
 <script>
 import axios from "axios";
