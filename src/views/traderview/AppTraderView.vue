@@ -133,7 +133,6 @@
       </v-layout>
     </div>
   </div>
-<router-view></router-view>
 </v-main>
 </template>
 <script>
