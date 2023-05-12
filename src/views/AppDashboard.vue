@@ -5,7 +5,7 @@
       <v-flex md6 lg6>
         <v-row class="px-4">
           <v-col>
-            <DashboardWalletInfo v-bind:wallets="allwallets" ref="dashboardWallets" />
+            <DashboardWalletInfo ref="dashboardWallets" :wallets="allwallets" @update-allwallets="updateAllWallets" />
           </v-col>
         </v-row>
       </v-flex>
@@ -127,9 +127,12 @@ export default {
           this.customerrors.push(e);
         });
     },
+    updateAllWallets(allwallets) {
+      this.$refs.dashboardWallets.allwallets = allwallets;
+    },
     updateBalances: function() {
       console.log("Update balances");
-      this.allwallets.forEach(function(item, index) {
+      this.allwallets.forEach((item, index) => {
         console.log("Updating " + item.ticker)
         this.myBalance(item, index);
       });
@@ -138,7 +141,7 @@ export default {
       console.log("Fetch myBalance: " + JSON.stringify(wallet));
       axios
         .get(
-            process.env.VUE_APP_MMBOTURL +
+            process.env.VITE_VUE_APP_MMBOTURL +
             "/getBalance?coin=" +
             wallet.ticker
         )

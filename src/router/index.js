@@ -11,6 +11,7 @@ import AppBinance from '../views/AppBinance.vue'
 import AppPaprika from '../views/AppPaprika.vue'
 import AppHome from '../views/AppHome.vue'
 import AppTraderView from '../views/traderview/AppTraderView.vue'
+import RecentSwaps from '../views/RecentSwaps.vue'
 
 
 const router = createRouter({
@@ -67,7 +68,7 @@ const router = createRouter({
     },
     {
       path: '/api',
-      name: 'API',
+      name: 'Api',
       component: AppHome
     },
     {
@@ -76,6 +77,13 @@ const router = createRouter({
       component: AppHome
     },
     {
+
+      path: '/recentswaps',
+      name: 'RecentSwaps',
+      component: RecentSwaps
+    },
+    {
+
       path: '/traderview/:base/:rel',
       name: 'Traderview',
       component: AppTraderView

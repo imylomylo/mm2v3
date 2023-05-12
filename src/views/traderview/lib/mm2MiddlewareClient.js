@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const BASE_DOMAIN = process.env.VUE_APP_MMBOTURL
+const BASE_DOMAIN = process.env.VITE_VUE_APP_MMBOTURL
 const BASE_URL = BASE_DOMAIN 
 
 export function cancelAllOrders() {
@@ -11,7 +11,7 @@ export function cancelAllOrders() {
 
       return axios
         .get(
-            process.env.VUE_APP_MMBOTURL +
+            process.env.VITE_VUE_APP_MMBOTURL +
             "/cancelAllOrders",
           requestData
         )
@@ -32,7 +32,7 @@ export function cancelOrder(uuid){
 
       return axios
         .post(
-            process.env.VUE_APP_MMBOTURL +
+            process.env.VITE_VUE_APP_MMBOTURL +
             "/cancelOrder?uuid="+requestData.uuid
         )
         .then(response => {
@@ -51,7 +51,7 @@ export function getWalletBalance(ticker) {
   console.log("mm2MiddlewareClient.getWalletBalance: " + ticker)
       return axios
         .get(
-            process.env.VUE_APP_MMBOTURL +
+            process.env.VITE_VUE_APP_MMBOTURL +
             "/getBalance?coin=" +
             ticker
         )
@@ -67,7 +67,7 @@ export function getWalletBalance(ticker) {
 export function getFiatCoinGecko(ticker){
       return axios
         .get(
-            process.env.VUE_APP_MMBOTURL +
+            process.env.VITE_VUE_APP_MMBOTURL +
             "/getpricecoingecko?coin=" +
             ticker
         )
@@ -88,7 +88,7 @@ export function getFiatCoinGecko(ticker){
 export function getMyOrders(){
       return axios
         .get(
-            process.env.VUE_APP_MMBOTURL +
+            process.env.VITE_VUE_APP_MMBOTURL +
             "/getOrders"
         )
         .then(response => {
@@ -115,7 +115,7 @@ export function sellBase(base, rel, price, amount){
 
       return axios
         .post(
-            process.env.VUE_APP_MMBOTURL +
+            process.env.VITE_VUE_APP_MMBOTURL +
             "/doMaker?base="+requestData.base+"&rel="+requestData.rel+"&volume="+requestData.volume+"&price="+requestData.price
         )
         .then(response => {
@@ -148,7 +148,7 @@ export function buyBase(base, rel, price, amount){
       console.log("Buy BASE: " + JSON.stringify(requestData, null, 4))
       return axios
         .post(
-            process.env.VUE_APP_MMBOTURL +
+            process.env.VITE_VUE_APP_MMBOTURL +
             "/doMaker?base="+requestData.base+"&rel="+requestData.rel+"&volume="+requestData.volume+"&price="+requestData.price
         )
         .then(response => {
@@ -164,7 +164,7 @@ export function getMarket(base, rel){
       console.log("Show market:" + base + "/" + rel);
       return axios
         .post(
-            process.env.VUE_APP_MMBOTURL +
+            process.env.VITE_VUE_APP_MMBOTURL +
             "/getMarket?base=" +
             base +
             "&rel=" +
@@ -180,7 +180,7 @@ export function getMarket(base, rel){
 
 export function recentSwaps(limit = 10){
      return axios
-       .get( process.env.VUE_APP_MMBOTURL + "/recentswaps")
+       .get( process.env.VITE_VUE_APP_MMBOTURL + "/recentswaps")
        .then(response => {
          if (response.data !== undefined) {
            return response

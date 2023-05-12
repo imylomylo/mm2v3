@@ -73,7 +73,7 @@ export default {
     console.log(this.appName + " Created")
 
      axios
-       .get( process.env.VUE_APP_MMBOTURL + "/recentswaps")
+       .get( process.env.VITE_VUE_APP_MMBOTURL + "/recentswaps")
        .then(response => {
          // console.log(response.data)
          // JSON responses are automatically parsed.

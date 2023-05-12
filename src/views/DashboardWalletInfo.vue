@@ -1,5 +1,9 @@
 <template>
+
+  <v-card >
+
   <v-card max-width="auto" class="mx-auto" style="width: 100%;">
+
     <v-toolbar flat dense color="blue-grey lighten-5">
       <v-toolbar-title>
         <span class="subheading">Wallets</span>
@@ -19,10 +23,10 @@
       </v-chip>
     </v-toolbar>
     <v-divider class="mx-4"></v-divider>
-    <v-simple-table fixed-header height="auto">
+    <v-simple-table fixed-header height="100%">
       <thead>
         <tr>
-          <th class="text-left">TICKER</th>
+          <th>TICKER</th>
           <th class="text-left">Balance</th>
           <th class="text-left">Address</th>
           <th class="text-left">Actions</th>
@@ -103,8 +107,8 @@ export default {
   props: [ 'wallets' ],
   data: function() {
     return {
-      mePrivate: process.env.VUE_APP_MEPRIVATE,
-      mePublic: process.env.VUE_APP_MEPUBLIC,
+      mePrivate: process.env.VITE_VUE_APP_MEPRIVATE,
+      mePublic: process.env.VITE_VUE_APP_MEPUBLIC,
       absoluteOverlay: false,
       depositOverlay: false,
       depositOverlaySize: 400,
@@ -116,6 +120,9 @@ export default {
     };
   },
   methods: {
+    updateAllWallets() {
+      this.$emit('update-allwallets', this.allwallets);
+    },
     isEnabled: function(ticker) {
       console.log("isEnabled(): Checking " + ticker);
       if (this.activeCoins.some(e => e.ticker === ticker)) {
@@ -129,7 +136,7 @@ export default {
         console.log("Updating [" + index + "]" + item.ticker)
       axios
         .get(
-            process.env.VUE_APP_MMBOTURL +
+            process.env.VITE_VUE_APP_MMBOTURL +
             "/getBalance?coin=" +
             item.ticker
         )
