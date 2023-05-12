@@ -15,7 +15,7 @@
               </v-btn>
             </template>
             <v-list>
-              <v-list-item @click="gotoSettings()">
+              <v-list-item @click="gotoWithdraw()">
                 <v-list-item-title>Settings</v-list-item-title>
               </v-list-item>
               <v-list-item @click="gotoWithdraw()">
