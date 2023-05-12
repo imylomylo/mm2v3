@@ -44,13 +44,13 @@ export default {
       axios
         .get(
           "http://" +
-            process.env.VUE_APP_WEBHOST +
+            process.env.VITE_VUE_APP_WEBHOST +
             ":" +
-            process.env.VUE_APP_WEBPORT +
+            process.env.VITE_VUE_APP_WEBPORT +
             "/" +
-            process.env.VUE_APP_MMBOTHOST +
+            process.env.VITE_VUE_APP_MMBOTHOST +
             ":" +
-            process.env.VUE_APP_MMBOTPORT +
+            process.env.VITE_VUE_APP_MMBOTPORT +
             "/api/v1/getallprice"
         )
         .then(response => {
@@ -69,7 +69,7 @@ export default {
       axios
         .get(
           "http://" +
-            process.env.VUE_APP_WEBHOST +
+            process.env.VITE_VUE_APP_WEBHOST +
             ":7780/getpaprkiamarketprice?base=" +
             base +
             "&rel=BTC"
@@ -88,7 +88,7 @@ export default {
       axios
         .get(
           "http://" +
-            process.env.VUE_APP_WEBHOST +
+            process.env.VITE_VUE_APP_WEBHOST +
             ":7780/getcmcmarketprice?base=" +
             base +
             "&rel=BTC"

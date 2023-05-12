@@ -67,9 +67,9 @@ export default {
   props: ["myOrders", "myOrdersThisMarket"],
   data: function() {
     return {
-      meName: process.env.VUE_APP_MENAME,
-      mePrivate: process.env.VUE_APP_MEPRIVATE,
-      mePublic: process.env.VUE_APP_MEPUBLIC,
+      meName: process.env.VITE_VUE_APP_MENAME,
+      mePrivate: process.env.VITE_VUE_APP_MEPRIVATE,
+      mePublic: process.env.VITE_VUE_APP_MEPUBLIC,
       customerrors: []
     };
   },

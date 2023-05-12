@@ -103,8 +103,8 @@ export default {
   props: [ 'wallets' ],
   data: function() {
     return {
-      mePrivate: process.env.VUE_APP_MEPRIVATE,
-      mePublic: process.env.VUE_APP_MEPUBLIC,
+      mePrivate: process.env.VITE_VUE_APP_MEPRIVATE,
+      mePublic: process.env.VITE_VUE_APP_MEPUBLIC,
       absoluteOverlay: false,
       depositOverlay: false,
       depositOverlaySize: 400,
@@ -116,6 +116,9 @@ export default {
     };
   },
   methods: {
+    updateAllWallets() {
+      this.$emit('update-allwallets', this.allwallets);
+    },
     isEnabled: function(ticker) {
       console.log("isEnabled(): Checking " + ticker);
       if (this.activeCoins.some(e => e.ticker === ticker)) {
@@ -129,7 +132,7 @@ export default {
         console.log("Updating [" + index + "]" + item.ticker)
       axios
         .get(
-            process.env.VUE_APP_MMBOTURL +
+            process.env.VITE_VUE_APP_MMBOTURL +
             "/getBalance?coin=" +
             item.ticker
         )

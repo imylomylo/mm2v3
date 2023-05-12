@@ -134,6 +134,7 @@
     </div>
   </div>
 </v-main>
+<router-view></router-view>
 </template>
 <script>
 import axios from "axios"
@@ -165,8 +166,8 @@ export default {
       componentReadyOrders: false,
       componentReadyMarket: false,
       marketOrders: [],
-      mePrivate: process.env.VITE.VUE_APP_MEPRIVATE,
-      mePublic: process.env.VITE.VUE_APP_MEPUBLIC,
+      mePrivate: process.env.VITE_VUE_APP_MEPRIVATE,
+      mePublic: process.env.VITE_VUE_APP_MEPUBLIC,
       myOrders: [],
       myOrdersThisMarket: [],
       priceuuid: [],
