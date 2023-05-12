@@ -1,10 +1,10 @@
 <template>
-  <v-card max-width="auto" class="mx-auto" style="width: 100%;">
+  <v-card >
     <v-toolbar flat dense color="blue-grey lighten-5">
       <v-toolbar-title>
         <span class="subheading">Wallets</span>
       </v-toolbar-title>
-      <div class="flex-grow-1"></div>
+      
       <span class="ma-5 mt-11"><v-checkbox v-model="hideZero" :disabled="hideZeroDisable" label="Hide Zero Balance" ></v-checkbox></span>
       <v-chip
         class="ma-2"
@@ -19,10 +19,10 @@
       </v-chip>
     </v-toolbar>
     <v-divider class="mx-4"></v-divider>
-    <v-simple-table fixed-header height="auto">
+    <v-simple-table fixed-header height="100%">
       <thead>
         <tr>
-          <th class="text-left">TICKER</th>
+          <th>TICKER</th>
           <th class="text-left">Balance</th>
           <th class="text-left">Address</th>
           <th class="text-left">Actions</th>
