@@ -77,11 +77,13 @@ const router = createRouter({
       component: AppHome
     },
     {
+
       path: '/recentswaps',
       name: 'RecentSwaps',
       component: RecentSwaps
     },
     {
+
       path: '/traderview/:base/:rel',
       name: 'Traderview',
       component: AppTraderView
