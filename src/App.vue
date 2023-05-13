@@ -5,10 +5,6 @@
 
         <v-toolbar-items>
           <v-menu offset-y style="z-index: 100">
-
-        <v-toolbar-items class="hidden-sm-and-down">
-          <v-menu offset-y>
-
             <template v-slot:activator="{ on, attrs }">
               <v-btn icon dark v-bind="attrs" v-on="on">
                 <v-icon>mdi-menu</v-icon>
