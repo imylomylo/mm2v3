@@ -2,27 +2,6 @@
   <v-app>
     <v-main>
       <v-app-bar app color="indigo" dark>
-
-        <v-toolbar-items>
-          <v-menu offset-y style="z-index: 100">
-            <template v-slot:activator="{ on, attrs }">
-              <v-btn icon dark v-bind="attrs" v-on="on">
-                <v-icon>mdi-menu</v-icon>
-              </v-btn>
-            </template>
-            <v-list>
-              <v-list-item @click="gotoSettings()">
-                <v-list-item-title>Settings</v-list-item-title>
-              </v-list-item>
-              <v-list-item @click="gotoWithdraw()">
-                <v-list-item-title>Withdraw</v-list-item-title>
-              </v-list-item>
-              <v-list-item @click="gotoDeposit()">
-                <v-list-item-title>Deposit</v-list-item-title>
-              </v-list-item>
-            </v-list>
-          </v-menu>
-        </v-toolbar-items>
         <v-toolbar-title>{{ appName }}</v-toolbar-title>
         <v-spacer></v-spacer>
         <v-btn rounded depressed dark large color="white" @click="gotoHome()">
@@ -53,18 +32,19 @@ export default {
     gotoHome() {
       this.$router.push('/')
     },
-    gotoSettings() {
-      this.$router.push('/settings')
+    gotoMarket: function() {
+      // console.log("Going to new market..." + base + "/")// + rel)
+      console.log(this.componentKey)
+      this.componentKey += 1
+      this.dialog = !this.dialog
+      // this.$router.push("#")
+      // this.$router.push("/traderview?base=" + base + "&rel=KMD")// + rel);
+
+// window.location.href = "#/" + command.toLowerCase().replace(/ /g, "");
     },
-    gotoWithdraw() {
-      this.$router.push('/withdraw')
-    },
-    gotoDeposit() {
-      this.$router.push('/deposit')
-    },
-    gotoMarkets() {
-      this.$router.push('/settings')
-    },
+    doAction: function(command) {
+      window.location.href = "/#/" + command.toLowerCase().replace(/ /g, "");
+    }
   },
 }
 </script>
