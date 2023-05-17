@@ -1,22 +1,47 @@
 <template>
-  <v-app>
-    <v-main>
-      <v-app-bar app color="indigo" dark>
-        <v-toolbar-title>{{ appName }}</v-toolbar-title>
-        <v-spacer></v-spacer>
-        <v-btn rounded depressed dark large color="white" @click="gotoHome()">
-          Dashboard
-          <v-icon class="px-2">mdi-ballot</v-icon>
-        </v-btn>
-        <router-link to="/settings">
-          <v-btn rounded depressed dark large color="white">
-            <span>Markets</span>
-            <v-icon class="px-2">mdi-apps</v-icon>
+  <v-app id="inspire">
+    <v-app-bar color="indigo" dark>
+      <v-toolbar-title style="width: 300px" class="ml-0 pl-4">
+        <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
+        <span class="hidden-sm-and-down">{{ appName }}</span>
+      </v-toolbar-title>
+      <v-spacer></v-spacer>
+      <v-btn rounded depressed dark large color="white" @click="gotoHome()">
+        <h3>Dashboard</h3>
+        <v-icon class="px-2">ballot</v-icon>
+      </v-btn>
+      <v-btn rounded depressed dark large color="white" @click="dialog = !dialog">
+        <h3>Markets</h3>
+        <v-icon class="px-2">apps</v-icon>
+      </v-btn>
+    </v-app-bar>
+    <v-dialog v-model="dialog" fullscreen hide-overlay transition="dialog-bottom-transition">
+      <v-card>
+        <v-toolbar color="indigo">
+          <v-btn icon dark color="white" @click="dialog = false">
+            <v-icon>close</v-icon>
           </v-btn>
-        </router-link>
-      </v-app-bar>
+          <v-toolbar-title>Markets</v-toolbar-title>
+          <div class="flex-grow-1"></div>
+          <v-toolbar-items>
+            <v-btn dark text @click="dialog = false">back</v-btn>
+          </v-toolbar-items>
+        </v-toolbar>
+        <v-list three-line subheader>
+          <v-subheader>Go to markets</v-subheader>
+          <v-list-item>
+            <v-list-item-content>
+              <v-list-item-title>Informational Section</v-list-item-title>
+              <v-list-item-subtitle>Please wait for the available market links to load</v-list-item-subtitle>
+              <AppMarkets v-on:closeDialog="gotoMarket" :key="componentKey" />
+            </v-list-item-content>
+          </v-list-item>
+        </v-list>
+      </v-card>
+    </v-dialog>
+    <v-content>
       <router-view></router-view>
-    </v-main>
+    </v-content>
   </v-app>
 </template>
 
@@ -27,6 +52,26 @@ export default {
   name: 'App',
   data: () => ({
     appName: 'OrderBook Live',
+    base: '',
+    componentKey: 0,
+    dialog: false,
+    drawer: false,
+    items: [
+      { icon: "play_circle_outline", text: "Coins" },
+      { icon: "blur_linear", text: "Orderbooks" },
+      { icon: "swap_horiz", text: "Completed Swaps" },
+      { icon: "swap_horizontal_circle", text: "Current Swap Status" },
+      { icon: "save_alt", text: "Refill" },
+      { icon: "eject", text: "Withdraw" },
+      { icon: "control_camera", text: "Marketmaking" },
+      { icon: "settings", text: "Settings" },
+      { icon: "account_balance", text: "Antara Market Cap" },
+      { icon: "trending_up", text: "CEX Prices" },
+      { icon: "timeline", text: "Aggregator Prices" },
+      { icon: "chat_bubble", text: "Send feedback" },
+      { icon: "help", text: "Help" },
+      { icon: "phonelink", text: "App downloads" }
+    ]
   }),
   methods: {
     gotoHome() {
