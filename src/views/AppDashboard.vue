@@ -1,6 +1,5 @@
 <template>
-  <v-main>
-    <!-- <h2>{{ appName }}</h2> -->
+  <v-main style="margin-top: 5%;">
     <v-layout>
       <v-flex md6 lg6>
         <v-row class="px-4">

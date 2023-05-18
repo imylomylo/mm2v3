@@ -96,7 +96,7 @@ REL COIN (e.g. BTC)
   </div>
 </template>
 <script>
-import axios from "axios";
+import axios from 'axios';
 
 export default {
   name: "Markets",
