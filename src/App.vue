@@ -18,6 +18,7 @@
       <v-card>
         <v-toolbar color="indigo">
           <v-btn dark @click="dialog = false">
+            <v-icon>mdi-close</v-icon>
           </v-btn>
           <v-toolbar-title>Markets</v-toolbar-title>
           <div class="flex-grow-1"></div>
