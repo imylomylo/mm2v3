@@ -1,5 +1,5 @@
 <template>
-
+<v-main>
  <v-card max-width="auto" class="mx-auto" style="width: 100%;">
     <v-toolbar flat dense color="blue-grey lighten-5">
       <v-toolbar-title>
@@ -93,7 +93,7 @@
       <v-btn color="success" @click="hideDepositOverlay">Dismiss</v-btn>
     </v-overlay>
   </v-card>
-  
+  </v-main>
 </template>
 <script>
 import axios from "axios";

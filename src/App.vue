@@ -8,18 +8,18 @@
       <v-spacer></v-spacer>
       <v-btn rounded depressed dark large color="white" @click="gotoHome()">
         <h3>Dashboard</h3>
-        <v-icon class="px-2">ballot</v-icon>
+        <v-icon class="px-2">mdi-ballot</v-icon>
       </v-btn>
       <v-btn rounded depressed dark large color="white" @click="dialog = !dialog">
         <h3>Markets</h3>
-        <v-icon class="px-2">apps</v-icon>
+        <v-icon class="px-2">mdi-apps</v-icon>
       </v-btn>
     </v-app-bar>
     <v-dialog v-model="dialog" fullscreen hide-overlay transition="dialog-bottom-transition">
       <v-card>
         <v-toolbar color="indigo">
-          <v-btn icon dark color="white" @click="dialog = false">
-            <v-icon>close</v-icon>
+          <v-btn dark @click="dialog = false">
+            <v-icon>mdi-close</v-icon>
           </v-btn>
           <v-toolbar-title>Markets</v-toolbar-title>
           <div class="flex-grow-1"></div>
