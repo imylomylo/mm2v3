@@ -4,7 +4,6 @@
       <v-toolbar-title style="width: 300px" class="ml-0 pl-4">
         <span class="hidden-sm-and-down">{{ appName }}</span>
       </v-toolbar-title>
-      <v-spacer></v-spacer>
       <v-btn rounded depressed dark large color="white" @click="gotoHome()">
         <h3>Dashboard</h3>
         <v-icon class="px-2">mdi-ballot</v-icon>
