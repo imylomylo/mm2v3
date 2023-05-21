@@ -4,7 +4,7 @@
     <div>
       <!-- <Description v-on:mmenable="mmenable()" v-bind="wallets" /> -->
 
-      <div class="top-spaced">
+      <div>
         <div>
           <v-row no-gutters>
             <v-toolbar color="white" flat>
