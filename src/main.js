@@ -4,8 +4,8 @@ import router from './router'
 import vuetify from './plugins/vuetify'
 import { loadFonts } from './plugins/webfontloader'
 
-loadFonts()
 
+loadFonts()
 createApp(App)
   .use(router)
   .use(vuetify)

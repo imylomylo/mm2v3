@@ -55,7 +55,7 @@
       </div>
 
       <v-divider class="mx-4 pb-5"></v-divider>
-      <v-layout>
+      <v-layout style="width: 100%;">
         <v-flex md6 lg6>
           <v-row class="px-4">
             <v-col>

@@ -20,7 +20,7 @@
       </v-chip>
     </v-toolbar>
     <v-divider class="mx-4"></v-divider>
-    <v-simple-table fixed-header height="100%">
+    <table fixed-header height="100%">
       <thead>
         <tr>
           <th>TICKER</th>
@@ -86,7 +86,7 @@
           <td>Waiting for wallet info</td>
         </tr>
       </tbody>
-    </v-simple-table>
+    </table>
     <v-overlay opacity="0.88" :absolute="absoluteOverlay" :value="depositOverlay" z-index="6">
       {{ depositTicker }}: {{ depositAddress }}
       <qrcode-vue :value="depositAddress" :size="depositOverlaySize" level="L"></qrcode-vue>
