@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const BASE_DOMAIN = process.env.VITE_VUE_APP_MMBOTURL
-const BASE_URL = BASE_DOMAIN 
+//const BASE_URL = BASE_DOMAIN 
 
 export function cancelAllOrders() {
       console.log("Cancel All Orders");
