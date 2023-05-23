@@ -3,7 +3,7 @@
     <h2>{{ appName }}</h2>
 
     <div v-for="coin in allprices" v-bind:key="coin.id">
-      <v-simple-table>
+      <table>
         <thead>
           <tr>
             <th class="text-center" span="2">{{ Object.keys(coin)[0] }}</th>
@@ -19,7 +19,7 @@
             <td>{{ Object.values(row)[0] }}</td>
           </tr>
         </tbody>
-      </v-simple-table>
+      </table>
     </div>
   </div>
 </template>

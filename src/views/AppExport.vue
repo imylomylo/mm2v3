@@ -19,7 +19,7 @@
 
     <div v-if="swapHistory.swaps !== undefined && swapHistory.swaps.length > 0">
       <div>
-        <v-simple-table>
+        <table>
           <thead>
             <tr>
               <th class="text-left">Type</th>
@@ -46,14 +46,14 @@
               </td>
             </tr>
           </tbody>
-        </v-simple-table>
+        </table>
       </div>
     </div>
     <div v-else>Nothing to show</div>
 
 
 
-    <v-simple-table fixed-header height="auto">
+    <table fixed-header height="auto">
       <thead>
         <tr>
           <th class="text-left">Instruction</th>
@@ -74,7 +74,7 @@
           </td>
         </tr>
       </tbody>
-    </v-simple-table>
+    </table>
     <v-layout justify-center>
       <v-dialog v-model="dialog" width="600px">
 <!--

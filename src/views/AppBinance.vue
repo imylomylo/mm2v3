@@ -6,7 +6,7 @@
     <div v-if="activeCoins !== undefined && activeCoins.length > 0">
       <div>
         <h2>Enabled Coin Markets</h2>
-        <v-simple-table>
+        <table>
           <thead>
             <tr>
               <th class="text-left">Base</th>
@@ -26,7 +26,7 @@
               <td>0.00</td>
             </tr>
           </tbody>
-        </v-simple-table>
+        </table>
       </div>
     </div>
     <h3>Bittrex (last price)</h3>
@@ -34,7 +34,7 @@
     <div v-if="activeCoins !== undefined && activeCoins.length > 0">
       <div>
         <h2>Enabled Coin Markets</h2>
-        <v-simple-table>
+        <table>
           <thead>
             <tr>
               <th class="text-left">Base</th>
@@ -54,7 +54,7 @@
               <td>0.00</td>
             </tr>
           </tbody>
-        </v-simple-table>
+        </table>
       </div>
     </div>
   </div>

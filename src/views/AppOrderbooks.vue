@@ -130,7 +130,7 @@
             <v-icon left>shuffle</v-icon>Inverse
           </v-chip>
         </h2>
-        <v-simple-table>
+        <table>
           <thead>
             <tr>
               <th class="text-left">Base</th>
@@ -153,7 +153,7 @@
               </td>
             </tr>
           </tbody>
-        </v-simple-table>
+        </table>
       </div>
     </div>
     <div v-else>Enable two coins to view the market data for that pair.</div>

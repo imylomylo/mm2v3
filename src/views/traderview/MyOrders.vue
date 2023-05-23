@@ -15,7 +15,7 @@
       </v-toolbar>
       <v-divider class="mx-4"></v-divider>
       <div v-if="myOrders !== undefined && Object.keys(myOrders).length > 0">
-        <v-simple-table fixed-header height="auto">
+        <table fixed-header height="auto">
           <thead>
             <tr>
               <th class="text-left">Pair</th>
@@ -54,7 +54,7 @@
               </td>
             </tr>
           </tbody>
-        </v-simple-table>
+        </table>
       </div>
       <div v-else>Not implemented fully yet. Place a single order.</div>
     </v-card>
