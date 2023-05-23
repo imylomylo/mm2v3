@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-row>
-<!--
+
 <v-col class="text-center" cols="12" sm="4">
       <v-btn
         v-if="newmarket.rel != 0"
@@ -12,7 +12,7 @@
         @click="gotoMarketView(newmarket.base.ticker, newmarket.rel.ticker)"
       >Go to market {{ newmarket.base.ticker }} / {{ newmarket.rel.ticker }}</v-btn>
 </v-col>
--->
+
     </v-row>
     <v-row align="center">
       <v-col class="text-center" cols="12" sm="4">
@@ -47,7 +47,7 @@ REL COIN (e.g. BTC)
 </v-col>
     </v-row>
 
-<!-- this is for a REL column with all the base in other column, one click solution.  e.g. KMD  then LTC,BTC,RVN,DGB, click on 1 of 4 base for KMD.
+this is for a REL column with all the base in other column, one click solution.  e.g. KMD  then LTC,BTC,RVN,DGB, click on 1 of 4 base for KMD.
     <div>
       <div v-if="activeCoins !== undefined && activeCoins.length > 0">
         <div>
@@ -91,7 +91,7 @@ REL COIN (e.g. BTC)
         </div>
       </div>
       <div v-else>Enable two coins to view the market data for that pair.</div>
-    </div> -->
+    </div>
 
   </div>
 </template>
