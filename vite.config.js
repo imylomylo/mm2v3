@@ -19,7 +19,18 @@ export default defineConfig({
       '@': fileURLToPath(new URL('./src', import.meta.url))
     }
   },
-
+  chainWebpack: (config) => {
+    config.module
+      .rule('vue')
+      .use('vue-loader')
+      .tap((options) => {
+        options.compilerOptions = {
+          ...options.compilerOptions,
+          isCustomElement: (tag) => tag.startsWith('v-'),
+        };
+        return options;
+      });
+  },
   define: {
     'process.env': {
       VITE_VUE_APP_MMBOTURL: process.env.VITE_VUE_APP_MMBOTURL
