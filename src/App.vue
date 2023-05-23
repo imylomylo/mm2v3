@@ -45,7 +45,7 @@
 
 
 <script>
-import {AppMarkets} from './views/AppMarkets.vue'
+import AppMarkets from './views/AppMarkets.vue'
 
 export default {
   name: 'App',
