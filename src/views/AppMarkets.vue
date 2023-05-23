@@ -47,7 +47,7 @@ REL COIN (e.g. BTC)
 </v-col>
     </v-row>
 
-<!-- this is for a REL column with all the base in other column, one click solution.  e.g. KMD  then LTC,BTC,RVN,DGB, click on 1 of 4 base for KMD.
+this is for a REL column with all the base in other column, one click solution.  e.g. KMD  then LTC,BTC,RVN,DGB, click on 1 of 4 base for KMD.
     <div>
       <div v-if="activeCoins !== undefined && activeCoins.length > 0">
         <div>
@@ -63,7 +63,7 @@ REL COIN (e.g. BTC)
               <v-icon left>shuffle</v-icon>Inverse
             </v-chip>
           </h2>
-          <v-simple-table>
+          <table>
             <thead>
               <tr>
                 <th class="text-left">Base</th>
@@ -87,12 +87,12 @@ REL COIN (e.g. BTC)
                 </td>
               </tr>
             </tbody>
-          </v-simple-table>
+          </table>
         </div>
       </div>
       <div v-else>Enable two coins to view the market data for that pair.</div>
     </div>
--->
+
   </div>
 </template>
 <script>
