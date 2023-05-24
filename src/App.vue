@@ -52,6 +52,7 @@ export default {
   data: () => ({
     appName: 'OrderBook Live',
     base: '',
+    components: AppMarkets,
     componentKey: 0,
     dialog: false,
     drawer: false,
