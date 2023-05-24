@@ -14,7 +14,7 @@
       </v-toolbar-title>
     </v-toolbar>
     <v-divider class="mx-4"></v-divider>
-    <v-simple-table fixed-header height="auto">
+    <table fixed-header height="auto">
       <thead>
         <tr>
           <th class="text-left">Assetpair</th>
@@ -35,7 +35,7 @@
           </td>
         </tr>
       </tbody>
-    </v-simple-table>
+    </table>
   </v-card>
 </template>
 <script>

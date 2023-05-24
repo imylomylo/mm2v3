@@ -22,7 +22,7 @@ export default defineConfig({
   chainWebpack: (config) => {
     config.module
       .rule('vue')
-      .use('vue-loader')
+      .use(vuetify)
       .tap((options) => {
         options.compilerOptions = {
           ...options.compilerOptions,
