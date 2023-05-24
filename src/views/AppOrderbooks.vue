@@ -32,7 +32,7 @@
                 <v-icon left>vertical_align_top</v-icon>Layer
               </v-chip>
             </h2>
-            <v-data-table
+            <v-table
               :headers="headers"
               :items="marketData.asks"
               :items-per-page="5"
@@ -66,7 +66,7 @@
                   Taker (buy {{marketData.base}})
                 </v-chip>
               </template>
-            </v-data-table>
+            </v-table>
           </v-flex>
 
           <v-flex md6 lg6>
@@ -91,7 +91,7 @@
                 <v-icon left>vertical_align_top</v-icon>Layer
               </v-chip>
             </h2>
-            <v-data-table
+            <v-table
               :headers="headers"
               :items="marketData.bids"
               :items-per-page="5"
@@ -108,7 +108,7 @@
                   Taker (sell {{marketData.base}})
                 </v-chip>
               </template>
-            </v-data-table>
+            </v-table>
           </v-flex>
         </v-layout>
       </div>
@@ -164,7 +164,7 @@
       <div>
         <v-layout>
           <v-flex md6 lg6>
-            <v-data-table
+            <v-table
               :headers="orderHeaders"
               :items="myOrders.maker"
               :items-per-page="5"
@@ -176,7 +176,7 @@
                   <v-icon left>swap_horiz</v-icon>Cancel
                 </v-chip>
               </template>
-            </v-data-table>
+            </v-table>
           </v-flex>
         </v-layout>
       </div>
@@ -187,7 +187,7 @@
         <v-layout>
           <v-flex md6 lg6>
             <h2>My Market Taker Orders</h2>
-            <v-data-table
+            <v-table
               :headers="takerOrderHeaders"
               :items="myOrders.taker"
               :items-per-page="5"
@@ -199,7 +199,7 @@
                   <v-icon left>swap_horiz</v-icon>Cancel
                 </v-chip>
               </template>
-            </v-data-table>
+            </v-table>
           </v-flex>
         </v-layout>
       </div>

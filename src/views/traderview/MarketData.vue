@@ -19,7 +19,7 @@
         <v-layout>
           <v-flex md lg>
             <v-card-title>Asks</v-card-title>
-            <v-data-table
+            <v-table
               dense
               :sort-by="['price']"
               :sort-desc="[true]"
@@ -64,7 +64,7 @@ better implementation handled in parent component on load of orders, then promis
               <template
                 v-slot:item.relamount="{ item }"
               >{{ Number(Math.round(item.price*item.maxvolume+'e8')+'e-8') }}</template>
-            </v-data-table>
+            </v-table>
           </v-flex>
         </v-layout>
       </div>

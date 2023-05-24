@@ -14,7 +14,7 @@
     </v-btn>
 
     <div>
-      <v-data-table :headers="headers" :items="configService">
+      <v-table :headers="headers" :items="configService">
         <template v-slot:item.bidmargin="props">
           <v-edit-dialog
             :return-value.sync="props.item.bidmargin"
@@ -63,7 +63,7 @@
             </template>
           </v-edit-dialog>
         </template>
-      </v-data-table>
+      </v-table>
 
       <v-snackbar v-model="snack" :timeout="3000" :color="snackColor">
         {{ snackText }}
