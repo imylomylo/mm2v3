@@ -39,7 +39,7 @@ export default {
       this.componentKey += 1
       this.dialog = !this.dialog
       this.$router.push("#")
-      this.$router.push("/traderview?base=" + base + "&rel=KMD")// + rel);
+      this.$router.push("/traderview?base=" + base + "&rel=KMD" + rel);
 
       window.location.href = "#/" + command.toLowerCase().replace(/ /g, "");
     },
