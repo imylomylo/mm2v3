@@ -1,9 +1,9 @@
 <template>
   <div>
-    <h2>{{ appName }}</h2>
+    <h2 justify-center>{{ appName }}</h2>
     <div v-if="history.swaps !== undefined && history.swaps.length > 0">
       <div>
-        <v-simple-table>
+        <table>
           <thead>
             <tr>
               <th class="text-left">Type</th>
@@ -22,7 +22,7 @@
               <td>{{ row.my_info.my_amount }}</td>
             </tr>
           </tbody>
-        </v-simple-table>
+        </table>
       </div>
     </div>
     <div v-else>Nothing to show</div>
