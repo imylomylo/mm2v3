@@ -55,9 +55,9 @@ export default {
         )
         .then(response => {
           this.allprices = response.data;
-          response.data.forEach(function(coin) {
-            console.log("MYLO: " + JSON.stringify(coin));
-          });
+          // response.data.forEach(function(coin) {
+          //   console.log("MYLO: " + JSON.stringify(coin));
+          // });
         })
         .catch(e => {
           this.customerrors.push(e);
