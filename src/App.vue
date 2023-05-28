@@ -67,8 +67,8 @@ export default {
       this.componentKey += 1
       this.dialog = !this.dialog
       
-      //this.$router.push("/traderview/BTC/KMD");
-      this.$router.push("/traderview/" + base + "/KMD");     
+      this.$router.push("/traderview/BTC/KMD");
+      this.$router.push("/traderview?base=" + base + "&rel=KMD");     
     },
     doAction: function(command) {
       window.location.href = "/#/" + command.toLowerCase().replace(/ /g, "");
