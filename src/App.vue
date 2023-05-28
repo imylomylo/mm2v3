@@ -68,7 +68,7 @@ export default {
       this.dialog = !this.dialog
       
       //this.$router.push("/traderview/BTC/KMD");
-      this.$router.push("/traderview?base=" + this.base + "&rel=KMD");     
+      this.$router.push("/traderview?base=" + this.base + "&rel=" +this.rel);     
     },
     doAction: function(command) {
       window.location.href = "/#/" + command.toLowerCase().replace(/ /g, "");
@@ -77,6 +77,7 @@ export default {
   data: () => ({
     appName: 'OrderBook Live',
     base: '',  
+    rel: '',
     componentKey: 0,
     dialog: false,
     drawer: false,
