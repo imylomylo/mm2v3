@@ -9,7 +9,6 @@ export default {
   data: () => ({
     appName: 'OrderBook Live',
     base: '',  
-    rel: '',
     componentKey: 0,
     dialog: false,
     drawer: false,
@@ -39,7 +38,7 @@ export default {
       console.log(this.componentKey)
       this.componentKey += 1
       this.dialog = !this.dialog
-      this.$router.push("/traderview?base=" + this.base + "&rel=KMD" + this.rel);
+      this.$router.push("/traderview?base=" + this.base + "&rel=KMD");
 
      // window.location.href = "#/" + command.toLowerCase().replace(/ /g, "");
     },
