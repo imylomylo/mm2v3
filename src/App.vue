@@ -8,7 +8,7 @@ export default {
   },
   data: () => ({
     appName: 'OrderBook Live',
-    base: 'KMD',  
+    base: '',  
     rel: '',
     componentKey: 0,
     dialog: false,
