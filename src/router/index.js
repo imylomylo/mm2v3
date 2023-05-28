@@ -86,7 +86,8 @@ const router = createRouter({
 
       path: '/traderview/:base/:rel',
       name: 'Traderview',
-      component: AppTraderView
+      component: AppTraderView,
+      props: true
     }
   ]
 })

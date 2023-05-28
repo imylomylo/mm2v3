@@ -1,55 +1,4 @@
-<script>
-import AppMarkets from './views/AppMarkets.vue'
 
-export default {
-  name: 'App',
-  components: {
-      AppMarkets,
-  },
-  data: () => ({
-    appName: 'OrderBook Live',
-    base: '',  
-    rel: '',
-    componentKey: 0,
-    dialog: false,
-    drawer: false,
-    items: [
-      { icon: "play_circle_outline", text: "Coins" },
-      { icon: "blur_linear", text: "Orderbooks" },
-      { icon: "swap_horiz", text: "Completed Swaps" },
-      { icon: "swap_horizontal_circle", text: "Current Swap Status" },
-      { icon: "save_alt", text: "Refill" },
-      { icon: "eject", text: "Withdraw" },
-      { icon: "control_camera", text: "Marketmaking" },
-      { icon: "settings", text: "Settings" },
-      { icon: "account_balance", text: "Antara Market Cap" },
-      { icon: "trending_up", text: "CEX Prices" },
-      { icon: "timeline", text: "Aggregator Prices" },
-      { icon: "chat_bubble", text: "Send feedback" },
-      { icon: "help", text: "Help" },
-      { icon: "phonelink", text: "App downloads" }
-    ]
-  }),
-  methods: {
-    gotoHome() {
-      this.$router.push('/')
-    },
-    gotoMarket: function() {
-      // console.log("Going to new market..." + base + "/")// + rel)
-      console.log(this.componentKey)
-      this.componentKey += 1
-      this.dialog = !this.dialog
-      this.$router.push("/traderview/BTC/KMD");
-      this.$router.push("/traderview?base=" + base + "&rel=KMD");
-
-     // window.location.href = "#/" + command.toLowerCase().replace(/ /g, "");
-    },
-    doAction: function(command) {
-      window.location.href = "/#/" + command.toLowerCase().replace(/ /g, "");
-    }
-  },
-}
-</script>
 
 <template>
   <v-app>
@@ -97,3 +46,57 @@ export default {
 </template>
 
 
+<script>
+import AppMarkets from './views/AppMarkets.vue'
+
+export default {
+  name: 'App',
+  components: {
+      AppMarkets,
+  },
+  props: {
+    source: String
+  },
+  methods: {
+    gotoHome() {
+      this.$router.push('/')
+    },
+    gotoMarket: function() {
+      // console.log("Going to new market..." + base + "/")// + rel)
+      console.log(this.componentKey)
+      this.componentKey += 1
+      this.dialog = !this.dialog
+      
+      //this.$router.push("/traderview/BTC/KMD");
+      this.$router.push("/traderview?base=" + base + "&rel=KMD");     
+    },
+    doAction: function(command) {
+      window.location.href = "/#/" + command.toLowerCase().replace(/ /g, "");
+    }
+  },
+  data: () => ({
+    appName: 'OrderBook Live',
+    base: '',  
+    componentKey: 0,
+    dialog: false,
+    drawer: false,
+    items: [
+      { icon: "play_circle_outline", text: "Coins" },
+      { icon: "blur_linear", text: "Orderbooks" },
+      { icon: "swap_horiz", text: "Completed Swaps" },
+      { icon: "swap_horizontal_circle", text: "Current Swap Status" },
+      { icon: "save_alt", text: "Refill" },
+      { icon: "eject", text: "Withdraw" },
+      { icon: "control_camera", text: "Marketmaking" },
+      { icon: "settings", text: "Settings" },
+      { icon: "account_balance", text: "Antara Market Cap" },
+      { icon: "trending_up", text: "CEX Prices" },
+      { icon: "timeline", text: "Aggregator Prices" },
+      { icon: "chat_bubble", text: "Send feedback" },
+      { icon: "help", text: "Help" },
+      { icon: "phonelink", text: "App downloads" }
+    ]
+  }),
+  
+}
+</script>
