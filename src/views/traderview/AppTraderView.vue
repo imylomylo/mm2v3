@@ -472,8 +472,11 @@ console.log("Looking for match in MOTM: " + orderTemplate.uuid )
     invertbase: function(base, rel) {
       console.log("Invert base " + base);
       // window.location.href = "#/traderview?base=" + rel + "&rel=" + base;
-      window.location.href = "/#/traderview/" + rel + "/" + base
-      this.$router.go(this.$router.currentRoute);
+      // window.location.href = "/#/traderview/" + rel + "/" + base
+      // this.$router.go(this.$router.currentRoute);
+      this.$router.push({
+        path: `/traderview/${rel}/${base}`
+      });
     },
     mmenable: function() {
       console.log(

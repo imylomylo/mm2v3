@@ -28,6 +28,7 @@ not sure if something needed from this definition of component, keeping as comme
                         v-on:cancel-all-orders="handleCancelAllOrders" 
                         v-on:myOrdersResponse="handleMyOrders" ref="myordersref" />
 -->
+
               <MyOrders v-bind:myOrders="myOrders" v-bind:myOrdersThisMarket="[]" v-on:refresh-myorders="handleRefreshMyOrders" 
                         v-on:cancel-order="handleCancelOrder" 
                         v-on:cancel-all-orders="handleCancelAllOrders" 
@@ -57,7 +58,9 @@ import RecentSwaps from "./RecentSwaps.vue"
 import AppTraderViewVue from "./traderview/AppTraderView.vue"
 
 export default {
-  components: { DashboardWalletInfo, AppStrategy, AppExport, MyOrders, RecentSwaps, AppTraderViewVue},
+  components: { 
+    DashboardWalletInfo, AppStrategy, AppExport, MyOrders, RecentSwaps, AppTraderViewVue
+  },
   data: function() {
     return {
       appName: "dashboard",
