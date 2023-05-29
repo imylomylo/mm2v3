@@ -91,6 +91,7 @@ export default {
       selection: 1,
       spread: 50,
       ordersize: 10,
+      overlay: true,
       interval: null,
       isPlaying: false,
       mmcolor: "indigo"

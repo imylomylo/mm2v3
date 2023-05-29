@@ -1,14 +1,10 @@
 <template>
   <v-card max-width="auto" class="mx-auto">
-    <v-row justify="center">
-<!--
-      <v-btn color="success" class="mt-12" @click="overlay = !overlay">Show Overlay</v-btn> 
--->
-
+    <v-container fluid>
       <v-overlay opacity="0.88" :absolute="absolute" :value="overlay">
         <v-btn color="warning" @click="show(true)">Swap History</v-btn>
       </v-overlay>
-    </v-row>
+    </v-container>
 
     <v-toolbar flat dense color="blue-grey lighten-5">
       <v-toolbar-title>
@@ -51,8 +47,6 @@
     </div>
     <div v-else>Nothing to show</div>
 
-
-
     <table fixed-header height="auto">
       <thead>
         <tr>
@@ -65,10 +59,10 @@
               <p>Export all your trade, deposits and withdrawal in csv format</p>
             <div class="text-left">
               <v-chip class="ma-2" color="success" dark disabled @click="doExport(128)">
-                <v-icon left>mdi-server-plus</v-icon>Export All
+                <v-icon left>mdi-plus</v-icon>Export All
               </v-chip>
-              <v-chip class="ma-2" color="warning" dark @click="show(false)">
-                <v-icon left>mdi-server-plus</v-icon>Hide
+              <v-chip class="ma-2" color="warning" dark @click="show(true)">
+                <v-icon left>mdi-plus</v-icon>Hide
               </v-chip>
             </div>
           </td>
