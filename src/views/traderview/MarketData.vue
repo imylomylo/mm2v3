@@ -134,7 +134,7 @@ better implementation in parent component
 import axios from "axios";
 
 export default {
-  // name: "MarketData",
+  name: "MarketData",
   props: ["wallets", "marketdata", "myOrdersThisMarket"],
   data: function() {
     return {
