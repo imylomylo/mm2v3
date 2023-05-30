@@ -67,11 +67,12 @@ export default {
       this.componentKey += 1
       this.dialog = !this.dialog
       
-      this.$router.push("/traderview/BTC/KMD");
-      this.$router.push("/traderview?base=" + base + "&rel=KMD");     
+      //this.$router.push("/traderview/BTC/KMD");
+      //this.$router.push("/traderview?base=" + base + "&rel=" +rel); 
+      window.location.href = "/traderview?base=" + base + "&rel=" + rel;    
     },
     doAction: function(command) {
-      window.location.href = "/#/" + command.toLowerCase().replace(/ /g, "");
+      window.location.href = "/" + command.toLowerCase().replace(/ /g, "");
     }
   },
   data: () => ({
