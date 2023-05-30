@@ -14,13 +14,13 @@
         outlined
         @click="updateBalances()"
       >
-        <v-icon left>mdi-server-refresh</v-icon>
+        <v-icon left>mdi-server-plus</v-icon>
         <template v-if="hideZeroDisable">Loading {{allwallets.length}} Wallets</template>
         <template v-else>Refresh</template>
       </v-chip>
     </v-toolbar>
     <v-divider class="mx-4"></v-divider>
-    <table fixed-header height="100%">
+    <table fixed-header height="100%" style="width: 100%;">
       <thead>
         <tr>
           <th>TICKER</th>
