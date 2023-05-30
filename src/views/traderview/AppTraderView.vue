@@ -1,6 +1,6 @@
 <template>
   <v-main>
-  <div>
+  <div style="margin-top: 20px;">
     <div>
       <!-- <Description v-on:mmenable="mmenable()" v-bind="wallets" /> -->
 
