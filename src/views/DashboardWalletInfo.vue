@@ -31,7 +31,7 @@
       </thead>
       <tbody v-if="allwallets">
         <template v-if="hideZero">
-        <tr v-for="(row, key) in visible">
+        <tr v-for="row in visible">
 <td>{{row.ticker}}</td>
 <td>{{row.balance}}</td>
 <td>{{row.address}}</td>
