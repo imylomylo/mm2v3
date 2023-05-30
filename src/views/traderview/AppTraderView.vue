@@ -71,7 +71,7 @@
             </v-col>
           </v-row>
 <!-- mePrivate and mePublic are set in .env* files of the root of the webapp project and read in at runtime -->
-<div v-if="mePrivate == 'true' && mePublic == 'false'">
+<!-- <div v-if="mePrivate == 'true' && mePublic == 'true'"> -->
           <v-row class="px-4 pb-6">
             <v-col>
               <SingleOrder
@@ -84,7 +84,7 @@
               />
             </v-col>
           </v-row>
-</div>
+<!-- </div> -->
         </v-flex>
         <v-flex md6 lg6>
           <v-row class="px-4">
