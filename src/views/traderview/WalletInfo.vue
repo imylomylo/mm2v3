@@ -1,6 +1,6 @@
 <template>
   <v-card max-width="auto" class="mx-auto" outlined>
-    <v-toolbar flat dense color="blue-grey lighten-5">
+    <v-toolbar flat dense color="indigo">
       <v-toolbar-title>
         <span class="subheading">Wallets</span>
       </v-toolbar-title>
