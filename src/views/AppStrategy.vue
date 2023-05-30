@@ -1,6 +1,6 @@
 <template>
  <v-card max-width="auto" class="mx-auto" style="width: 100%;">
-    <v-row justify="center">
+    <v-row>
       <!-- <v-btn color="success" class="mt-12" @click="overlay = !overlay">Show Overlay</v-btn> -->
 
       <v-overlay opacity="0.88" :absolute="absolute" :value="overlay">
