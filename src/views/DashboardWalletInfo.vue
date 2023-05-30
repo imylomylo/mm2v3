@@ -14,7 +14,7 @@
         outlined
         @click="updateBalances()"
       >
-        <v-icon left>mdi-server-plus</v-icon>
+        <v-icon left>mdi-server-refresh</v-icon>
         <template v-if="hideZeroDisable">Loading {{allwallets.length}} Wallets</template>
         <template v-else>Refresh</template>
       </v-chip>
