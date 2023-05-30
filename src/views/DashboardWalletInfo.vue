@@ -9,7 +9,7 @@
       <span class="ma-5 mt-11"><v-checkbox v-model="hideZero" :disabled="hideZeroDisable" label="Hide Zero Balance" ></v-checkbox></span>
       <v-chip
         class="ma-2"
-        color="purple"
+        color="white"
         :disabled="hideZeroDisable"
         outlined
         @click="updateBalances()"
