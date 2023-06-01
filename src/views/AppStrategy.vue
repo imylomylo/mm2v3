@@ -3,7 +3,7 @@
     <v-row>
       <!-- <v-btn color="success" class="mt-12" @click="overlay = !overlay">Show Overlay</v-btn> -->
 
-      <v-overlay opacity="0.88" :absolute="absolute" :value="overlay">
+      <v-overlay opacity="0.88" :absolute="true" :model-value="overlay" contained>
         <v-btn color="warning" @click="disenable(false)">No Automation</v-btn>
       </v-overlay>
     </v-row>
@@ -45,7 +45,6 @@ export default {
   // props: ["strategies"],
   data: function() {
     return {
-      absolute: true,
       overlay: true,
       strategies: []
     };

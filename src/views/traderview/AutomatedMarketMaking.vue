@@ -3,8 +3,8 @@
     <v-row justify="center">
       <!-- <v-btn color="success" class="mt-12" @click="overlay = !overlay">Show Overlay</v-btn> -->
 
-      <v-overlay opacity="0.88" :absolute="absolute" :value="overlay">
-        <v-btn color="success" @click="disenable(false)">Enable Automation</v-btn>
+      <v-overlay opacity="0.4" :absolute="true" :model-value="overlay" contained>
+        <v-btn color="success" @click="disenable(true)">Enable Automation</v-btn>
       </v-overlay>
     </v-row>
     <div>
@@ -87,7 +87,6 @@ export default {
   props: ["overlay"],
   data: function() {
     return {
-      absolute: true,
       selection: 1,
       spread: 50,
       ordersize: 10,
