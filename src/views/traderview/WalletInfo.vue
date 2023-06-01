@@ -17,7 +17,7 @@
     </v-toolbar>
     <v-divider class="mx-4"></v-divider>
 
-    <table fixed-header height="auto">
+    <v-table fixed-header height="auto">
       <thead>
         <tr>
           <th class="text-left">TICKER</th>
@@ -51,13 +51,13 @@
           </td>
         </tr>
       </tbody>
-    </table>
-    <v-overlay opacity="0.88" :absolute="absoluteOverlay" :value="depositOverlay" z-index="6">
+    </v-table>
+    <v-overlay opacity="0.88" :absolute="false" :model-value="depositOverlay" z-index="6" contained>
       {{ depositTicker }}: {{ depositAddress }}
       <qrcode-vue :value="depositAddress" :size="depositOverlaySize" level="L"></qrcode-vue>
       <v-btn color="success" @click="hideDepositOverlay">Dismiss</v-btn>
     </v-overlay>
-    <v-overlay opacity="0.88" :absolute="absoluteOverlay" :value="withdrawOverlay" z-index="6">
+    <v-overlay opacity="0.88" :absolute="absoluteOverlay" :model-value="withdrawOverlay" z-index="6" contained>
       <v-card class="mx-auto" min-width="400">
         <v-form ref="form">
           <v-text-field v-model="withdrawAddress" label="Address" required></v-text-field>

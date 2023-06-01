@@ -4,7 +4,7 @@
     <h2>{{ coinCount }} Active Coins</h2>
     <div v-if="activeCoins !== undefined && activeCoins.length > 0">
       <div>
-        <v-simple-table>
+        <v-table>
           <thead>
             <tr>
               <th class="text-left">Ticker</th>
@@ -31,7 +31,7 @@
               </td>
             </tr>
           </tbody>
-        </v-simple-table>
+        </v-table>
       </div>
     </div>
     <div v-else>Nothing to show</div>

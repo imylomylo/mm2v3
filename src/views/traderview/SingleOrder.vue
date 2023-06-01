@@ -38,7 +38,7 @@
           </v-chip>
         </div>
       </v-form>
-      <v-overlay :opacity="0.88" :absolute="absoluteOverlay" :value="orderSentOverlay">
+      <v-overlay :opacity="0.88" :absolute="true" :model-value="overlay">
           <v-progress-circular :size="70" :width="7" color="purple" indeterminate></v-progress-circular>
       </v-overlay>
     </v-card>
