@@ -77,7 +77,7 @@ export default {
     gotoMarket: function(base, rel) {
       console.log("Go to market");
       window.location.href = "/traderview/" + base + "/" + rel
-      this.$router.go(this.$router.currentRoute);
+      this.$router.push(this.$router.currentRoute);
     },
     cancelAllOrders: function() {
       this.$emit("cancel-all-orders")
