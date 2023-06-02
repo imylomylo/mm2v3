@@ -14,7 +14,7 @@
 </v-col>
 -->
     </v-row>
-    <v-row align="center">
+    <v-row style="align-items: center;">
       <v-col class="text-center" cols="12" sm="4">
         <!-- <div v-for="coin in mmccoins" v-bind:key="coin.id"> -->
 BASE COIN (e.g. KMD)

@@ -31,7 +31,7 @@
           <tbody>
             <tr v-for="row in Object.keys(tidyMarketOrders)" v-bind:key="row.ticker">
               <td>
-                <a @click="gotoMarket(tidyMarketOrders[row].base,tidyMarketOrders[row].rel)">{{ tidyMarketOrders[row].base }} / {{ tidyMarketOrders[row].rel }}</a>              
+                <a style="text-decoration: underline;" @click="gotoMarket(tidyMarketOrders[row].base,tidyMarketOrders[row].rel)">{{ tidyMarketOrders[row].base }} / {{ tidyMarketOrders[row].rel }}</a>              
                   <v-chip  v-if="tidyMarketOrders[row].highlight" class="ma-2" x-small color="purple" dark >
                     <v-icon left>mdi-server-plus</v-icon>*
                   </v-chip>
