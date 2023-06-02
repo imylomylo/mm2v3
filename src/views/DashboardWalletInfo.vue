@@ -104,8 +104,8 @@ export default {
   props: [ 'wallets' ],
   data: function() {
     return {
-      mePrivate: process.env.VITE_VUE_APP_ME_PRIVATE,
-      mePublic: process.env.VITE_VUE_APP_ME_PUBLIC,
+      mePrivate: process.env.ME_PRIVATE,
+      mePublic: process.env.ME_PUBLIC,
       absoluteOverlay: false,
       depositOverlay: false,
       depositOverlaySize: 400,
