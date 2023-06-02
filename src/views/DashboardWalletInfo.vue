@@ -89,7 +89,7 @@
     </v-table>
     <v-overlay opacity="0.88" :absolute="absoluteOverlay" :model-value="depositOverlay" z-index="6">
       {{ depositTicker }}: {{ depositAddress }}
-      <div style="align-items: center; align-self: auto;">
+      <div style="align-items: center; align-self: center;">
       <qrcode-vue :value="depositAddress" :size="depositOverlaySize" level="L"></qrcode-vue>
       </div>
       <v-btn color="success" @click="hideDepositOverlay">Dismiss</v-btn>
