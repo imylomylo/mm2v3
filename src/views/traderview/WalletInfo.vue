@@ -54,7 +54,7 @@
     </v-table>
     <v-overlay opacity="0.88" :absolute="false" :model-value="depositOverlay" z-index="6" contained>
       {{ depositTicker }}: {{ depositAddress }}
-      <qrcode-vue :value="depositAddress" :size="depositOverlaySize" level="L"></qrcode-vue>
+      <qrcode-vue :value="depositAddress" :size="depositOverlaySize" level="L" style="align-self: center;"></qrcode-vue>
       <v-btn color="success" @click="hideDepositOverlay">Dismiss</v-btn>
     </v-overlay>
     <v-overlay opacity="0.88" :absolute="absoluteOverlay" :model-value="withdrawOverlay" z-index="6" contained>
@@ -79,11 +79,11 @@ export default {
   components: { QrcodeVue },
   data: function() {
     return {
-      mePrivate: process.env.VITE_VUE_APP_MEPRIVATE,
-      mePublic: process.env.VITE_VUE_APP_MEPUBLIC,
+      mePrivate: process.env.VITE_VUE_APP_ME_PRIVATE,
+      mePublic: process.env.VITE_VUE_APP_ME_PUBLIC,
       absoluteOverlay: false,
       depositOverlay: false,
-      depositOverlaySize: 400,
+      depositOverlaySize: 100,
       depositTicker: "",
       depositAddress: "",
       withdrawOverlay: false,
