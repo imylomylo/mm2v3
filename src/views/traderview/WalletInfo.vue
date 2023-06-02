@@ -34,7 +34,7 @@
           <td>
             <div class="text-left">
 <!-- mePrivate and mePublic are set in .env* files of the root of the webapp project and read in at runtime -->
-<div v-if="mePrivate">
+<div v-if="mePrivate = true">
               <v-chip class="ma-2" color="success" @click="deposit(row.ticker, row.address)">
                 <v-icon left>mdi-server-plus</v-icon>Deposit
               </v-chip>
