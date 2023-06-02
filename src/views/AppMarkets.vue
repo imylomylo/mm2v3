@@ -42,7 +42,7 @@ REL COIN (e.g. BTC)
         color="primary"
         outlined
         @click="gotoMarketView(newmarket.base.ticker, newmarket.rel.ticker)"
-      >Go to market {{ newmarket.base.ticker }} / {{ newmarket.rel.ticker }}</v-btn>
+      >Go to market RICK/MORTY<!--{{ newmarket.base.ticker }} / {{ newmarket.rel.ticker }}--> </v-btn>
 </div>
 </v-col>
     </v-row>
