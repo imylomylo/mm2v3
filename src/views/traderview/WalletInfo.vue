@@ -34,7 +34,7 @@
           <td>
             <div class="text-left">
 <!-- mePrivate and mePublic are set in .env* files of the root of the webapp project and read in at runtime -->
-<div v-if="mePrivate=true">
+<div v-if="mePrivate == 'true' && mePublic == 'false'">
               <v-chip class="ma-2" color="success" @click="deposit(row.ticker, row.address)">
                 <v-icon left>mdi-server-plus</v-icon>Deposit
               </v-chip>
@@ -79,8 +79,8 @@ export default {
   components: { QrcodeVue },
   data: function() {
     return {
-      mePrivate: process.env.ME_PRIVATE,
-      mePublic: process.env.ME_PUBLIC,
+      mePrivate: process.env.VITE_VUE_APP_ME_PRIVATE,
+      mePublic: process.env.VITE_VUE_APP_ME_PUBLIC,
       absoluteOverlay: false,
       depositOverlay: false,
       depositOverlaySize: 100,

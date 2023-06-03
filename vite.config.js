@@ -21,7 +21,13 @@ export default defineConfig({
   },
   define: {
     'process.env': {
-      VITE_VUE_APP_MMBOTURL: process.env.VITE_VUE_APP_MMBOTURL
+      VITE_VUE_APP_MMBOTURL: process.env.VITE_VUE_APP_MMBOTURL,
+      VITE_VUE_APP_MENAME: process.env.VITE_VUE_APP_MENAME,
+      VITE_VUE_APP_WEBHOST: process.env.VITE_VUE_APP_WEBHOST,
+      VITE_VUE_APP_MMBOTHOST: process.env.VITE_VUE_APP_MMBOTHOST,
+      VITE_VUE_APP_MMBOTPORT: process.env.VITE_VUE_APP_MMBOTPORT,
+      VITE_VUE_APP_ME_PRIVATE: process.env.VITE_VUE_APP_ME_PRIVATE,
+      VITE_VUE_APP_ME_PUBLIC: process.env.VITE_VUE_APP_ME_PUBLIC
     }
   }
 })
