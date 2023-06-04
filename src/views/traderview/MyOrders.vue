@@ -103,7 +103,7 @@ export default {
 };
 </script>
 <style scoped>
-  .myrow:{
+  .myrow {
     background-color: lightgray;
   }
   .myrow:hover {
