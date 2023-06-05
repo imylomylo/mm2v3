@@ -187,7 +187,7 @@ export default {
   created: function() {
     console.log(this.appName + " Created");
     // original prod code
-     this.showDEXMarket(this.wallets.base.ticker, this.wallets.rel.ticker)
+     //this.showDEXMarket(this.wallets.base.ticker, this.wallets.rel.ticker)
     // working fake data
     // this.marketdata = this.fakeData
     // // test grouping
