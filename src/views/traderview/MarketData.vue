@@ -77,7 +77,7 @@ better implementation handled in parent component on load of orders, then promis
         <v-layout>
           <v-flex md lg>
             <v-card-title>Bids</v-card-title>
-            <v-data-table-server
+            <v-data-table
               dense
               :sort-by="['price']"
               :sort-desc="[true]"
@@ -122,7 +122,7 @@ better implementation in parent component
               <template
                 v-slot:item.maxvolume="{ item }"
               >{{ Number(Math.round(item.maxvolume+'e8')+'e-8') }}</template>
-            </v-data-table-server>
+            </v-data-table>
           </v-flex>
         </v-layout>
       </div>
@@ -187,13 +187,13 @@ export default {
   created: function() {
     console.log(this.appName + " Created");
     // original prod code
-//    this.showDEXMarket(this.wallets.base.ticker, this.wallets.rel.ticker)
+    this.showDEXMarket(this.wallets.base.ticker, this.wallets.rel.ticker)
     // working fake data
-    // this.marketdata = this.fakeData
+     this.marketdata = this.fakeData
     // test grouping
-    // this.marketdata.asks = this.groupByPrice2(this.fakeData.asks, "price");
-    // this.marketdata.bids = this.groupByPrice2(this.fakeData.bids, "price");
-    //this.getCEXprice(this.wallets.base.ticker, this.wallets.rel.ticker);
+    this.marketdata.asks = this.groupByPrice2(this.fakeData.asks, "price");
+    his.marketdata.bids = this.groupByPrice2(this.fakeData.bids, "price");
+    this.getCEXprice(this.wallets.base.ticker, this.wallets.rel.ticker);
     console.log(this.appName + " Finished Created");
   },
   computed: {
