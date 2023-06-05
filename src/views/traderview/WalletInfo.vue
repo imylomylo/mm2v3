@@ -182,4 +182,7 @@ export default {
 };
 </script>
 <style scoped>
+tr:hover{
+  background-color: lightgray;
+}
 </style>
