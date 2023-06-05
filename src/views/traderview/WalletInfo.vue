@@ -7,7 +7,7 @@
       <div class="flex-grow-1"></div>
       <v-chip
         class="ma-2"
-        color="purple"
+        color="white"
         outlined
         @click="refreshBalances()"
       >
