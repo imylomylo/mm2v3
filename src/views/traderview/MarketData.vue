@@ -192,7 +192,7 @@ export default {
      this.marketdata = this.fakeData
     // test grouping
     this.marketdata.asks = this.groupByPrice2(this.fakeData.asks, "price");
-    his.marketdata.bids = this.groupByPrice2(this.fakeData.bids, "price");
+    this.marketdata.bids = this.groupByPrice2(this.fakeData.bids, "price");
     this.getCEXprice(this.wallets.base.ticker, this.wallets.rel.ticker);
     console.log(this.appName + " Finished Created");
   },
