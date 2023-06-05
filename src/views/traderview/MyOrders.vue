@@ -29,7 +29,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr v-for="row in Object.keys(tidyMarketOrders)" v-bind:key="row.ticker" @mouseover="color='black'">
+            <tr v-for="row in Object.keys(tidyMarketOrders)" v-bind:key="row.ticker">
               <td>
                 <a style="text-decoration: underline;" @click="gotoMarket(tidyMarketOrders[row].base,tidyMarketOrders[row].rel)">{{ tidyMarketOrders[row].base }} / {{ tidyMarketOrders[row].rel }}</a>              
                   <v-chip  v-if="tidyMarketOrders[row].highlight" class="ma-2" x-small color="purple" dark >
@@ -103,4 +103,9 @@ export default {
 };
 </script>
 <style scoped>
+
+tr:hover{
+  background-color: black;
+}
+
 </style>
