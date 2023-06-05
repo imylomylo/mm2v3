@@ -74,8 +74,8 @@ import axios from "axios";
 import WalletActions from "./lib/wallet.js";
 import QrcodeVue from "qrcode.vue";
 
-const mePrivate = process.env.VITE_VUE_APP_ME_PRIVATE
-const mePublic = process.env.VITE_VUE_APP_ME_PUBLIC
+const mePrivate = import.meta.env.VITE_VUE_APP_ME_PRIVATE
+const mePublic = import.meta.env.VITE_VUE_APP_ME_PUBLIC
 
 export default {
   props: ["wallets"],
