@@ -87,7 +87,7 @@
         </tr>
       </tbody>
     </v-table>
-    <v-overlay opacity="0.88" :absolute="absoluteOverlay" :model-value="depositOverlay" z-index="6">
+    <v-overlay opacity="0.88" :absolute="absoluteOverlay" :model-value="depositOverlay">
       {{ depositTicker }}: {{ depositAddress }}
       <div style="align-items: center; margin: auto;">
       <qrcode-vue :value="depositAddress" :size="depositOverlaySize" level="L"></qrcode-vue>
