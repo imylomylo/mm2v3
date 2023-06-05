@@ -189,7 +189,7 @@ export default {
     // original prod code
     // this.showDEXMarket(this.wallets.base.ticker, this.wallets.rel.ticker)
     // // working fake data
-    //  this.marketdata = this.fakeData
+     this.marketdata = this.fakeData
     // // test grouping
     this.marketdata.asks = this.groupByPrice2(this.fakeData.asks, "price");
     this.marketdata.bids = this.groupByPrice2(this.fakeData.bids, "price");
