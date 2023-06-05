@@ -187,14 +187,14 @@ export default {
   created: function() {
     console.log(this.appName + " Created");
     // original prod code
-    // this.showDEXMarket(this.wallets.base.ticker, this.wallets.rel.ticker)
-    // // working fake data
-     this.marketdata = this.fakeData
+     this.showDEXMarket(this.wallets.base.ticker, this.wallets.rel.ticker)
+    // working fake data
+    // this.marketdata = this.fakeData
     // // test grouping
-    this.marketdata.asks = this.groupByPrice2(this.fakeData.asks, "price");
-    this.marketdata.bids = this.groupByPrice2(this.fakeData.bids, "price");
-    this.getCEXprice(this.wallets.base.ticker, this.wallets.rel.ticker);
-    // console.log(this.appName + " Finished Created");
+   // this.marketdata.asks = this.groupByPrice2(this.fakeData.asks, "price");
+    //this.marketdata.bids = this.groupByPrice2(this.fakeData.bids, "price");
+    //this.getCEXprice(this.wallets.base.ticker, this.wallets.rel.ticker);
+    /// console.log(this.appName + " Finished Created");
   },
   computed: {
     coinCount: function() {
