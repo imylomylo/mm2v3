@@ -105,7 +105,7 @@ export default {
 <style scoped>
 
 tr:hover{
-  background-color: black;
+  background-color: lightgray;
 }
 
 </style>
