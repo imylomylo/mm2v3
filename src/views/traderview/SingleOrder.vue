@@ -117,6 +117,6 @@ export default {
 }
 .v-text-field {
   background-color: white;
-  color: purple;
+  color: black;
 }
 </style>
