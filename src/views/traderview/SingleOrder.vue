@@ -11,7 +11,7 @@
       <v-divider class="mx-4"></v-divider>
 
       <v-form ref="form">
-        <v-text-field v-model="price" :label="priceInOtherCoinLabel()" required style="background-color: white;"></v-text-field>
+        <v-text-field v-model="price" :label="priceInOtherCoinLabel()" required></v-text-field>
         <v-text-field v-model="amount" :label="amountInBaseCoinLabel()" required></v-text-field>
         <v-card-text>
           <v-chip-group
@@ -114,5 +114,8 @@ export default {
 <style scoped>
 .v-progress-circular {
   margin: 1rem;
+}
+.v-text-field {
+  background-color: white;
 }
 </style>
