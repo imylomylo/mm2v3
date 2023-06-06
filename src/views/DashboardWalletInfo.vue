@@ -1,6 +1,6 @@
 <template>
 <v-main>
- <v-card max-width="max-width" class="mx-auto">
+ <v-card max-width="70%" class="mx-auto">
     <v-toolbar flat dense color="indigo">
       <v-toolbar-title>
         <span class="subheading">Wallets</span>
@@ -20,7 +20,7 @@
       </v-chip>
     </v-toolbar>
     <v-divider class="mx-4"></v-divider>
-    <v-table fixed-header height="100%" style="max-width: 70%;">
+    <v-table fixed-header height="100%">
       <thead>
         <tr>
           <th>TICKER</th>
