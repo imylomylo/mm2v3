@@ -1,5 +1,5 @@
 <template>
-  <v-card class="mx-auto" max-width="auto" outlined>
+  <v-card class="mx-auto" max-width="max-width" outlined>
     <v-row justify="center">
       <!-- <v-btn color="success" class="mt-12" @click="overlay = !overlay">Show Overlay</v-btn> -->
 
