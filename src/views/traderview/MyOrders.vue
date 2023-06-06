@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-card max-width="auto" class="mx-auto" outlined>
+    <v-card max-width="max-width" class="mx-auto" outlined>
       <v-toolbar flat dense color="indigo">
         <v-toolbar-title>
           <span class="subheading">Orders For {{ meName || "This Node"}}</span>
