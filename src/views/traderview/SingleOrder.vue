@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-card class="mx-auto" max-width="auto" outlined>
+    <v-card class="mx-auto" max-width="max-width" outlined>
       <v-toolbar flat dense color="indigo">
         <v-toolbar-title>
           <span class="subheading">Single Order {{wallets.base.ticker}}</span>
