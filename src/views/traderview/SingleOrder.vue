@@ -10,9 +10,9 @@
 
       <v-divider class="mx-4"></v-divider>
 
-      <v-form ref="form">
-        <v-text-field v-model="price" :label="priceInOtherCoinLabel()" required color="white"></v-text-field>
-        <v-text-field v-model="amount" :label="amountInBaseCoinLabel()" required color="white"></v-text-field>
+      <v-form ref="form" background-color="white">
+        <v-text-field v-model="price" :label="priceInOtherCoinLabel()" required></v-text-field>
+        <v-text-field v-model="amount" :label="amountInBaseCoinLabel()" required></v-text-field>
         <v-card-text>
           <v-chip-group
             class="justify-space-around"
