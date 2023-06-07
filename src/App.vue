@@ -68,8 +68,8 @@ export default {
       this.dialog = !this.dialog
       
       //this.$router.push("/traderview/RICK/MORTY");
-      this.$router.push("/traderview?base=" + base + "&rel=" +rel); 
-      //window.location.href = "/traderview?base=" + base + "&rel=" + rel;    
+      //this.$router.push("/traderview?base=" + base + "&rel=" +rel); 
+      window.location.href = "/traderview?base=" + base + "&rel=" + rel;    
     },
     doAction: function(command) {
       window.location.href = "/" + command.toLowerCase().replace(/ /g, "");
