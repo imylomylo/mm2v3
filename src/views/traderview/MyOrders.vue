@@ -109,7 +109,7 @@ tr:hover{
 }
 a:hover
 {
-  cursor: grabbing;
+  cursor:pointer;
 }
 
 </style>
