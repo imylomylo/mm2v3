@@ -319,9 +319,9 @@ export default {
     gotoMarketView: function(base, rel) {
       this.newmarket.base.ticker = base
       this.newmarket.rel.ticker = rel
-      console.log("market se.eect going to trader view: " + this.newmarket.base.ticker + "/" + this.newmarket.rel.ticker);
+      console.log("market selected going to trader view: " + this.newmarket.base.ticker + "/" + this.newmarket.rel.ticker);
       this.$emit("closeDialog");
-      // window.location.href = "/#/traderview?base=" + base + "&rel=" + rel;
+      // window.location.href = "/traderview?base=" + base + "&rel=" + rel;
       // this.$router.push("/traderview?base=" + base + "&rel=" + rel);
       // this.$router.push({
       //   name: "TraderView",
@@ -330,11 +330,11 @@ export default {
       //     rel: rel
       //   }
       // });
-      //window.location.href='/traderview?base='+base+'&rel='+rel
-      //window.location.href='/traderview/'+base+'/'+rel
-      this.$router.push({name: "TraderView", params: {base: base, rel: rel}})
+      // window.location.href='/traderview?base='+base+'&rel='+rel
+      // window.location.href='/traderview/'+base+'/'+rel;
+      //this.$router.push({name: "TraderView", params: {base: base, rel: rel}})
       //this.$forceUpdate()
-      this.$router.go(this.$router.currentRoute)
+      //this.$router.go(this.$router.currentRoute)
 
       // this.forceRerender();
       // "http://" +
