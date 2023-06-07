@@ -107,5 +107,9 @@ export default {
 tr:hover{
   background-color: lightgray;
 }
+a:hover
+{
+  cursor: grab;
+}
 
 </style>
