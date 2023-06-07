@@ -8,8 +8,8 @@
       </v-overlay>
     </v-row>
 
-    <v-toolbar flat dense color="indigo" style="margin-top: 10px;">
-      <v-toolbar-title>
+    <v-toolbar flat dense color="indigo" style="height: 80px;">
+      <v-toolbar-title style="padding-top: 40px;">
         Active Strategies
       </v-toolbar-title>
     </v-toolbar>
