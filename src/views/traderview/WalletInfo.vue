@@ -80,8 +80,8 @@ export default {
   components: { QrcodeVue },
   data: function() {
     return {
-      mePrivate: import.meta.env.VITE_VUE_APP_ME_PRIVATE,
-      mePublic: import.meta.env.VITE_VUE_APP_ME_PUBLIC,
+      mePrivate: import.meta.env.VITE_VUE_APP_MEPRIVATE,
+      mePublic: import.meta.env.VITE_VUE_APP_MEPUBLIC,
       absoluteOverlay: false,
       depositOverlay: false,
       depositOverlaySize: 100,

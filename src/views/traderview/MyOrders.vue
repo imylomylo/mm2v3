@@ -68,8 +68,8 @@ export default {
   data: function() {
     return {
       meName: process.env.VITE_VUE_APP_MENAME,
-      mePrivate: import.meta.env.VITE_VUE_APP_ME_PRIVATE,
-      mePublic: import.meta.env.VITE_VUE_APP_ME_PUBLIC,
+      mePrivate: import.meta.env.VITE_VUE_APP_MEPRIVATE,
+      mePublic: import.meta.env.VITE_VUE_APP_MEPUBLIC,
       customerrors: []
     };
   },
