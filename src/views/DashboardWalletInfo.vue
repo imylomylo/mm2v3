@@ -1,7 +1,7 @@
 <template>
 <v-main>
- <v-card max-width="auto" class="mx-auto" style="width: 100%;">
-    <v-toolbar flat dense color="blue-grey lighten-5">
+ <v-card max-width="auto" class="mx-auto">
+    <v-toolbar flat dense color="indigo">
       <v-toolbar-title>
         <span class="subheading">Wallets</span>
       </v-toolbar-title>
@@ -9,7 +9,7 @@
       <span class="ma-5 mt-11"><v-checkbox v-model="hideZero" :disabled="hideZeroDisable" label="Hide Zero Balance" ></v-checkbox></span>
       <v-chip
         class="ma-2"
-        color="purple"
+        color="white"
         :disabled="hideZeroDisable"
         outlined
         @click="updateBalances()"
@@ -20,7 +20,7 @@
       </v-chip>
     </v-toolbar>
     <v-divider class="mx-4"></v-divider>
-    <table fixed-header height="100%">
+    <v-table fixed-header height="auto" scrollY bordered>
       <thead>
         <tr>
           <th>TICKER</th>
@@ -31,7 +31,7 @@
       </thead>
       <tbody v-if="allwallets">
         <template v-if="hideZero">
-        <tr v-for="(row, key) in visible">
+        <tr v-for="row in visible">
 <td>{{row.ticker}}</td>
 <td>{{row.balance}}</td>
 <td>{{row.address}}</td>
@@ -86,10 +86,12 @@
           <td>Waiting for wallet info</td>
         </tr>
       </tbody>
-    </table>
-    <v-overlay opacity="0.88" :absolute="absoluteOverlay" :value="depositOverlay" z-index="6">
+    </v-table>
+    <v-overlay opacity="0.88" :absolute="absoluteOverlay" :model-value="depositOverlay">
       {{ depositTicker }}: {{ depositAddress }}
+      <div style="align-items: center; margin: auto;">
       <qrcode-vue :value="depositAddress" :size="depositOverlaySize" level="L"></qrcode-vue>
+      </div>
       <v-btn color="success" @click="hideDepositOverlay">Dismiss</v-btn>
     </v-overlay>
   </v-card>
@@ -104,8 +106,8 @@ export default {
   props: [ 'wallets' ],
   data: function() {
     return {
-      mePrivate: process.env.VITE_VUE_APP_MEPRIVATE,
-      mePublic: process.env.VITE_VUE_APP_MEPUBLIC,
+      mePrivate: import.meta.env.VITE_VUE_APP_MEPRIVATE,
+      mePublic: import.meta.env.VITE_VUE_APP_MEPUBLIC,
       absoluteOverlay: false,
       depositOverlay: false,
       depositOverlaySize: 400,
@@ -205,4 +207,8 @@ export default {
 }
 </script>
 <style scoped>
+tr:hover{
+  background-color: lightgray;
+}
+
 </style>

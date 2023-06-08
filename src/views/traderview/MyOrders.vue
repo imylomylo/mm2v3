@@ -1,21 +1,21 @@
 <template>
   <div>
-    <v-card max-width="auto" class="mx-auto" outlined>
-      <v-toolbar flat dense color="blue-grey lighten-5">
+    <v-card max-width="max-width" class="mx-auto" outlined>
+      <v-toolbar flat dense color="indigo">
         <v-toolbar-title>
           <span class="subheading">Orders For {{ meName || "This Node"}}</span>
         </v-toolbar-title>
         <div class="flex-grow-1"></div>
 <!-- mePrivate and mePublic are set in .env* files of the root of the webapp project and read in at runtime -->
 <div v-if="mePrivate == 'true' && mePublic == 'false'">
-        <v-chip class="ma-2" color="error" outlined @click="cancelAllOrders()">
+        <v-chip class="ma-2" color="white" outlined @click="cancelAllOrders()">
           <v-icon left>mdi-server-plus</v-icon>Cancel All
         </v-chip>
 </div>
       </v-toolbar>
       <v-divider class="mx-4"></v-divider>
       <div v-if="myOrders !== undefined && Object.keys(myOrders).length > 0">
-        <table fixed-header height="auto">
+        <v-table fixed-header height="auto">
           <thead>
             <tr>
               <th class="text-left">Pair</th>
@@ -31,7 +31,7 @@
           <tbody>
             <tr v-for="row in Object.keys(tidyMarketOrders)" v-bind:key="row.ticker">
               <td>
-                <a @click="gotoMarket(tidyMarketOrders[row].base,tidyMarketOrders[row].rel)">{{ tidyMarketOrders[row].base }} / {{ tidyMarketOrders[row].rel }}</a>              
+                <a style="text-decoration: underline;" @click="gotoMarket(tidyMarketOrders[row].base,tidyMarketOrders[row].rel)">{{ tidyMarketOrders[row].base }} / {{ tidyMarketOrders[row].rel }}</a>              
                   <v-chip  v-if="tidyMarketOrders[row].highlight" class="ma-2" x-small color="purple" dark >
                     <v-icon left>mdi-server-plus</v-icon>*
                   </v-chip>
@@ -54,7 +54,7 @@
               </td>
             </tr>
           </tbody>
-        </table>
+        </v-table>
       </div>
       <div v-else>Not implemented fully yet. Place a single order.</div>
     </v-card>
@@ -68,16 +68,16 @@ export default {
   data: function() {
     return {
       meName: process.env.VITE_VUE_APP_MENAME,
-      mePrivate: process.env.VITE_VUE_APP_MEPRIVATE,
-      mePublic: process.env.VITE_VUE_APP_MEPUBLIC,
+      mePrivate: import.meta.env.VITE_VUE_APP_MEPRIVATE,
+      mePublic: import.meta.env.VITE_VUE_APP_MEPUBLIC,
       customerrors: []
     };
   },
   methods: {
     gotoMarket: function(base, rel) {
       console.log("Go to market");
-      window.location.href = "/#/traderview/" + base + "/" + rel
-      this.$router.go(this.$router.currentRoute);
+      window.location.href = "/traderview/" + base + "/" + rel
+      this.$router.push(this.$router.currentRoute);
     },
     cancelAllOrders: function() {
       this.$emit("cancel-all-orders")
@@ -103,4 +103,13 @@ export default {
 };
 </script>
 <style scoped>
+
+tr:hover{
+  background-color: lightgray;
+}
+a:hover
+{
+  cursor:pointer;
+}
+
 </style>

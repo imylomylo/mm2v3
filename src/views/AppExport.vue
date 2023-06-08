@@ -1,12 +1,12 @@
 <template>
   <v-card max-width="auto" class="mx-auto">
     <v-container fluid>
-      <v-overlay opacity="0.88" :absolute="absolute" :value="overlay">
+      <v-overlay opacity="0.88" :absolute="true" :model-value="overlay" contained>
         <v-btn color="warning" @click="show(true)">Swap History</v-btn>
       </v-overlay>
     </v-container>
 
-    <v-toolbar flat dense color="blue-grey lighten-5">
+    <v-toolbar flat dense color="indigo">
       <v-toolbar-title>
         <span class="subheading">Recent Swaps</span>
       </v-toolbar-title>
@@ -15,7 +15,7 @@
 
     <div v-if="swapHistory.swaps !== undefined && swapHistory.swaps.length > 0">
       <div>
-        <table>
+        <v-table>
           <thead>
             <tr>
               <th class="text-left">Type</th>
@@ -42,12 +42,12 @@
               </td>
             </tr>
           </tbody>
-        </table>
+        </v-table>
       </div>
     </div>
     <div v-else>Nothing to show</div>
 
-    <table fixed-header height="auto">
+    <v-table fixed-header height="auto">
       <thead>
         <tr>
           <th class="text-left">Instruction</th>
@@ -61,14 +61,14 @@
               <v-chip class="ma-2" color="success" dark disabled @click="doExport(128)">
                 <v-icon left>mdi-plus</v-icon>Export All
               </v-chip>
-              <v-chip class="ma-2" color="warning" dark @click="show(true)">
+              <v-chip class="ma-2" color="warning" dark @click="show(false)">
                 <v-icon left>mdi-plus</v-icon>Hide
               </v-chip>
             </div>
           </td>
         </tr>
       </tbody>
-    </table>
+    </v-table>
     <v-layout justify-center>
       <v-dialog v-model="dialog" width="600px">
 <!--
@@ -102,7 +102,6 @@ export default {
     return {
       appName: "Recent Swaps",
       dialog: false,
-      absolute: true,
       overlay: true,
       swapDetail: {},
       strategies: [{}]

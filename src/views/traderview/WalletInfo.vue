@@ -1,13 +1,13 @@
 <template>
-  <v-card max-width="auto" class="mx-auto" outlined>
-    <v-toolbar flat dense color="blue-grey lighten-5">
+  <v-card max-width="max-width" class="mx-auto" outlined>
+    <v-toolbar flat dense color="indigo">
       <v-toolbar-title>
         <span class="subheading">Wallets</span>
       </v-toolbar-title>
       <div class="flex-grow-1"></div>
       <v-chip
         class="ma-2"
-        color="purple"
+        color="white"
         outlined
         @click="refreshBalances()"
       >
@@ -17,7 +17,7 @@
     </v-toolbar>
     <v-divider class="mx-4"></v-divider>
 
-    <table fixed-header height="auto">
+    <v-table fixed-header height="auto">
       <thead>
         <tr>
           <th class="text-left">TICKER</th>
@@ -51,13 +51,13 @@
           </td>
         </tr>
       </tbody>
-    </table>
-    <v-overlay opacity="0.88" :absolute="absoluteOverlay" :value="depositOverlay" z-index="6">
+    </v-table>
+    <v-overlay opacity="0.88" :absolute="false" :model-value="depositOverlay" z-index="6" contained>
       {{ depositTicker }}: {{ depositAddress }}
-      <qrcode-vue :value="depositAddress" :size="depositOverlaySize" level="L"></qrcode-vue>
+      <qrcode-vue :value="depositAddress" :size="depositOverlaySize" level="L" style="align-self: center;"></qrcode-vue>
       <v-btn color="success" @click="hideDepositOverlay">Dismiss</v-btn>
     </v-overlay>
-    <v-overlay opacity="0.88" :absolute="absoluteOverlay" :value="withdrawOverlay" z-index="6">
+    <v-overlay opacity="0.88" :absolute="absoluteOverlay" :model-value="withdrawOverlay" z-index="6" contained>
       <v-card class="mx-auto" min-width="400">
         <v-form ref="form">
           <v-text-field v-model="withdrawAddress" label="Address" required></v-text-field>
@@ -74,16 +74,17 @@ import axios from "axios";
 import WalletActions from "./lib/wallet.js";
 import QrcodeVue from "qrcode.vue";
 
+
 export default {
   props: ["wallets"],
   components: { QrcodeVue },
   data: function() {
     return {
-      mePrivate: process.env.VITE_VUE_APP_MEPRIVATE,
-      mePublic: process.env.VITE_VUE_APP_MEPUBLIC,
+      mePrivate: import.meta.env.VITE_VUE_APP_MEPRIVATE,
+      mePublic: import.meta.env.VITE_VUE_APP_MEPUBLIC,
       absoluteOverlay: false,
       depositOverlay: false,
-      depositOverlaySize: 400,
+      depositOverlaySize: 100,
       depositTicker: "",
       depositAddress: "",
       withdrawOverlay: false,
@@ -179,4 +180,7 @@ export default {
 };
 </script>
 <style scoped>
+tr:hover{
+  background-color: lightgray;
+}
 </style>

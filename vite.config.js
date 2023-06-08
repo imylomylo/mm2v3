@@ -21,7 +21,7 @@ export default defineConfig({
   },
   define: {
     'process.env': {
-      VITE_VUE_APP_MMBOTURL: process.env.VITE_VUE_APP_MMBOTURL
+      VITE_VUE_APP_MMBOTURL: process.env.VITE_VUE_APP_MMBOTURL,
     }
   }
 })

@@ -1,15 +1,15 @@
 <template>
-  <v-card class="mx-auto" max-width="auto" outlined>
+  <v-card class="mx-auto" max-width="max-width" outlined>
     <v-row justify="center">
       <!-- <v-btn color="success" class="mt-12" @click="overlay = !overlay">Show Overlay</v-btn> -->
 
-      <v-overlay opacity="0.88" :absolute="absolute" :value="overlay">
-        <v-btn color="success" @click="disenable(false)">Enable Automation</v-btn>
+      <v-overlay opacity="0.4" :absolute="true" :model-value="overlay" contained>
+        <v-btn color="success" @click="disenable(true)">Enable Automation</v-btn>
       </v-overlay>
     </v-row>
     <div>
-      <v-toolbar flat dense color="blue-grey lighten-5">
-        <v-toolbar-title>
+      <v-toolbar flat dense color="indigo" style="height: 80px;">
+        <v-toolbar-title style="margin-top: 40px;">
           <span class="subheading">Automated Market Making</span>
         </v-toolbar-title>
         <div class="flex-grow-1"></div>
@@ -87,7 +87,6 @@ export default {
   props: ["overlay"],
   data: function() {
     return {
-      absolute: true,
       selection: 1,
       spread: 50,
       ordersize: 10,

@@ -1,20 +1,20 @@
 <template>
-  <v-card max-width="auto" class="mx-auto" outlined>
-    <v-row justify="center">
+ <v-card>
+    <v-row>
       <!-- <v-btn color="success" class="mt-12" @click="overlay = !overlay">Show Overlay</v-btn> -->
 
-      <v-overlay opacity="0.88" :absolute="absolute" :value="overlay">
+      <v-overlay opacity="0.88" :absolute="true" :model-value="overlay" contained>
         <v-btn color="warning" @click="disenable(false)">No Automation</v-btn>
       </v-overlay>
     </v-row>
 
-    <v-toolbar flat dense color="blue-grey lighten-5">
-      <v-toolbar-title>
-        <span class="subheading">Active Strategies</span>
+    <v-toolbar flat dense color="indigo" style="height: 80px;">
+      <v-toolbar-title style="padding-top: 40px;">
+        Active Strategies
       </v-toolbar-title>
     </v-toolbar>
     <v-divider class="mx-4"></v-divider>
-    <table fixed-header height="auto">
+    <v-table fixed-header height="auto">
       <thead>
         <tr>
           <th class="text-left">Assetpair</th>
@@ -35,7 +35,7 @@
           </td>
         </tr>
       </tbody>
-    </table>
+    </v-table>
   </v-card>
 </template>
 <script>
@@ -45,7 +45,6 @@ export default {
   // props: ["strategies"],
   data: function() {
     return {
-      absolute: true,
       overlay: true,
       strategies: []
     };

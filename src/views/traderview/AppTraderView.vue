@@ -1,6 +1,6 @@
 <template>
   <v-main>
-  <div>
+  <div style="margin-top: 20px;">
     <div>
       <!-- <Description v-on:mmenable="mmenable()" v-bind="wallets" /> -->
 
@@ -71,7 +71,7 @@
             </v-col>
           </v-row>
 <!-- mePrivate and mePublic are set in .env* files of the root of the webapp project and read in at runtime -->
-<!-- <div v-if="mePrivate == 'true' && mePublic == 'true'"> -->
+<div v-if="mePrivate == 'true' && mePublic == 'false'"> 
           <v-row class="px-4 pb-6">
             <v-col>
               <SingleOrder
@@ -84,7 +84,7 @@
               />
             </v-col>
           </v-row>
-<!-- </div> -->
+</div>
         </v-flex>
         <v-flex md6 lg6>
           <v-row class="px-4">
@@ -166,8 +166,8 @@ export default {
       componentReadyOrders: false,
       componentReadyMarket: false,
       marketOrders: [],
-      mePrivate: process.env.VITE_VUE_APP_MEPRIVATE,
-      mePublic: process.env.VITE_VUE_APP_MEPUBLIC,
+      mePrivate: import.meta.env.VITE_VUE_APP_MEPRIVATE,
+      mePublic: import.meta.env.VITE_VUE_APP_MEPUBLIC,
       myOrders: [],
       myOrdersThisMarket: [],
       priceuuid: [],

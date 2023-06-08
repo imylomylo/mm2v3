@@ -1,13 +1,13 @@
 <template>
-  <v-card max-width="auto" class="mx-auto" outlined>
-    <v-toolbar flat dense color="blue-grey lighten-5">
+  <v-card max-width="max-width" class="mx-auto" outlined>
+    <v-toolbar flat dense color="indigo">
       <v-toolbar-title>
         <span class="subheading">AtomicDEX order book</span>
       </v-toolbar-title>
       <div class="flex-grow-1"></div>
       <v-chip
         class="ma-2"
-        color="purple"
+        color="white"
         outlined
         @click="refreshMarket()"
       >
@@ -19,7 +19,7 @@
         <v-layout>
           <v-flex md lg>
             <v-card-title>Asks</v-card-title>
-            <v-table
+            <v-data-table
               dense
               :sort-by="['price']"
               :sort-desc="[true]"
@@ -64,7 +64,7 @@ better implementation handled in parent component on load of orders, then promis
               <template
                 v-slot:item.relamount="{ item }"
               >{{ Number(Math.round(item.price*item.maxvolume+'e8')+'e-8') }}</template>
-            </v-table>
+            </v-data-table>
           </v-flex>
         </v-layout>
       </div>
@@ -77,7 +77,7 @@ better implementation handled in parent component on load of orders, then promis
         <v-layout>
           <v-flex md lg>
             <v-card-title>Bids</v-card-title>
-            <v-table
+            <v-data-table
               dense
               :sort-by="['price']"
               :sort-desc="[true]"
@@ -122,7 +122,7 @@ better implementation in parent component
               <template
                 v-slot:item.maxvolume="{ item }"
               >{{ Number(Math.round(item.maxvolume+'e8')+'e-8') }}</template>
-            </v-table>
+            </v-data-table>
           </v-flex>
         </v-layout>
       </div>
@@ -187,14 +187,14 @@ export default {
   created: function() {
     console.log(this.appName + " Created");
     // original prod code
-//    this.showDEXMarket(this.wallets.base.ticker, this.wallets.rel.ticker)
+     //this.showDEXMarket(this.wallets.base.ticker, this.wallets.rel.ticker)
     // working fake data
     // this.marketdata = this.fakeData
-    // test grouping
-    // this.marketdata.asks = this.groupByPrice2(this.fakeData.asks, "price");
-    // this.marketdata.bids = this.groupByPrice2(this.fakeData.bids, "price");
+    // // test grouping
+   // this.marketdata.asks = this.groupByPrice2(this.fakeData.asks, "price");
+    //this.marketdata.bids = this.groupByPrice2(this.fakeData.bids, "price");
     //this.getCEXprice(this.wallets.base.ticker, this.wallets.rel.ticker);
-    console.log(this.appName + " Finished Created");
+    /// console.log(this.appName + " Finished Created");
   },
   computed: {
     coinCount: function() {

@@ -1,9 +1,9 @@
 <template>
-  <div>
+  <div style="max-width: max-content;">
     <h2 justify-center>{{ appName }}</h2>
     <div v-if="history.swaps !== undefined && history.swaps.length > 0">
       <div>
-        <table>
+        <v-table>
           <thead>
             <tr>
               <th class="text-left">Type</th>
@@ -22,7 +22,7 @@
               <td>{{ row.my_info.my_amount }}</td>
             </tr>
           </tbody>
-        </table>
+        </v-table>
       </div>
     </div>
     <div v-else>Nothing to show</div>
