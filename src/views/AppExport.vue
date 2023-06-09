@@ -1,7 +1,7 @@
 <template>
   <v-card max-width="auto" class="mx-auto">
     <v-container fluid>
-      <v-overlay opacity="0.88" :absolute="true" :model-value="overlay" contained>
+      <v-overlay opacity="0.88" :absolute="true" :model-value="overlay" contained persistent>
         <v-btn color="warning" @click="show(true)">Swap History</v-btn>
       </v-overlay>
     </v-container>
@@ -96,13 +96,15 @@
   </v-card>
 </template>
 <script>
+import {ref} from 'vue'
 export default {
+
   props: ["swapHistory"],
   data: function() {
     return {
       appName: "Recent Swaps",
       dialog: false,
-      overlay: true,
+      overlay: ref(true),
       swapDetail: {},
       strategies: [{}]
     };
