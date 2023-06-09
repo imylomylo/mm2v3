@@ -3,8 +3,8 @@
     <v-row>
       <!-- <v-btn color="success" class="mt-12" @click="overlay = !overlay">Show Overlay</v-btn> -->
 
-      <v-overlay opacity="0.88" :absolute="true" :model-value="overlay" contained>
-        <v-btn color="warning" @click="disenable(false)">No Automation</v-btn>
+      <v-overlay opacity="0.88" :absolute="true" :model-value="overlay" contained persistent>
+        <v-btn color="warning" @click="setOverlay(false)">No Automation</v-btn>
       </v-overlay>
     </v-row>
 
@@ -41,15 +41,21 @@
 <script>
 import axios from 'axios'
 // import StrategyProvider from "../lib/strategy.js";
+import { ref } from 'vue'
+
+
 export default {
   // props: ["strategies"],
   data: function() {
     return {
-      overlay: true,
+      overlay: ref(true),
       strategies: []
     };
   },
   methods: {
+    setOverlay: function(v){
+      this.overlay = v
+    },
     stopStrategy: function(){
       console.log("stop strategy")
     },

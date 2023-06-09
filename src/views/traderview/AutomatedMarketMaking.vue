@@ -3,8 +3,8 @@
     <v-row justify="center">
       <!-- <v-btn color="success" class="mt-12" @click="overlay = !overlay">Show Overlay</v-btn> -->
 
-      <v-overlay opacity="0.4" :absolute="true" :model-value="overlay" contained>
-        <v-btn color="success" @click="disenable(true)">Enable Automation</v-btn>
+      <v-overlay opacity="0.4" :absolute="true" :model-value="overlay" contained persistent>
+        <v-btn color="success" @click="setOverlay(false)">Enable Automation</v-btn>
       </v-overlay>
     </v-row>
     <div>
@@ -79,18 +79,18 @@
 </template>
 <script>
 import CurrentStrategies from "./CurrentStrategies.vue";
+import { ref } from 'vue'
 
 export default {
   components: {
     CurrentStrategies
   },
-  props: ["overlay"],
   data: function() {
     return {
       selection: 1,
       spread: 50,
       ordersize: 10,
-      overlay: true,
+      overlay: ref(true),
       interval: null,
       isPlaying: false,
       mmcolor: "indigo"
@@ -109,6 +109,9 @@ export default {
     }
   },
   methods: {
+    setOverlay: function(v){
+      this.overlay = v
+    },
     enable: function(change) {
       this.overlay = change;
       this.$emit("toggleAMM", change)
