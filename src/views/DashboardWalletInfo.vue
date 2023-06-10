@@ -87,12 +87,12 @@
         </tr>
       </tbody>
     </v-table>
-    <v-overlay opacity="0.88" :absolute="absoluteOverlay" :model-value="depositOverlay" align-items="center">
+    <v-overlay opacity="0.88" :absolute="absoluteOverlay" :model-value="depositOverlay" class="align-center justify-center">
       {{ depositTicker }}: {{ depositAddress }}
       <div style="align-items: center; margin: auto;">
       <qrcode-vue :value="depositAddress" :size="depositOverlaySize" level="L"></qrcode-vue>
       </div>
-      <v-btn color="success" @click="hideDepositOverlay">Dismiss</v-btn>
+      <v-btn color="success" @click="hideDepositOverlay(false)">Dismiss</v-btn>
     </v-overlay>
   </v-card>
   </v-main>
@@ -100,6 +100,7 @@
 <script>
 import axios from "axios";
 import QrcodeVue from "qrcode.vue";
+import {ref} from 'vue'
 
 export default {
   components: { QrcodeVue },
@@ -109,7 +110,7 @@ export default {
       mePrivate: import.meta.env.VITE_VUE_APP_MEPRIVATE,
       mePublic: import.meta.env.VITE_VUE_APP_MEPUBLIC,
       absoluteOverlay: false,
-      depositOverlay: false,
+      depositOverlay: ref(false),
       depositOverlaySize: 400,
       depositTicker: "",
       depositAddress: "",
@@ -156,8 +157,8 @@ export default {
       this.$forceUpdate()
       //this.hideZeroDisable = false
     },
-    hideDepositOverlay: function() {
-      (this.depositOverlay = false),
+    hideDepositOverlay: function(v) {
+      (this.depositOverlay = v),
         (this.depositTicker = ""),
         (this.depositAddress = "");
     },
