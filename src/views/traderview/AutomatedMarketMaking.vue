@@ -3,7 +3,7 @@
     <v-row justify="center">
       <!-- <v-btn color="success" class="mt-12" @click="overlay = !overlay">Show Overlay</v-btn> -->
 
-      <v-overlay opacity="0.4" :absolute="true" :model-value="overlay" contained persistent>
+      <v-overlay opacity="0.4" :absolute="true" :model-value="overlay" contained persistent class="align-center justify-center">
         <v-btn color="success" @click="setOverlay(false)">Enable Automation</v-btn>
       </v-overlay>
     </v-row>
