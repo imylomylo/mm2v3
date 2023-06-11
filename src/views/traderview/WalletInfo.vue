@@ -35,15 +35,15 @@
             <div class="text-left">
 <!-- mePrivate and mePublic are set in .env* files of the root of the webapp project and read in at runtime -->
 <div v-if="mePrivate == 'true' && mePublic == 'false'">
-              <v-chip class="ma-2" color="success" @click="deposit(row.ticker, row.address)">
+              <v-chip class="ma-2" color="success" @click="deposit(row.ticker, row.address , true)">
                 <v-icon left>mdi-server-plus</v-icon>Deposit
               </v-chip>
-              <v-chip class="ma-2" color="red" dark @click="showWithdrawOverlay(row.ticker)">
+              <v-chip class="ma-2" color="red" dark @click="showWithdrawOverlay(row.ticker, true)">
                 <v-icon left>mdi-server-plus</v-icon>Withdraw
               </v-chip>
 </div>
 <div v-else>
-              <v-chip class="ma-2" color="success" @click="deposit(row.ticker, row.address)">
+              <v-chip class="ma-2" color="success" @click="deposit(row.ticker, row.address, true)">
                 <v-icon left>mdi-server-plus</v-icon>Donate
               </v-chip>
 </div>
@@ -52,10 +52,10 @@
         </tr>
       </tbody>
     </v-table>
-    <v-overlay opacity="0.88" :absolute="false" :model-value="depositOverlay" z-index="6" contained class="align-center justify-center">
+    <v-overlay opacity="0.88" :absolute="false" :model-value="depositOverlay" z-index="6" contained persistent class="align-center justify-center">
       {{ depositTicker }}: {{ depositAddress }}
       <qrcode-vue :value="depositAddress" :size="depositOverlaySize" level="L" style="align-self: center;"></qrcode-vue>
-      <v-btn color="success" @click="hideDepositOverlay">Dismiss</v-btn>
+      <v-btn color="success" @click="hideDepositOverlay(false)">Dismiss</v-btn>
     </v-overlay>
     <v-overlay opacity="0.88" :absolute="absoluteOverlay" :model-value="withdrawOverlay" z-index="6" contained class="align-center justify-center">
       <v-card class="mx-auto" min-width="400">
@@ -64,7 +64,7 @@
           <v-text-field v-model="withdrawAmount" label="Amount" required></v-text-field>
         </v-form>
         <v-btn color="success" @click="withdraw()">Send</v-btn>
-        <v-btn color="error" @click="hideWithdrawOverlay">Cancel</v-btn>
+        <v-btn color="error" @click="hideWithdrawOverlay(false)">Cancel</v-btn>
       </v-card>
     </v-overlay>
   </v-card>
@@ -73,6 +73,7 @@
 import axios from "axios";
 import WalletActions from "./lib/wallet.js";
 import QrcodeVue from "qrcode.vue";
+import {ref} from 'vue';
 
 
 export default {
@@ -82,12 +83,12 @@ export default {
     return {
       mePrivate: import.meta.env.VITE_VUE_APP_MEPRIVATE,
       mePublic: import.meta.env.VITE_VUE_APP_MEPUBLIC,
-      absoluteOverlay: false,
-      depositOverlay: false,
+      absoluteOverlay: ref(false),
+      depositOverlay: ref(false),
       depositOverlaySize: 100,
       depositTicker: "",
       depositAddress: "",
-      withdrawOverlay: false,
+      withdrawOverlay: ref(false),
       withdrawTicker: "",
       withdrawAddress: "",
       withdrawAmount: 0,
@@ -95,28 +96,28 @@ export default {
     };
   },
   methods: {
-    hideDepositOverlay: function() {
-      (this.depositOverlay = false),
+    hideDepositOverlay: function(v) {
+      (this.depositOverlay = v),
         (this.depositTicker = ""),
         (this.depositAddress = "");
     },
-    hideWithdrawOverlay: function() {
-      (this.withdrawOverlay = false),
+    hideWithdrawOverlay: function(v) {
+      (this.withdrawOverlay = v),
         (this.withdrawAddress = ""),
         (this.withdrawAmount = 0);
        this.$emit("refresh-balances")
     },
-    showWithdrawOverlay: function(ticker) {
+    showWithdrawOverlay: function(ticker, v) {
       console.log("Withdraw Overlay: " + ticker);
       this.withdrawTicker = ticker;
       this.withdrawAddress = "";
-      this.withdrawOverlay = true;
+      this.withdrawOverlay = v;
     },
-    deposit: function(ticker, address) {
+    deposit: function(ticker, address, v) {
       console.log("Deposit: " + ticker + " @ " + address);
       this.depositTicker = ticker;
       this.depositAddress = address;
-      this.depositOverlay = true;
+      this.depositOverlay = v;
     },
 // TODO
 //    withdraw: function(ticker, amount) {

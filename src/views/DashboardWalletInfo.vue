@@ -64,7 +64,7 @@
             <div class="text-left">
 <!-- mePrivate and mePublic are set in .env* files of the root of the webapp project and read in at runtime -->
 <div v-if="mePrivate == 'true' && mePublic == 'false'">
-              <v-chip class="ma-2" color="success" @click="deposit(row.ticker, row.address)">
+              <v-chip class="ma-2" color="success" @click="deposit(row.ticker, row.address, true)">
                 <v-icon left>mdi-server-plus</v-icon>Deposit
               </v-chip>
               <v-chip class="ma-2" color="red" dark @click="showWithdrawOverlay(row.ticker)">
@@ -72,7 +72,7 @@
               </v-chip>
 </div>
 <div v-else>
-              <v-chip class="ma-2" color="success" @click="deposit(row.ticker, row.address)">
+              <v-chip class="ma-2" color="success" @click="deposit(row.ticker, row.address, true)">
                 <v-icon left>mdi-server-plus</v-icon>Donate
               </v-chip>
 </div>
@@ -87,7 +87,7 @@
         </tr>
       </tbody>
     </v-table>
-    <v-overlay opacity="0.88" :absolute="absoluteOverlay" :model-value="depositOverlay" class="align-center justify-center">
+    <v-overlay opacity="0.88" :absolute="absoluteOverlay" :model-value="depositOverlay" persistent class="align-center justify-center">
       {{ depositTicker }}: {{ depositAddress }}
       <div style="align-items: center; margin: auto;">
       <qrcode-vue :value="depositAddress" :size="depositOverlaySize" level="L"></qrcode-vue>
@@ -162,11 +162,11 @@ export default {
         (this.depositTicker = ""),
         (this.depositAddress = "");
     },
-    deposit: function(ticker, address) {
+    deposit: function(ticker, address,v) {
       console.log("Deposit: " + ticker + " @ " + address);
       this.depositTicker = ticker;
       this.depositAddress = address;
-      this.depositOverlay = true;
+      this.depositOverlay = v;
     },
     withdraw: function(ticker) {
       console.log("Withdraw: " + ticker);
