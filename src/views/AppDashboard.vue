@@ -4,7 +4,7 @@
       <v-flex md6 lg6>
         <v-row class="px-4">
           <v-col>
-            <DashboardWalletInfo ref="dashboardWallets" :wallets="allwallets" @update-allwallets="updateAllWallets" />
+            <DashboardWalletInfo ref="dashboardWallets" :wallets="allwallets" @update-allwallets="updateAllWallets"/>
           </v-col>
         </v-row>
       </v-flex>
