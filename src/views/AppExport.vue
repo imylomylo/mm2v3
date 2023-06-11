@@ -1,7 +1,7 @@
 <template>
   <v-card max-width="auto" class="mx-auto">
     <v-container fluid>
-      <v-overlay opacity="0.88" :absolute="true" :model-value="overlay" contained persistent class="align-center justify-center">
+      <v-overlay :absolute="true" :model-value="overlay" contained persistent class="align-center justify-center">
         <v-btn color="warning" @click="show(true)">Swap History</v-btn>
       </v-overlay>
     </v-container>
@@ -159,4 +159,7 @@ export default {
 };
 </script>
 <style scoped>
+.v-overlay {
+  opacity: 0.88;
+}
 </style>
