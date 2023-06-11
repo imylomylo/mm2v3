@@ -52,12 +52,12 @@
         </tr>
       </tbody>
     </v-table>
-    <v-overlay opacity="0.88" :absolute="false" :model-value="depositOverlay" z-index="6" contained>
+    <v-overlay opacity="0.88" :absolute="false" :model-value="depositOverlay" z-index="6" contained class="align-center justify-center">
       {{ depositTicker }}: {{ depositAddress }}
       <qrcode-vue :value="depositAddress" :size="depositOverlaySize" level="L" style="align-self: center;"></qrcode-vue>
       <v-btn color="success" @click="hideDepositOverlay">Dismiss</v-btn>
     </v-overlay>
-    <v-overlay opacity="0.88" :absolute="absoluteOverlay" :model-value="withdrawOverlay" z-index="6" contained>
+    <v-overlay opacity="0.88" :absolute="absoluteOverlay" :model-value="withdrawOverlay" z-index="6" contained class="align-center justify-center">
       <v-card class="mx-auto" min-width="400">
         <v-form ref="form">
           <v-text-field v-model="withdrawAddress" label="Address" required></v-text-field>
