@@ -87,7 +87,7 @@
         </tr>
       </tbody>
     </v-table>
-    <v-overlay opacity="0.88" :absolute="absoluteOverlay" :model-value="depositOverlay" persistent class="align-center justify-center">
+    <v-overlay opacity="0.88" :absolute="false" :model-value="depositOverlay" persistent class="align-center justify-center">
       {{ depositTicker }}: {{ depositAddress }}
       <div style="align-items: center; margin: auto;">
       <qrcode-vue :value="depositAddress" :size="depositOverlaySize" level="L"></qrcode-vue>
@@ -109,7 +109,6 @@ export default {
     return {
       mePrivate: import.meta.env.VITE_VUE_APP_MEPRIVATE,
       mePublic: import.meta.env.VITE_VUE_APP_MEPUBLIC,
-      absoluteOverlay: false,
       depositOverlay: ref(false),
       depositOverlaySize: 400,
       depositTicker: "",

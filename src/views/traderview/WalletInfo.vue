@@ -57,7 +57,7 @@
       <qrcode-vue :value="depositAddress" :size="depositOverlaySize" level="L" style="align-self: center;"></qrcode-vue>
       <v-btn color="success" @click="hideDepositOverlay(false)">Dismiss</v-btn>
     </v-overlay>
-    <v-overlay opacity="0.88" :absolute="absoluteOverlay" :model-value="withdrawOverlay" z-index="6" contained class="align-center justify-center">
+    <v-overlay opacity="0.88" :absolute="false" :model-value="withdrawOverlay" z-index="6" contained persistent class="align-center justify-center">
       <v-card class="mx-auto" min-width="400">
         <v-form ref="form">
           <v-text-field v-model="withdrawAddress" label="Address" required></v-text-field>
@@ -84,7 +84,6 @@ export default {
       mePrivate: import.meta.env.VITE_VUE_APP_MEPRIVATE,
       mePublic: import.meta.env.VITE_VUE_APP_MEPUBLIC,
       absoluteOverlay: ref(false),
-      depositOverlay: ref(false),
       depositOverlaySize: 100,
       depositTicker: "",
       depositAddress: "",
