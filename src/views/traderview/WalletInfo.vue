@@ -83,7 +83,7 @@ export default {
     return {
       mePrivate: import.meta.env.VITE_VUE_APP_MEPRIVATE,
       mePublic: import.meta.env.VITE_VUE_APP_MEPUBLIC,
-      absoluteOverlay: ref(false),
+      depositOverlay: ref(false),
       depositOverlaySize: 100,
       depositTicker: "",
       depositAddress: "",
