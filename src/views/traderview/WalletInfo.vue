@@ -52,7 +52,7 @@
         </tr>
       </tbody>
     </v-table>
-    <v-overlay opacity="0.88" :absolute="false" :model-value="depositOverlay" z-index="6" contained persistent class="align-center justify-center">
+    <v-overlay opacity="0.88" :absolute="false" :model-value="depositOverlay" z-index="6" contained persistent class="align-center justify-center" style="color: white;">
       
       {{ depositTicker }}: {{ depositAddress }}
       <div style="align-items: center; margin: auto;">
