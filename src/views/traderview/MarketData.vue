@@ -125,6 +125,7 @@ better implementation in parent component
             </v-table>
           </v-flex>
         </v-layout>
+        
       </div>
     </div>
     <div v-else>No current bids to display.</div>
@@ -137,6 +138,9 @@ import { VDataTable } from 'vuetify/labs/VDataTable'
 export default {
   name: "MarketData",
   props: ['wallets', 'marketdata', 'myOrdersThisMarket'],
+  components: {
+    VDataTable
+  },
   data: function() {
     return {
       cexprice: "",
