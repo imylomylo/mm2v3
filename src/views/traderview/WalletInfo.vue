@@ -57,8 +57,8 @@
       {{ depositTicker }}: {{ depositAddress }}
       <div style="align-items: center; margin: auto;">
       <qrcode-vue :value="depositAddress" :size="depositOverlaySize" level="L" style="align-self: center;"></qrcode-vue>
-      <v-btn color="success" @click="hideDepositOverlay(false)">Dismiss</v-btn>
       </div>
+      <v-btn color="success" @click="hideDepositOverlay(false)">Dismiss</v-btn>
     </v-overlay>
     <v-overlay opacity="0.88" :absolute="false" :model-value="withdrawOverlay" z-index="6" contained persistent class="align-center justify-center">
       <v-card class="mx-auto" min-width="400">
