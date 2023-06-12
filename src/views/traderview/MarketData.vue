@@ -81,7 +81,7 @@ better implementation handled in parent component on load of orders, then promis
                dense
               :sort-by="['price']"
               :sort-desc="[true]"
-              disable-pagination
+              disable-pagination="true"
               hide-default-footer
               :headers="bidsHeaders"
               :items="marketdata.bids"
