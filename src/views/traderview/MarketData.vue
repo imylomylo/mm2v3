@@ -23,7 +23,6 @@
               dense
               :sort-by="['price']"
               :sort-desc="[true]"
-              disable-pagination
               hide-default-footer
               :headers="asksHeaders"
               :items="marketdata.asks"
@@ -85,7 +84,6 @@ better implementation handled in parent component on load of orders, then promis
               :headers="bidsHeaders"
               :items="marketdata.bids"
               :items-per-page="15"
-              :disable-pagination=true
             >
 
               <template v-slot:header.price="{ header }">
