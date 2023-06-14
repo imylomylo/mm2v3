@@ -86,17 +86,17 @@ better implementation handled in parent component on load of orders, then promis
               :items-per-page="15"
             >
 
-              <template v-slot:header.price="{ header }">
+              <template v-slot:column.price="{ header }">
                 <!-- {{ header.text.toUpperCase() }} -->
                 Price ({{wallets.rel.ticker }})
               </template>
 
-              <template v-slot:header.baseamount="{ header }">
+              <template v-slot:column.baseamount="{ header }">
                 <!-- {{ header.text.toUpperCase() }} -->
                 Amount ({{wallets.base.ticker }})
               </template>
 
-              <template v-slot:header.maxvolume="{ header }">
+              <template v-slot:column.maxvolume="{ header }">
                 <!-- {{ header.text.toUpperCase() }} -->
                 Total ({{wallets.rel.ticker }})
               </template>
@@ -152,7 +152,7 @@ export default {
       customerrors: [],
       asksHeaders: [
         {
-          text: "Price (rel)",
+          title: "Price (rel)",
           align: "left",
           sortable: true,
           value: "price"
@@ -162,7 +162,7 @@ export default {
       ],
       bidsHeaders: [
         {
-          text: "Price (rel)",
+          title: "Price (rel)",
           align: "left",
           sortable: true,
           value: "price"
