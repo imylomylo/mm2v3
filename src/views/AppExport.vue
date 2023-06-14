@@ -15,7 +15,7 @@
 
     <div v-if="swapHistory.swaps !== undefined && swapHistory.swaps.length > 0">
       <div>
-        <v-table>
+        <v-table :scroll-x="true" style="overflow-x: hidden;">
           <thead>
             <tr>
               <th class="text-left">Type</th>

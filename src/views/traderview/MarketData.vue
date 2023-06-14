@@ -23,23 +23,22 @@
               dense
               :sort-by="['price']"
               :sort-desc="[true]"
-              disable-pagination
               hide-default-footer
               :headers="asksHeaders"
               :items="marketdata.asks"
               :items-per-page="5"
             >
-              <template v-slot:header.price="{ header }">
+              <template v-slot:column.price="{ header }">
                 <!-- {{ header.text.toUpperCase() }} -->
                 Price ({{wallets.rel.ticker }})
               </template>
 
-              <template v-slot:header.maxvolume="{ header }">
+              <template v-slot:column.maxvolume="{ header }">
                 <!-- {{ header.text.toUpperCase() }} -->
                 Amount ({{wallets.base.ticker }})
               </template>
 
-              <template v-slot:header.relamount="{ header }">
+              <template v-slot:column.relamount="{ header }">
                 <!-- {{ header.text.toUpperCase() }} -->
                 Total ({{wallets.rel.ticker }})
               </template>
@@ -78,27 +77,26 @@ better implementation handled in parent component on load of orders, then promis
           <v-flex md lg>
             <v-card-title>Bids</v-card-title>
             <v-data-table
-              dense
+               dense
               :sort-by="['price']"
               :sort-desc="[true]"
-              disable-pagination
               hide-default-footer
               :headers="bidsHeaders"
               :items="marketdata.bids"
               :items-per-page="15"
             >
 
-              <template v-slot:header.price="{ header }">
+              <template v-slot:column.price="{ header }">
                 <!-- {{ header.text.toUpperCase() }} -->
                 Price ({{wallets.rel.ticker }})
               </template>
 
-              <template v-slot:header.baseamount="{ header }">
+              <template v-slot:column.baseamount="{ header }">
                 <!-- {{ header.text.toUpperCase() }} -->
                 Amount ({{wallets.base.ticker }})
               </template>
 
-              <template v-slot:header.maxvolume="{ header }">
+              <template v-slot:column.maxvolume="{ header }">
                 <!-- {{ header.text.toUpperCase() }} -->
                 Total ({{wallets.rel.ticker }})
               </template>
@@ -125,6 +123,7 @@ better implementation in parent component
             </v-data-table>
           </v-flex>
         </v-layout>
+        
       </div>
     </div>
     <div v-else>No current bids to display.</div>
@@ -132,10 +131,14 @@ better implementation in parent component
 </template>
 <script>
 import axios from "axios";
+import { VDataTable } from 'vuetify/labs/VDataTable'
 
 export default {
   name: "MarketData",
-  props: ["wallets", "marketdata", "myOrdersThisMarket"],
+  props: ['wallets', 'marketdata', 'myOrdersThisMarket'],
+  components: {
+    VDataTable
+  },
   data: function() {
     return {
       cexprice: "",
@@ -149,23 +152,23 @@ export default {
       customerrors: [],
       asksHeaders: [
         {
-          text: "Price (rel)",
+          title: "Price (rel)",
           align: "left",
           sortable: true,
           value: "price"
         },
-        { text: "Amount (base)", align: "left", value: "maxvolume" },
-        { text: "Total (rel))", align: "right", value: "relamount" }
+        { title: "Amount (base)", align: "left", value: "maxvolume" },
+        { title: "Total (rel))", align: "right", value: "relamount" }
       ],
       bidsHeaders: [
         {
-          text: "Price (rel)",
+          title: "Price (rel)",
           align: "left",
           sortable: true,
           value: "price"
         },
-        { text: "Base Amount", align: "left", value: "baseamount" },
-        { text: "Can Cancel", align: "right", value: "maxvolume" }
+        { title: "Base Amount", align: "left", value: "baseamount" },
+        { title: "Can Cancel", align: "right", value: "maxvolume" }
       ]
     }
   },
@@ -187,14 +190,14 @@ export default {
   created: function() {
     console.log(this.appName + " Created");
     // original prod code
-     //this.showDEXMarket(this.wallets.base.ticker, this.wallets.rel.ticker)
+//    this.showDEXMarket(this.wallets.base.ticker, this.wallets.rel.ticker)
     // working fake data
     // this.marketdata = this.fakeData
-    // // test grouping
-   // this.marketdata.asks = this.groupByPrice2(this.fakeData.asks, "price");
-    //this.marketdata.bids = this.groupByPrice2(this.fakeData.bids, "price");
+    // test grouping
+    // this.marketdata.asks = this.groupByPrice2(this.fakeData.asks, "price");
+    // this.marketdata.bids = this.groupByPrice2(this.fakeData.bids, "price");
     //this.getCEXprice(this.wallets.base.ticker, this.wallets.rel.ticker);
-    /// console.log(this.appName + " Finished Created");
+    console.log(this.appName + " Finished Created");
   },
   computed: {
     coinCount: function() {
