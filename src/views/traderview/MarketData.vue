@@ -24,6 +24,7 @@
               :sort-by="['price']"
               :sort-desc="[true]"
               hide-default-footer
+              :fixed-footer="false"
               :headers="asksHeaders"
               :items="marketdata.asks"
               :items-per-page="-1"
