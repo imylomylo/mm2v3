@@ -85,6 +85,7 @@ better implementation handled in parent component on load of orders, then promis
               :headers="bidsHeaders"
               :items="marketdata.bids"
               :items-per-page="-1"
+              height="200px"
             >
 
               <template v-slot:column.price="{ header }">
