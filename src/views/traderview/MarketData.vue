@@ -26,7 +26,8 @@
               hide-default-footer
               :headers="asksHeaders"
               :items="marketdata.asks"
-              :items-per-page="5"
+              :items-per-page="-1"
+              height="200px"
             >
               <template v-slot:column.price="{ header }">
                 <!-- {{ header.text.toUpperCase() }} -->
