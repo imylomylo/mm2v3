@@ -81,9 +81,10 @@ better implementation handled in parent component on load of orders, then promis
               :sort-by="['price']"
               :sort-desc="[true]"
               hide-default-footer
+              :fixed-footer="false"
               :headers="bidsHeaders"
               :items="marketdata.bids"
-              :items-per-page="15"
+              :items-per-page="-1"
             >
 
               <template v-slot:column.price="{ header }">
