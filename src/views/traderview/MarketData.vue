@@ -29,6 +29,7 @@
               :items="marketdata.asks"
               :items-per-page="-1"
               height="200px"
+              class="elevation-1"
             >
               <template v-slot:column.price="{ header }">
                 <!-- {{ header.text.toUpperCase() }} -->
