@@ -23,8 +23,7 @@
               dense
               :sort-by="['price']"
               :sort-desc="[true]"
-              hide-default-footer
-              :fixed-footer="false"
+              :hide-default-footer="true"
               :headers="asksHeaders"
               :items="marketdata.asks"
               :items-per-page="-1"
@@ -83,8 +82,7 @@ better implementation handled in parent component on load of orders, then promis
                dense
               :sort-by="['price']"
               :sort-desc="[true]"
-              hide-default-footer
-              :fixed-footer="false"
+              :hide-default-footer="true"
               :headers="bidsHeaders"
               :items="marketdata.bids"
               :items-per-page="-1"
