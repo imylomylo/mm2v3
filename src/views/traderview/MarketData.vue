@@ -23,7 +23,7 @@
               dense
               :sort-by="['price']"
               :sort-desc="[true]"
-              :hide-default-footer="true"
+              disable-pagination
               :headers="asksHeaders"
               :items="marketdata.asks"
               :items-per-page="-1"
