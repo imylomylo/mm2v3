@@ -19,6 +19,7 @@
         <v-layout>
           <v-flex md lg>
             <v-card-title>Asks</v-card-title>
+            <div class="datatablecontainer">
             <v-data-table
               dense
               :sort-by="['price']"
@@ -66,6 +67,7 @@ better implementation handled in parent component on load of orders, then promis
                 v-slot:item.relamount="{ item }"
               >{{ Number(Math.round(item.price*item.maxvolume+'e8')+'e-8') }}</template>
             </v-data-table>
+            </div>
           </v-flex>
         </v-layout>
       </div>
@@ -78,6 +80,7 @@ better implementation handled in parent component on load of orders, then promis
         <v-layout>
           <v-flex md lg>
             <v-card-title>Bids</v-card-title>
+            <div class="datatablecontainer">
             <v-data-table
                dense
               :sort-by="['price']"
@@ -125,6 +128,7 @@ better implementation in parent component
                 v-slot:item.maxvolume="{ item }"
               >{{ Number(Math.round(item.maxvolume+'e8')+'e-8') }}</template>
             </v-data-table>
+            </div>
           </v-flex>
         </v-layout>
         
@@ -231,3 +235,10 @@ export default {
   }
 };
 </script>
+<style>
+.datatablecontainer{
+  widows: 100%;
+  overflow-x: auto;
+}
+
+</style>
