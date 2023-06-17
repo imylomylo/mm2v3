@@ -19,7 +19,7 @@
         <v-layout>
           <v-flex md lg>
             <v-card-title>Asks</v-card-title>
-            <div class="datatablecontainer">
+            <div class="table-container">
             <v-data-table
               dense
               :sort-by="['price']"
@@ -27,9 +27,8 @@
               disable-pagination
               :headers="asksHeaders"
               :items="marketdata.asks"
-              :items-per-page="-1"
-              height="200px"
-              class="elevation-1"
+              :rows-per-page="-1"
+              :disable-pagination="true"
             >
               <template v-slot:column.price="{ header }">
                 <!-- {{ header.text.toUpperCase() }} -->
@@ -80,7 +79,7 @@ better implementation handled in parent component on load of orders, then promis
         <v-layout>
           <v-flex md lg>
             <v-card-title>Bids</v-card-title>
-            <div class="datatablecontainer">
+            <div class="table-container">
             <v-data-table
                dense
               :sort-by="['price']"
@@ -236,7 +235,7 @@ export default {
 };
 </script>
 <style>
-.datatablecontainer{
+.table-container{
   widows: 100%;
   overflow-x: auto;
 }
