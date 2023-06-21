@@ -61,10 +61,10 @@ better implementation handled in parent component on load of orders, then promis
 
               <template
                 v-slot:item.maxvolume="{ item }"
-              >{{ Number(Math.round(item.maxvolume+'e8')+'e-8') }}</template>
+              >{{ Number(Math.round(item.maxvolume+'e8')+'e-8').toFixed(8) }}</template>
               <template
                 v-slot:item.relamount="{ item }"
-              >{{ Number(Math.round(item.price*item.maxvolume+'e8')+'e-8') }}</template>
+              >{{ Number(Math.round(item.price*item.maxvolume+'e8')+'e-8').toFixed(8) }}</template>
             </v-data-table>
             </div>
           </v-flex>
