@@ -47,11 +47,14 @@
 
               <!-- Rounding from https://www.jacklmoore.com/notes/rounding-in-javascript/ -->
               <!-- Better to move to computed function for maintainability/non-repetitive -->
-              <template v-slot:item.price="{ item }"> {{ Number(Math.round(item.price+'e8')+'e-8').toFixed(8) }}</template>
+              <template v-slot:item.price="{ item }">
+                  {{ (Math.round(item.price * 1e8) / 1e8).toFixed(8) }}
+              </template>
 
-              <!-- For highlighting my orders, TODO need a price:uuid array before grouping by price in AppTraderview   -->
               <template v-slot:item.price2="{ item }">
-                {{ Number(Math.round(item.price+'e8')+'e-8').toFixed(8) }}
+                   {{ (Math.round(item.price * 1e8) / 1e8).toFixed(8) }}
+  <!-- Remaining code -->
+
 <!--
 better implementation handled in parent component on load of orders, then promise to set flag
                 <v-chip v-if="hasMyOrder(item.price)" color="purple" dark>me</v-chip>
@@ -59,12 +62,13 @@ better implementation handled in parent component on load of orders, then promis
                 <v-chip v-if="item.myOrder" x-small color="purple" dark>*</v-chip>
               </template> 
 
-              <template
-                v-slot:item.maxvolume="{ item }"
-              >{{ Number(Math.round(item.maxvolume+'e8')+'e-8').toFixed(8) }}</template>
-              <template
-                v-slot:item.relamount="{ item }"
-              >{{ Number(Math.round(item.price*item.maxvolume+'e8')+'e-8').toFixed(8) }}</template>
+              <template v-slot:item.maxvolume="{ item }">
+                  {{ (Math.round(item.maxvolume * 1e8) / 1e8).toFixed(8) }}
+              </template>
+
+              <template v-slot:item.relamount="{ item }">
+                   {{ (Math.round(item.price * item.maxvolume * 1e8) / 1e8).toFixed(8) }}
+              </template>
             </v-data-table>
             </div>
           </v-flex>
