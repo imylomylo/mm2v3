@@ -48,11 +48,11 @@
               <!-- Rounding from https://www.jacklmoore.com/notes/rounding-in-javascript/ -->
               <!-- Better to move to computed function for maintainability/non-repetitive -->
               <template v-slot:item.price="{ item }">
-                  {{ (Math.round(item.price * 1e8) / 1e8).toFixed(8) }}
+                {{ roundedPrice(item.price) }}
               </template>
 
               <template v-slot:item.price2="{ item }">
-                   {{ (Math.round(item.price * 1e8) / 1e8).toFixed(8) }}
+                {{ roundedPrice(item.price) }}
   <!-- Remaining code -->
 
 <!--
@@ -63,11 +63,11 @@ better implementation handled in parent component on load of orders, then promis
               </template> 
 
               <template v-slot:item.maxvolume="{ item }">
-                  {{ (Math.round(item.maxvolume * 1e8) / 1e8).toFixed(8) }}
+                {{ roundedPrice(item.maxvolume) }}
               </template>
 
               <template v-slot:item.relamount="{ item }">
-                   {{ (Math.round(item.price * item.maxvolume * 1e8) / 1e8).toFixed(8) }}
+                {{ roundedPrice(item.price * item.maxvolume) }}
               </template>
             </v-data-table>
             </div>
@@ -149,6 +149,13 @@ export default {
   props: ['wallets', 'marketdata', 'myOrdersThisMarket'],
   components: {
     VDataTable
+  },
+  computed: {
+    roundedPrice() {
+      return (price) => {
+        return Number((Math.round(price * 1e8) / 1e8).toFixed(8));
+      };
+    }
   },
   data: function() {
     return {
