@@ -147,13 +147,6 @@ export default {
   components: {
     VDataTable
   },
-  computed: {
-      roundedPrice() {
-        return price => {
-          return Number((Math.round(price * 1e8) / 1e8).toFixed(8))
-        }
-      },
-  },
   data: function() {
     return {
       cexprice: "",
@@ -170,10 +163,10 @@ export default {
           title: "Price (rel)",
           align: "left",
           sortable: true,
-          value: "price"
+          key: "price"
         },
-        { title: "Amount (base)", align: "left", value: "maxvolume" },
-        { title: "Total (rel))", align: "right", value: "relamount" }
+        { title: "Amount (base)", align: "left", key: "maxvolume" },
+        { title: "Total (rel))", align: "right", key: "relamount" }
       ],
       bidsHeaders: [
         {
@@ -218,6 +211,11 @@ export default {
     coinCount: function() {
       return this.activeCoins.length;
     },
+    roundedPrice() {
+        return price => {
+          return Number((Math.round(price * 1e8) / 1e8).toFixed(8))
+        }
+      },
     middlePriceSpreadData: function(lowAsk, highBid) {
       // middlePriceSpreadData.middle & middlePriceSpreadData.spread
       let middlePriceSpreadData = {}
