@@ -110,11 +110,13 @@ better implementation handled in parent component on load of orders, then promis
 
               <!-- Rounding from https://www.jacklmoore.com/notes/rounding-in-javascript/ -->
               <!-- Better to move to computed function for maintainability/non-repetitive -->
-              <template v-slot:item.price="{ item }">{{ Number(Math.round(item.price+'e8')+'e-8') }}</template>
+              <template v-slot:item.price="{ item }">
+                  {{ roundedPrice(item.columns.price) }}
+              </template>
               
               <!-- For highlighting my orders, TODO need a price:uuid array before grouping by price in AppTraderview   -->
               <template v-slot:item.price2="{ item }">
-                {{ Number(Math.round(item.price+'e8')+'e-8') }}
+                  {{ roundedPrice(item.columns.price) }}
 <!--
 better implementation in parent component
                 <v-chip v-if="hasMyOrder(item.price)" color="purple" dark>me</v-chip>
@@ -123,10 +125,10 @@ better implementation in parent component
               </template> 
               <template
                 v-slot:item.baseamount="{ item }"
-              >{{ Number(Math.round(item.maxvolume/item.price+'e8')+'e-8') }}</template>
+              >{{ roundedPrice(item.columns.maxvolume / item.columns.price) }}</template>
               <template
                 v-slot:item.maxvolume="{ item }"
-              >{{ Number(Math.round(item.maxvolume+'e8')+'e-8') }}</template>
+              >{{ roundedPrice(item.columns.maxvolume) }}</template>
             </v-data-table>
             </div>
           </v-flex>
