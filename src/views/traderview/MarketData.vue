@@ -148,11 +148,11 @@ export default {
     VDataTable
   },
   computed: {
-    roundedPrice() {
-      return (price) => {
-        return Number((Math.round(price * 1e8) / 1e8).toFixed(8));
-      };
-    }
+      roundedPrice() {
+        return price => {
+          return Number((Math.round(price * 1e8) / 1e8).toFixed(8))
+        }
+      },
   },
   data: function() {
     return {
