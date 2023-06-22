@@ -24,7 +24,6 @@
               dense
               :sort-by="['price']"
               :sort-desc="[true]"
-              disable-pagination
               :headers="asksHeaders"
               :items="marketdata.asks"
               :rows-per-page="-1"
@@ -48,11 +47,11 @@
               <!-- Rounding from https://www.jacklmoore.com/notes/rounding-in-javascript/ -->
               <!-- Better to move to computed function for maintainability/non-repetitive -->
               <template v-slot:item.price="{ item }">
-                {{ roundedPrice(item.price) }}
+                {{ roundedPrice(item.columns.price) }}
               </template>
 
               <template v-slot:item.price2="{ item }">
-                {{ roundedPrice(item.price) }}
+                {{ roundedPrice(item.columns.price) }}
   <!-- Remaining code -->
 
 <!--
@@ -63,11 +62,11 @@ better implementation handled in parent component on load of orders, then promis
               </template> 
 
               <template v-slot:item.maxvolume="{ item }">
-                {{ roundedPrice(item.maxvolume) }}
+                {{ roundedPrice(item.columns.maxvolume) }}
               </template>
 
               <template v-slot:item.relamount="{ item }">
-                {{ roundedPrice(item.price * item.maxvolume) }}
+                {{ roundedPrice(item.columns.price * item.columns.maxvolume) }}
               </template>
             </v-data-table>
             </div>
@@ -88,12 +87,10 @@ better implementation handled in parent component on load of orders, then promis
                dense
               :sort-by="['price']"
               :sort-desc="[true]"
-              hide-default-footer
-              disable-pagination
+              :disable-pagination="true"
               :headers="bidsHeaders"
               :items="marketdata.bids"
               :items-per-page="-1"
-              height="200px"
             >
 
               <template v-slot:column.price="{ header }">
