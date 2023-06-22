@@ -19,14 +19,15 @@
         <v-layout>
           <v-flex md lg>
             <v-card-title>Asks</v-card-title>
+            <div class="table-container">
             <v-data-table
               dense
               :sort-by="['price']"
               :sort-desc="[true]"
-              hide-default-footer
               :headers="asksHeaders"
               :items="marketdata.asks"
-              :items-per-page="5"
+              :rows-per-page="-1"
+              :disable-pagination="true"
             >
               <template v-slot:column.price="{ header }">
                 <!-- {{ header.text.toUpperCase() }} -->
@@ -45,11 +46,14 @@
 
               <!-- Rounding from https://www.jacklmoore.com/notes/rounding-in-javascript/ -->
               <!-- Better to move to computed function for maintainability/non-repetitive -->
-              <template v-slot:item.price="{ item }"> {{ Number(Math.round(item.price+'e8')+'e-8') }}</template>
+              <template v-slot:item.price="{ item }">
+                {{ roundedPrice(item.columns.price) }}
+              </template>
 
-              <!-- For highlighting my orders, TODO need a price:uuid array before grouping by price in AppTraderview   -->
               <template v-slot:item.price2="{ item }">
-                {{ Number(Math.round(item.price+'e8')+'e-8') }}
+                {{ roundedPrice(item.columns.price) }}
+  <!-- Remaining code -->
+
 <!--
 better implementation handled in parent component on load of orders, then promise to set flag
                 <v-chip v-if="hasMyOrder(item.price)" color="purple" dark>me</v-chip>
@@ -57,13 +61,15 @@ better implementation handled in parent component on load of orders, then promis
                 <v-chip v-if="item.myOrder" x-small color="purple" dark>*</v-chip>
               </template> 
 
-              <template
-                v-slot:item.maxvolume="{ item }"
-              >{{ Number(Math.round(item.maxvolume+'e8')+'e-8') }}</template>
-              <template
-                v-slot:item.relamount="{ item }"
-              >{{ Number(Math.round(item.price*item.maxvolume+'e8')+'e-8') }}</template>
+              <template v-slot:item.maxvolume="{ item }">
+                {{ roundedPrice(item.columns.maxvolume) }}
+              </template>
+
+              <template v-slot:item.relamount="{ item }">
+                {{ roundedPrice(item.columns.price * item.columns.maxvolume) }}
+              </template>
             </v-data-table>
+            </div>
           </v-flex>
         </v-layout>
       </div>
@@ -76,14 +82,15 @@ better implementation handled in parent component on load of orders, then promis
         <v-layout>
           <v-flex md lg>
             <v-card-title>Bids</v-card-title>
+            <div class="table-container">
             <v-data-table
                dense
               :sort-by="['price']"
               :sort-desc="[true]"
-              hide-default-footer
+              :disable-pagination="true"
               :headers="bidsHeaders"
               :items="marketdata.bids"
-              :items-per-page="15"
+              :items-per-page="-1"
             >
 
               <template v-slot:column.price="{ header }">
@@ -103,11 +110,13 @@ better implementation handled in parent component on load of orders, then promis
 
               <!-- Rounding from https://www.jacklmoore.com/notes/rounding-in-javascript/ -->
               <!-- Better to move to computed function for maintainability/non-repetitive -->
-              <template v-slot:item.price="{ item }">{{ Number(Math.round(item.price+'e8')+'e-8') }}</template>
+              <template v-slot:item.price="{ item }">
+                  {{ roundedPrice(item.columns.price) }}
+              </template>
               
               <!-- For highlighting my orders, TODO need a price:uuid array before grouping by price in AppTraderview   -->
               <template v-slot:item.price2="{ item }">
-                {{ Number(Math.round(item.price+'e8')+'e-8') }}
+                  {{ roundedPrice(item.columns.price) }}
 <!--
 better implementation in parent component
                 <v-chip v-if="hasMyOrder(item.price)" color="purple" dark>me</v-chip>
@@ -116,11 +125,12 @@ better implementation in parent component
               </template> 
               <template
                 v-slot:item.baseamount="{ item }"
-              >{{ Number(Math.round(item.maxvolume/item.price+'e8')+'e-8') }}</template>
+              >{{ roundedPrice(item.columns.maxvolume / item.columns.price) }}</template>
               <template
                 v-slot:item.maxvolume="{ item }"
-              >{{ Number(Math.round(item.maxvolume+'e8')+'e-8') }}</template>
+              >{{ roundedPrice(item.columns.maxvolume) }}</template>
             </v-data-table>
+            </div>
           </v-flex>
         </v-layout>
         
@@ -155,20 +165,20 @@ export default {
           title: "Price (rel)",
           align: "left",
           sortable: true,
-          value: "price"
+          key: "price"
         },
-        { title: "Amount (base)", align: "left", value: "maxvolume" },
-        { title: "Total (rel))", align: "right", value: "relamount" }
+        { title: "Amount (base)", align: "left", key: "maxvolume" },
+        { title: "Total (rel))", align: "right", key: "relamount" }
       ],
       bidsHeaders: [
         {
           title: "Price (rel)",
           align: "left",
           sortable: true,
-          value: "price"
+          key: "price"
         },
-        { title: "Base Amount", align: "left", value: "baseamount" },
-        { title: "Can Cancel", align: "right", value: "maxvolume" }
+        { title: "Base Amount", align: "left", key: "baseamount" },
+        { title: "Can Cancel", align: "right", key: "maxvolume" }
       ]
     }
   },
@@ -203,6 +213,11 @@ export default {
     coinCount: function() {
       return this.activeCoins.length;
     },
+    roundedPrice() {
+        return price => {
+          return Number((Math.round(price * 1e8) / 1e8).toFixed(8))
+        }
+      },
     middlePriceSpreadData: function(lowAsk, highBid) {
       // middlePriceSpreadData.middle & middlePriceSpreadData.spread
       let middlePriceSpreadData = {}
@@ -227,3 +242,10 @@ export default {
   }
 };
 </script>
+<style>
+.table-container{
+  widows: 100%;
+  overflow-x: auto;
+}
+
+</style>
