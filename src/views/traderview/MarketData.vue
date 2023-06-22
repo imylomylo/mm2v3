@@ -165,18 +165,18 @@ export default {
           sortable: true,
           key: "price"
         },
-        { title: "Amount (base)", align: "left", value: "maxvolume" },
-        { title: "Total (rel))", align: "right", value: "relamount" }
+        { title: "Amount (base)", align: "left", key: "maxvolume" },
+        { title: "Total (rel))", align: "right", key: "relamount" }
       ],
       bidsHeaders: [
         {
           title: "Price (rel)",
           align: "left",
           sortable: true,
-          value: "price"
+          key: "price"
         },
-        { title: "Base Amount", align: "left", value: "baseamount" },
-        { title: "Can Cancel", align: "right", value: "maxvolume" }
+        { title: "Base Amount", align: "left", key: "baseamount" },
+        { title: "Can Cancel", align: "right", key: "maxvolume" }
       ]
     }
   },
