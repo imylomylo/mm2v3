@@ -165,8 +165,8 @@ export default {
           sortable: true,
           key: "price"
         },
-        { title: "Amount (base)", align: "left", key: "maxvolume" },
-        { title: "Total (rel))", align: "right", key: "relamount" }
+        { title: "Amount (base)", align: "left", value: "maxvolume" },
+        { title: "Total (rel))", align: "right", value: "relamount" }
       ],
       bidsHeaders: [
         {
