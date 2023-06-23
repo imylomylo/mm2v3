@@ -37,8 +37,8 @@
                   </v-chip>
               </td>
               <td>{{ tidyMarketOrders[row].cancellable ? 'YES' : 'NO' }}</td>
-              <td>{{ tidyMarketOrders[row].price }}</td>
-              <td>{{tidyMarketOrders[row].max_base_vol }}</td>
+              <td>{{ roundedPrice(tidyMarketOrders[row].price) }}</td>
+              <td>{{ roundedPrice(tidyMarketOrders[row].max_base_vol) }}</td>
               <td>
                 <div class="text-right">
                   <!-- <v-chip class="ma-2" color="success" @click="gotoMarket(row.base, row.rel)">
@@ -98,6 +98,11 @@ export default {
       let testx = testArr.filter((item, pos) => testArr.indexOf(item) === pos)
       console.log("Test array: " + testArr.length + testx.length)
       return testx
+    },
+    roundedPrice() {
+        return price => {
+          return Number((Math.round(price * 1e8) / 1e8).toFixed(8))
+        }
     }
   }
 };
