@@ -37,8 +37,8 @@
                   </v-chip>
               </td>
               <td>{{ tidyMarketOrders[row].cancellable ? 'YES' : 'NO' }}</td>
-              <td>{{ tidyMarketOrders[row].price }}</td>
-              <td>{{tidyMarketOrders[row].max_base_vol }}</td>
+              <td>{{ tidyMarketOrders[row].price.toFixed(8) }}</td>
+              <td>{{tidyMarketOrders[row].max_base_vol.toFixed(8) }}</td>
               <td>
                 <div class="text-right">
                   <!-- <v-chip class="ma-2" color="success" @click="gotoMarket(row.base, row.rel)">
