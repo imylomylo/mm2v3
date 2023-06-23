@@ -38,7 +38,7 @@
               </td>
               <td>{{ tidyMarketOrders[row].cancellable ? 'YES' : 'NO' }}</td>
               <td>{{ roundedPrice(tidyMarketOrders[row].price) }}</td>
-              <td>{{ tidyMarketOrders[row].max_base_vol }}</td>
+              <td>{{ roundedPrice(tidyMarketOrders[row].max_base_vol) }}</td>
               <td>
                 <div class="text-right">
                   <!-- <v-chip class="ma-2" color="success" @click="gotoMarket(row.base, row.rel)">
