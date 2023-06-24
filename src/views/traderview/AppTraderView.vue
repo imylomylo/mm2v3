@@ -1,5 +1,5 @@
 <template>
-  <v-main class="mx-auto">
+  <v-main class="mx-auto" width="100%">
   <div style="margin-top: 20px;" >
     <div>
       <!-- <Description v-on:mmenable="mmenable()" v-bind="wallets" /> -->
