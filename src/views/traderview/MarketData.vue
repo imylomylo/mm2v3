@@ -22,8 +22,7 @@
             <div class="table-container">
             <v-data-table
               dense
-              :sort-by="['price']"
-              :sort-desc="[true]"
+              :sort-by="sortBy"
               :headers="asksHeaders"
               :items="marketdata.asks"
               :rows-per-page="-1"
@@ -86,8 +85,7 @@ better implementation handled in parent component on load of orders, then promis
             <div class="table-container">
             <v-data-table
                dense
-              :sort-by="['price']"
-              :sort-desc="[true]"
+              :sort-by="sortBy"
               :disable-pagination="true"
               :headers="bidsHeaders"
               :items="marketdata.bids"
@@ -161,6 +159,7 @@ export default {
       trade: { base: "", rel: "", price: "", amount: "0" },
       appName: "MarketData",
       customerrors: [],
+      sortBy: [{ key: '[price]', order: 'desc' }],
       asksHeaders: [
         {
           title: "Price (rel)",
