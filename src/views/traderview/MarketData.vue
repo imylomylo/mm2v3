@@ -26,7 +26,7 @@
               :headers="asksHeaders"
               :items="marketdata.asks"
               :rows-per-page="-1"
-              :options="disable-pagination"
+              :options="disablePagination"
               class="elevation-1"
             >
               <template v-slot:column.price="{ header }">
