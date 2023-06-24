@@ -28,6 +28,7 @@
               :items="marketdata.asks"
               :rows-per-page="-1"
               :disable-pagination="true"
+              class="elevation-1"
             >
               <template v-slot:column.price="{ header }">
                 <!-- {{ header.text.toUpperCase() }} -->
