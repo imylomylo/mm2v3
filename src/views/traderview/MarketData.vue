@@ -68,6 +68,7 @@ better implementation handled in parent component on load of orders, then promis
               <template v-slot:item.relamount="{ item }">
                 {{ roundedPrice(item.columns.price * item.columns.maxvolume) }}
               </template>
+              <template v-slot:bottom></template>
             </v-data-table>
             </div>
           </v-flex>
