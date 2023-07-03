@@ -31,9 +31,9 @@
             <tr v-for="row in swapHistory.swaps" v-bind:key="row.ticker">
               <td>{{ row.type }}</td>
               <td>{{ row.my_info.my_coin }}</td>
-              <td>{{ row.my_info.my_amount }}</td>
-              <td>{{ row.my_info.other_coin }}</td>
-              <td>{{ row.my_info.other_amount }}</td>
+              <td>{{ roundedPrice(row.my_info.my_amount) }}</td>
+              <td>{{ roundedPrice(row.my_info.other_coin) }}</td>
+              <td>{{ roundedPrice(row.my_info.other_amount) }}</td>
               <td>{{ row.uuid }}</td>
               <td>
                 <v-chip class="ma-2" color="blue" dark @click="showDetails(row.uuid)">
@@ -108,6 +108,13 @@ export default {
       swapDetail: {},
       strategies: [{}]
     };
+  },
+  computed:{
+    roundedPrice() {
+        return price => {
+          return Number((Math.round(price * 1e8) / 1e8).toFixed(8))
+        }
+      },
   },
   methods: {
     save: function() {
