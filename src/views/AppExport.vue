@@ -32,7 +32,7 @@
               <td>{{ row.type }}</td>
               <td>{{ row.my_info.my_coin }}</td>
               <td>{{ roundedPrice(row.my_info.my_amount) }}</td>
-              <td>{{ roundedPrice(row.my_info.other_coin) }}</td>
+              <td>{{ row.my_info.other_coin }}</td>
               <td>{{ roundedPrice(row.my_info.other_amount) }}</td>
               <td>{{ row.uuid }}</td>
               <td>
