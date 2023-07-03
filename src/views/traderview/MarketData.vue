@@ -129,6 +129,7 @@ better implementation in parent component
               <template
                 v-slot:item.maxvolume="{ item }"
               >{{ roundedPrice(item.columns.maxvolume) }}</template>
+              <template v-slot:bottom></template>
             </v-data-table>
             </div>
           </v-flex>
