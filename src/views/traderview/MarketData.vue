@@ -31,7 +31,14 @@
             >
               <template v-slot:column.price="{ header }">
                 <!-- {{ header.text.toUpperCase() }} -->
-                Price ({{wallets.rel.ticker }})
+                    <v-hover>
+                      <template v-slot:default="{ isHovering, props }">
+                         <span v-bind="props">
+                             Price ({{wallets.rel.ticker }})
+                          <v-icon :style="{ opacity: isSorted(column) ? 1 : (isHovering ? 0.5 : 0) }" :icon="getSortIcon(column)"></v-icon>
+                        </span>
+                      </template>
+                  </v-hover>
               </template>
 
               <template v-slot:column.maxvolume="{ header }">
