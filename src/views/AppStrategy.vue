@@ -4,7 +4,7 @@
       <!-- <v-btn color="success" class="mt-12" @click="overlay = !overlay">Show Overlay</v-btn> -->
 
       <v-overlay :absolute="true" :model-value="overlay" contained persistent class="align-center justify-center">
-        <v-btn color="warning" @click="setOverlay(false)">No Automation</v-btn>
+        <v-btn color="warning" @click="doNothing(false)">No Automation</v-btn>
       </v-overlay>
     </v-row>
 
