@@ -1,106 +1,86 @@
 <template>
-  <v-main>
-  <div style="margin-top: 20px;" >
-    <div>
-      <!-- <Description v-on:mmenable="mmenable()" v-bind="wallets" /> -->
-
-      <div>
-        <div>
-          <v-row no-gutters>
-            <v-toolbar color="white" flat>
-              <v-toolbar-title>Trading</v-toolbar-title>
-
-              <v-divider class="mx-4" vertical></v-divider>
-              <h2>{{ wallets.base.ticker + " / " + wallets.rel.ticker}}</h2>
-              <v-chip
-                class="ma-2"
-                color="success"
-                outlined
-                @click="invertbase(wallets.base.ticker, wallets.rel.ticker)"
-              >
-                <v-icon left>mdi-server-plus</v-icon>INVERT
-              </v-chip>
-              <v-btn v-if="!ammdisabled" depressed small color="success">Automated</v-btn>
-              <v-btn v-else depressed small color="error">No Automation</v-btn>
-              <FiatPrice v-bind:wallets="wallets" v-on:refresh-fiat="handleRefreshFiat" ref="refFiatInfo"></FiatPrice>
-
-              <v-toolbar-items class="hidden-sm-and-down">
-                <v-divider vertical></v-divider>
-                <template v-if="!ammdisabled">
-                  <v-btn rounded depressed dark large color="red" > <!-- @click="dismmenable"> -->
-                    <h3>Disable Automation</h3>
-                  </v-btn>
-                </template>
-                <template v-else>
-                  <v-btn rounded depressed dark large color="green" > <!-- @click="dismmenable"> -->
-                    <h3>Enable Automation</h3>
-                  </v-btn>
-                </template>
-                <v-divider vertical></v-divider>
-              </v-toolbar-items>
-
-              <v-app-bar-nav-icon></v-app-bar-nav-icon>
-            </v-toolbar>
-          </v-row>
-        </div>
-        <v-card-text color="blue">
-          <div>
-            CURRENT STRATEGY: {{ currentStrategyInfo}}
-            <!-- <v-btn text color="deep-purple accent-4">Learn More</v-btn> -->
-          </div>
-          <!-- <v-card-title> {{ currentStrategyInfo }} </v-card-title>
+    <v-main>
+        <div style="margin-top: 20px;">
+            <div>
+                <!-- <Description v-on:mmenable="mmenable()" v-bind="wallets" /> -->
+                <div>
+                    <div>
+                        <v-row no-gutters>
+                            <v-toolbar color="white" flat>
+                                <v-toolbar-title>Trading</v-toolbar-title>
+                                <v-divider class="mx-4" vertical></v-divider>
+                                <h2>{{ wallets.base.ticker + " / " + wallets.rel.ticker}}</h2>
+                                <v-chip class="ma-2" color="success" outlined @click="invertbase(wallets.base.ticker, wallets.rel.ticker)">
+                                    <v-icon left>mdi-server-plus</v-icon>                                                                        INVERT
+                                </v-chip>
+                                <v-btn v-if="!ammdisabled" depressed small color="success">Automated</v-btn>
+                                <v-btn v-else depressed small color="error">No Automation</v-btn>
+                                <FiatPrice v-bind:wallets="wallets" v-on:refresh-fiat="handleRefreshFiat" ref="refFiatInfo"></FiatPrice>
+                                <v-toolbar-items class="hidden-sm-and-down">
+                                    <v-divider vertical></v-divider>
+                                    <template v-if="!ammdisabled">
+                                        <v-btn rounded depressed dark large color="red"> 
+                                            <!-- @click="dismmenable"> -->
+                                            <h3>Disable Automation</h3>
+                                        </v-btn>
+                                    </template>
+                                    <template v-else>
+                                        <v-btn rounded depressed dark large color="green"> 
+                                            <!-- @click="dismmenable"> -->
+                                            <h3>Enable Automation</h3>
+                                        </v-btn>
+                                    </template>
+                                    <v-divider vertical></v-divider>
+                                </v-toolbar-items>
+                                <v-app-bar-nav-icon></v-app-bar-nav-icon>
+                            </v-toolbar>
+                        </v-row>
+                    </div>
+                    <v-card-text color="blue">
+                        <div>
+                            CURRENT STRATEGY: {{ currentStrategyInfo}}
+                            <!-- <v-btn text color="deep-purple accent-4">Learn More</v-btn> -->
+                        </div>
+                        <!-- <v-card-title> {{ currentStrategyInfo }} </v-card-title>
           <p class="display-1 text--primary">{{currentStrategyInfo}}</p>-->
-        </v-card-text>
-        <!-- <CurrentStrategies /> -->
-      </div>
-
-      <v-divider class="mx-4 pb-5"></v-divider>
-      <v-layout style="width: 100%;">
-        <v-flex md6 lg6>
-          <v-row class="px-4">
-            <v-col>
-              <WalletInfo v-bind:wallets="wallets" v-on:refresh-balances="handleRefreshBalances" ref="refWalletInfo" />
-            </v-col>
-          </v-row>
-          <v-row class="px-4 pb-6">
-            <v-col>
-              <MyOrders v-bind:myOrders="myOrders" v-bind:myOrdersThisMarket="myOrdersThisMarket" v-on:refresh-myorders="handleRefreshMyOrders" 
-                        v-on:cancel-order="handleCancelOrder" 
-                        v-on:cancel-all-orders="handleCancelAllOrders" 
-                        v-on:myOrdersResponse="handleMyOrders" ref="myordersref" />
-            </v-col>
-          </v-row>
-<!-- mePrivate and mePublic are set in .env* files of the root of the webapp project and read in at runtime -->
-<div v-if="mePrivate == 'true' && mePublic == 'false'"> 
-          <v-row class="px-4 pb-6">
-            <v-col>
-              <SingleOrder
-                v-on:orderResponse="orderResponse"
-                v-bind:wallets="wallets"
-                v-on:sell-base="handleSellBase"
-                v-on:buy-base="handleBuyBase"
-                v-on:ordersize-pc="handleOrdersizePC"
-                ref="refSingleOrder"
-              />
-            </v-col>
-          </v-row>
-</div>
-        </v-flex>
-        <v-flex md6 lg6>
-          <v-row class="px-4">
-            <v-col>
-              <MarketData v-bind:wallets="wallets" v-bind:marketdata="marketOrders" v-bind:myOrdersThisMarket="myOrdersThisMarket" ref="refMarketData" v-on:refresh-market="handleRefreshMarket" />
-            </v-col>
-          </v-row>
-
-          <v-row class="px-4">
-            <v-col>
-              <AutomatedMarketMaking v-bind:overlay="ammdisabled" ref="amm" />
-            </v-col>
-          </v-row>
-        </v-flex>
-
-        <!-- <v-flex md6 lg6>
+                    </v-card-text>
+                    <!-- <CurrentStrategies /> -->
+                </div>
+                <v-divider class="mx-4 pb-5"></v-divider>
+                <v-layout style="width: 100%;">
+                    <v-flex md6 lg6 class="flex-grow-1 flex-shrink-1">
+                        <v-row class="px-4">
+                            <v-col>
+                                <WalletInfo v-bind:wallets="wallets" v-on:refresh-balances="handleRefreshBalances" ref="refWalletInfo"/>
+                            </v-col>
+                        </v-row>
+                        <v-row class="px-4 pb-6">
+                            <v-col>
+                                <MyOrders v-bind:myOrders="myOrders" v-bind:myOrdersThisMarket="myOrdersThisMarket" v-on:refresh-myorders="handleRefreshMyOrders" v-on:cancel-order="handleCancelOrder" v-on:cancel-all-orders="handleCancelAllOrders" v-on:myOrdersResponse="handleMyOrders" ref="myordersref"/>
+                            </v-col>
+                        </v-row>
+                        <!-- mePrivate and mePublic are set in .env* files of the root of the webapp project and read in at runtime -->
+                        <div v-if="mePrivate == 'true' && mePublic == 'false'"> 
+                            <v-row class="px-4 pb-6">
+                                <v-col>
+                                    <SingleOrder v-on:orderResponse="orderResponse" v-bind:wallets="wallets" v-on:sell-base="handleSellBase" v-on:buy-base="handleBuyBase" v-on:ordersize-pc="handleOrdersizePC" ref="refSingleOrder"/>
+                                </v-col>
+                            </v-row>
+                        </div>
+                    </v-flex>
+                    <v-flex md6 lg6 class="flex-grow-1 flex-shrink-1">
+                        <v-row class="px-4">
+                            <v-col>
+                                <MarketData v-bind:wallets="wallets" v-bind:marketdata="marketOrders" v-bind:myOrdersThisMarket="myOrdersThisMarket" ref="refMarketData" v-on:refresh-market="handleRefreshMarket"/>
+                            </v-col>
+                        </v-row>
+                        <v-row class="px-4">
+                            <v-col>
+                                <AutomatedMarketMaking v-bind:overlay="ammdisabled" ref="amm"/>
+                            </v-col>
+                        </v-row>
+                    </v-flex>
+                    <!-- <v-flex md6 lg6>
           <v-row class="px-4">
             <v-col>
               <h2>My Market Maker Orders</h2>
@@ -130,11 +110,11 @@
             </v-col>
           </v-row>
         </v-flex>-->
-      </v-layout>
-    </div>
-  </div>
-</v-main>
-<router-view></router-view>
+                </v-layout>
+            </div>
+        </div>
+    </v-main>
+    <router-view></router-view>
 </template>
 <script>
 import axios from "axios"
