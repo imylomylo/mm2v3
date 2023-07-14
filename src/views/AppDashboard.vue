@@ -1,51 +1,47 @@
 <template>
-  <v-main style="margin-top: 5%;">
-    <v-layout>
-      <v-flex md6 lg6>
-        <v-row class="px-4">
-          <v-col>
-            <DashboardWalletInfo ref="dashboardWallets" :wallets="allwallets" @update-allwallets="updateAllWallets"/>
-          </v-col>
-        </v-row>
-      </v-flex>
-      <v-flex md6 lg6>
-        <v-row class="px-4">
-          <v-col>
-            <AppStrategy />
-          </v-col>
-        </v-row>
-        <v-row class="px-4">
-          <v-col>
-            <AppExport v-bind:swapHistory="recentSwaps" v-on:get-swap-history="handleGetSwapHistory" v-on:hide-swap-history="handleHideSwapHistory" v-on:save-json="handleSaveJSON"/>
-          </v-col>
-        </v-row>
-        <v-row class="px-4">
-          <v-col>
-<!--
+    <v-main style="margin-top: 5%;">
+        <v-layout>
+            <v-flex md6 lg6 class="flex-grow-1 flex-shrink-1">
+                <v-row class="px-4">
+                    <v-col>
+                        <DashboardWalletInfo ref="dashboardWallets" :wallets="allwallets" @update-allwallets="updateAllWallets"/>
+                    </v-col>
+                </v-row>
+            </v-flex>
+            <v-flex md6 lg6 class="flex-grow-1 flex-shrink-1">
+                <v-row class="px-4">
+                    <v-col>
+                        <AppStrategy/>
+                    </v-col>
+                </v-row>
+                <v-row class="px-4">
+                    <v-col>
+                        <AppExport v-bind:swapHistory="recentSwaps" v-on:get-swap-history="handleGetSwapHistory" v-on:hide-swap-history="handleHideSwapHistory" v-on:save-json="handleSaveJSON"/>
+                    </v-col>
+                </v-row>
+                <v-row class="px-4">
+                    <v-col>
+                        <!--
 not sure if something needed from this definition of component, keeping as comment for now
               <MyOrders v-bind:myOrders="myOrders" v-bind:myOrdersThisMarket="myOrdersThisMarket" v-on:refresh-myorders="handleRefreshMyOrders" 
                         v-on:cancel-order="handleCancelOrder" 
                         v-on:cancel-all-orders="handleCancelAllOrders" 
                         v-on:myOrdersResponse="handleMyOrders" ref="myordersref" />
 -->
-
-              <MyOrders v-bind:myOrders="myOrders" v-bind:myOrdersThisMarket="[]" v-on:refresh-myorders="handleRefreshMyOrders" 
-                        v-on:cancel-order="handleCancelOrder" 
-                        v-on:cancel-all-orders="handleCancelAllOrders" 
-                        ref="myordersref" />
-          </v-col>
-        </v-row>
-<!--
+                        <MyOrders v-bind:myOrders="myOrders" v-bind:myOrdersThisMarket="[]" v-on:refresh-myorders="handleRefreshMyOrders" v-on:cancel-order="handleCancelOrder" v-on:cancel-all-orders="handleCancelAllOrders" ref="myordersref"/>
+                    </v-col>
+                </v-row>
+                <!--
         <v-row class="px-4">
           <v-col>
             <NewComponent />
           </v-col>
         </v-row>
 -->
-      </v-flex>
-    </v-layout>
-    <router-view></router-view>
-  </v-main>
+            </v-flex>
+        </v-layout>
+        <router-view></router-view>
+    </v-main>
 </template>
 <script>
 import axios from "axios"
