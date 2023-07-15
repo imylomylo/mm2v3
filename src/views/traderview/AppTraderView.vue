@@ -7,7 +7,7 @@
                     <div>
                         <v-row no-gutters>
                             <v-toolbar color="white" flat>
-                                <v-toolbar-title style="width: max-content;">Trading</v-toolbar-title>
+                                <v-toolbar-title style="width:fit-content;">Trading</v-toolbar-title>
                                 <v-divider class="mx-4" vertical></v-divider>
                                 <h2>{{ wallets.base.ticker + " / " + wallets.rel.ticker}}</h2>
                                 <v-chip class="ma-2" color="success" outlined @click="invertbase(wallets.base.ticker, wallets.rel.ticker)">
