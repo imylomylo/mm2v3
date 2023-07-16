@@ -14,8 +14,8 @@
                                     <v-icon left>mdi-server-plus</v-icon> 
                                     INVERT
                                 </v-chip>
-                                <v-btn v-if="!ammdisabled" depressed small color="success">Automated</v-btn>
-                                <v-btn v-else depressed small color="error">No Automation</v-btn>
+                                <v-btn v-if="!ammdisabled" depressed small style="color:white; background-color: green;">Automated</v-btn>
+                                <v-btn v-else depressed small style="color:white; background-color: red;">No Automation</v-btn>
                                 <FiatPrice v-bind:wallets="wallets" v-on:refresh-fiat="handleRefreshFiat" ref="refFiatInfo"></FiatPrice>
                                 <v-toolbar-items class="hidden-sm-and-down">
                                     <v-divider vertical></v-divider>
