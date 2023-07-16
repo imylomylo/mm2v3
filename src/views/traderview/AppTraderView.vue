@@ -126,6 +126,7 @@ import WalletInfo from "./WalletInfo.vue"
 import AutomatedMarketMaking from "./AutomatedMarketMaking.vue"
 import SingleOrder from "./SingleOrder.vue"
 import MarketData from "./MarketData.vue"
+import { ref } from "vue"
 
 
 
@@ -165,7 +166,7 @@ export default {
           fiat: 'NONE'
         }
       },
-      ammdisabled: true,
+      ammdisabled: ref(true),
       //currentStrategyInfo: "ONLY BUY KMD, 1.8% SPREAD WITH 10% ORDER SIZE",
       currentStrategyInfo: "NO AUTOMATION",
       activeCoins: [],
