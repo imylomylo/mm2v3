@@ -26,7 +26,7 @@
                                         </v-btn>
                                     </template>
                                     <template v-else>
-                                        <v-btn rounded depressed dark large style="color: white; background-color: green;"> 
+                                        <v-btn rounded depressed dark large style="color: white; background-color: green;" @click="mmenable()"> 
                                             <!-- @click="dismmenable"> -->
                                             <h3>Enable Automation</h3>
                                         </v-btn>
@@ -77,7 +77,7 @@
                         </v-row>
                         <v-row class="px-4">
                             <v-col>
-                                <AutomatedMarketMaking v-bind:overlay="ammdisabled=false" ref="amm"/>
+                                <AutomatedMarketMaking v-bind:overlay="ammdisabled" ref="amm"/>
                             </v-col>
                         </v-row>
                     </v-flex>
