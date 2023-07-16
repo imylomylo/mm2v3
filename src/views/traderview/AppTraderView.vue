@@ -9,7 +9,7 @@
                             <v-toolbar color="white" flat>
                                 <v-toolbar-title style="width:fit-content;">Trading</v-toolbar-title>
                                 <v-divider vertical></v-divider>
-                                <h2>{{ wallets.base.ticker + " / " + wallets.rel.ticker}}</h2>
+                                <h2 style="margin-left: auto;">{{ wallets.base.ticker + " / " + wallets.rel.ticker}}</h2>
                                 <v-chip class="ma-2" color="success" outlined @click="invertbase(wallets.base.ticker, wallets.rel.ticker)">
                                     <v-icon left>mdi-server-plus</v-icon>                                                                        INVERT
                                 </v-chip>
