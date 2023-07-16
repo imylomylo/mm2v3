@@ -36,7 +36,7 @@
             </v-fade-transition>
           </v-col>
           <v-col class="text-right">
-            <v-btn dark depressed fab @click="toggle()">
+            <v-btn color="indigo" dark depressed fab @click="toggle()">
               <v-icon rounded :class="{ 'mdi-play': !isPlaying, 'mdi-pause': isPlaying }"></v-icon>
             </v-btn>
           </v-col>
