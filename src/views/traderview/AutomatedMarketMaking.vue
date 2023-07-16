@@ -37,7 +37,7 @@
           </v-col>
           <v-col class="text-right">
             <v-btn :color="mmcolor" dark depressed fab @click="toggle">
-              <v-icon large>{{ isPlaying ? 'pause' : 'play_arrow' }}</v-icon>
+              <v-icon large>{{ isPlaying ? 'pause' : 'play' }}</v-icon>
             </v-btn>
           </v-col>
         </v-row>
