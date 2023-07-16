@@ -38,7 +38,6 @@
           <v-col class="text-right">
             <v-btn :color="mmcolor" dark depressed fab @click="toggle">
               <v-icon large>{{ isPlaying ? 'pause' : 'play_arrow' }}</v-icon>
-              Make visible
             </v-btn>
           </v-col>
         </v-row>
@@ -92,7 +91,7 @@ export default {
       ordersize: 10,
       overlay: ref(true),
       interval: null,
-      isPlaying: false,
+      isPlaying: ref(false),
       mmcolor: "indigo"
     };
   },
