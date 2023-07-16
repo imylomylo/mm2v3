@@ -36,7 +36,7 @@
             </v-fade-transition>
           </v-col>
           <v-col class="text-right">
-            <v-btn :color="mmcolor" dark depressed fab @click="toggle">
+            <v-btn :color="mmcolor" dark depressed fab @click="toggle()">
               <v-icon large>{{ isPlaying ? 'pause' : 'play' }}</v-icon>
             </v-btn>
           </v-col>
