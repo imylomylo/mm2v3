@@ -25,7 +25,7 @@
                                         </v-btn>
                                     </template>
                                     <template v-else>
-                                        <v-btn rounded depressed dark large color="green"> 
+                                        <v-btn rounded depressed dark large style="color: white; background-color: green;"> 
                                             <!-- @click="dismmenable"> -->
                                             <h3>Enable Automation</h3>
                                         </v-btn>
