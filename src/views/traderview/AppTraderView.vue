@@ -11,7 +11,8 @@
                                 <v-divider vertical margin-left="10px"></v-divider>
                                 <h2 style="margin-left: 10px;">{{ wallets.base.ticker + " / " + wallets.rel.ticker}}</h2>
                                 <v-chip class="ma-2" color="success" outlined @click="invertbase(wallets.base.ticker, wallets.rel.ticker)">
-                                    <v-icon left>mdi-server-plus</v-icon>                                                                        INVERT
+                                    <v-icon left>mdi-server-plus</v-icon> 
+                                    INVERT
                                 </v-chip>
                                 <v-btn v-if="!ammdisabled" depressed small color="success">Automated</v-btn>
                                 <v-btn v-else depressed small color="error">No Automation</v-btn>
@@ -76,7 +77,7 @@
                         </v-row>
                         <v-row class="px-4">
                             <v-col>
-                                <AutomatedMarketMaking v-bind:overlay="ammdisabled" ref="amm"/>
+                                <AutomatedMarketMaking v-bind:overlay="ammdisabled=false" ref="amm"/>
                             </v-col>
                         </v-row>
                     </v-flex>
