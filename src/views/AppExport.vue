@@ -3,7 +3,7 @@
         <v-overlay :absolute="true" :model-value="overlay" contained persistent class="align-center justify-center">
             <v-btn color="warning" @click="show(true)">Swap History</v-btn>
         </v-overlay>
-        <v-toolbar flat dense color="indigo">
+        <v-toolbar flat dense color="#ECEFF1">
             <v-toolbar-title>
                 <span class="subheading">Recent Swaps</span>
             </v-toolbar-title>

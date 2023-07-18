@@ -8,7 +8,7 @@
       </v-overlay>
     </v-row>
     <div>
-      <v-toolbar flat dense color="indigo" style="height: 80px;">
+      <v-toolbar flat dense color="#ECEFF1" style="height: 80px;">
         <v-toolbar-title style="margin-top: 40px;">
           <span class="subheading">Automated Market Making</span>
         </v-toolbar-title>
