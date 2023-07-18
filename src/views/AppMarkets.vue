@@ -97,13 +97,13 @@ REL COIN (e.g. BTC)
 </template>
 <script>
 import axios from 'axios';
-
+import {ref} from 'vue'
 export default {
   name: "Markets",
   // props: ['rows'],
   data: function() {
     return {
-      componentKey: 0,
+      componentKey: ref(0),
       newmarket: { 
         base: { 
           ticker: '',
@@ -322,7 +322,7 @@ export default {
       console.log("market selected going to trader view: " + this.newmarket.base.ticker + "/" + this.newmarket.rel.ticker);
       this.$emit("closeDialog");
       // window.location.href = "/traderview?base=" + base + "&rel=" + rel;
-      //this.$router.push("/traderview?base=" + this.base + "&rel=" + this.rel);
+      this.$router.push("/traderview?base=" + this.base + "&rel=" + this.rel);
       // this.$router.push({
       //   name: "TraderView",
       //   query: {

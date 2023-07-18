@@ -48,6 +48,7 @@
 
 <script>
 import AppMarkets from './views/AppMarkets.vue'
+import {ref} from 'vue'
 
 export default {
   name: 'App',
@@ -67,8 +68,8 @@ export default {
       this.componentKey += 1
       this.dialog = !this.dialog
       
-      this.$router.push("/traderview/RICK/MORTY");
-      //this.$router.push("/traderview?base=" + base + "&rel=" +rel); 
+      //this.$router.push("/traderview/RICK/MORTY");
+      this.$router.push("/traderview?base=" + base + "&rel=" +rel); 
       //window.location.href='/traderview/'+base+'/'+rel;
     },
     doAction: function(command) {
@@ -78,7 +79,7 @@ export default {
   data: () => ({
     appName: 'OrderBook Live',
     base: '',  
-    componentKey: 0,
+    componentKey: ref(0),
     dialog: false,
     drawer: false,
     items: [
