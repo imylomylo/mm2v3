@@ -20,13 +20,13 @@
                                 <v-toolbar-items class="hidden-sm-and-down">
                                     <v-divider vertical></v-divider>
                                     <template v-if="!ammdisabled">
-                                        <v-btn rounded depressed dark large style="color:white; background-color: red;" @click="mmenable()"> 
+                                        <v-btn rounded depressed dark large style="color:white; background-color: red;"> 
                                             <!-- @click="dismmenable"> -->
                                             <h3>Disable Automation</h3>
                                         </v-btn>
                                     </template>
                                     <template v-else>
-                                        <v-btn rounded depressed dark large style="color: white; background-color: green;" @click="mmenable()"> 
+                                        <v-btn rounded depressed dark large style="color: white; background-color: green;"> 
                                             <!-- @click="dismmenable"> -->
                                             <h3>Enable Automation</h3>
                                         </v-btn>
