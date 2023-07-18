@@ -7,7 +7,7 @@
       <div class="flex-grow-1"></div>
       <v-chip
         class="ma-2"
-        color="white"
+        color="#9D29B1"
         outlined
         @click="refreshMarket()"
       >
