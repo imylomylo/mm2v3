@@ -20,7 +20,7 @@
       </v-chip>
     </v-toolbar>
     <v-divider class="mx-4"></v-divider>
-    <v-table fixed-header height="auto" bordered style="position: absolute;">
+    <v-table fixed-header height="auto" bordered>
       <thead>
         <tr>
           <th>TICKER</th>
