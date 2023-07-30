@@ -11,7 +11,7 @@
       <v-divider class="mx-4"></v-divider>
 
       <v-form ref="form" background-color="white">
-        <v-text-field v-model="price" :label="priceInOtherCoinLabel()" required></v-text-field>
+        <v-text-field style="background-color: white;" v-model="price" :label="priceInOtherCoinLabel()" required></v-text-field>
         <v-text-field v-model="amount" :label="amountInBaseCoinLabel()" required></v-text-field>
         <v-card-text>
           <v-chip-group
@@ -32,7 +32,7 @@
             
             Buy {{ amount }} {{ wallets.base.ticker }}
           </v-chip>
-          <v-chip class="ma-2" color="red" dark @click="sellBase(wallets.base.ticker)">
+          <v-chip class="ma-2" style="color:white; background-color: red;" dark @click="sellBase(wallets.base.ticker)">
             
             Sell {{ amount }} {{ wallets.base.ticker }}
           </v-chip>
