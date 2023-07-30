@@ -8,7 +8,7 @@
         <div class="flex-grow-1"></div>
 <!-- mePrivate and mePublic are set in .env* files of the root of the webapp project and read in at runtime -->
 <div v-if="mePrivate == 'true' && mePublic == 'false'">
-        <v-chip class="ma-2" color="red" outlined @click="cancelAllOrders()">
+        <v-chip class="ma-2" style="color:red; outline-color: red; background-color: transparent;" outlined @click="cancelAllOrders()">
           Cancel All
         </v-chip>
 </div>
