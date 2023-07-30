@@ -20,7 +20,8 @@
       </v-chip>
     </v-toolbar>
     <v-divider class="mx-4"></v-divider>
-    <v-table fixed-header height="auto" bordered>
+    <div style="width: 500px;">
+    <v-table style="min-width: 500px;" fixed-header height="auto" bordered>
       <thead>
         <tr>
           <th>TICKER</th>
@@ -87,6 +88,7 @@
         </tr>
       </tbody>
     </v-table>
+    </div>
     <v-overlay opacity="0.88" :absolute="false" :model-value="depositOverlay" persistent class="align-center justify-center">
       {{ depositTicker }}: {{ depositAddress }}
       <div style="align-items: center; margin: auto;">
