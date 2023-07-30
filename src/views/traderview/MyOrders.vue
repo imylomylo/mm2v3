@@ -9,7 +9,7 @@
 <!-- mePrivate and mePublic are set in .env* files of the root of the webapp project and read in at runtime -->
 <div v-if="mePrivate == 'true' && mePublic == 'false'">
         <v-chip class="ma-2" color="red" outlined @click="cancelAllOrders()">
-          <v-icon left>mdi-server-plus</v-icon>Cancel All
+          Cancel All
         </v-chip>
 </div>
       </v-toolbar>
