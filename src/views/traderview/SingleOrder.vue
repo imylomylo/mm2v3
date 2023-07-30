@@ -10,13 +10,12 @@
 
       <v-divider class="mx-4"></v-divider>
 
-      <v-form ref="form" background-color="white">
+      <v-form ref="form">
         <v-text-field style="background-color: white;" v-model="price" :label="priceInOtherCoinLabel()" required></v-text-field>
         <v-text-field v-model="amount" :label="amountInBaseCoinLabel()" required></v-text-field>
         <v-card-text>
           <v-chip-group
-            class="justify-space-around"
-            active-class="deep-purple accent-4 white--text"
+            
             column
           >
             <v-chip @click="ordersize_pc(5)">5%</v-chip>
