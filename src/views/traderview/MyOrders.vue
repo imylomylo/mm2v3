@@ -46,8 +46,8 @@
                   </v-chip>-->
 <!-- mePrivate and mePublic are set in .env* files of the root of the webapp project and read in at runtime -->
 <div v-if="mePrivate == 'true' && mePublic == 'false'">
-                  <v-chip class="ma-2" color="red" dark @click="cancelOrder(tidyMarketOrders[row].uuid)">
-                    <v-icon left>mdi-server-plus</v-icon>Cancel
+                  <v-chip class="ma-2" color="red" style="color: white;" dark @click="cancelOrder(tidyMarketOrders[row].uuid)">
+                    Cancel
                   </v-chip>
 </div>
                 </div>
