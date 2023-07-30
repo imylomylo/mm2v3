@@ -1,7 +1,7 @@
 <template>
 <v-main>
  <v-card max-width="auto" class="mx-auto">
-    <v-toolbar flat dense color="#ECEFF1" style="position: fixed;">
+    <v-toolbar flat dense color="#ECEFF1">
       <v-toolbar-title>
         <span class="subheading">Wallets</span>
       </v-toolbar-title>
