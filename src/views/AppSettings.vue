@@ -95,19 +95,19 @@ export default {
       pagination: {},
       headers: [
         {
-          text: "Coin",
+          title: "Coin",
           align: "left",
           sortable: false,
-          value: "ticker"
+          key: "ticker"
         },
-        { text: "CMCID", value: "cmcid" },
-        { text: "Binance", value: "ticker" },
-        { text: "CEX Price", value: "cexprice" },
-        { text: "Paprika", value: "papid" },
-        { text: "Pap Price", value: "papprice" },
-        { text: "Bid Margin", value: "bidmargin" },
-        { text: "Ask Margin", value: "askmargin" },
-        { text: "Quantity", value: "quantity" }
+        { title: "CMCID", key: "cmcid" },
+        { title: "Binance", key: "ticker" },
+        { title: "CEX Price", key: "cexprice" },
+        { title: "Paprika", key: "papid" },
+        { title: "Pap Price", key: "papprice" },
+        { title: "Bid Margin", key: "bidmargin" },
+        { title: "Ask Margin", key: "askmargin" },
+        { title: "Quantity", key: "quantity" }
       ]
     };
   },
