@@ -1,4 +1,6 @@
 <template>
+  <v-app>
+    
   <div>
     <h2>{{ appName }}</h2>
 
@@ -71,6 +73,7 @@
       </v-snackbar>
     </div>
   </div>
+  </v-app>
 </template>
 <script>
 import axios from "axios";
