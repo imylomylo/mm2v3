@@ -14,6 +14,10 @@
         <h3>Markets</h3>
         <v-icon class="px-2">mdi-apps</v-icon>
       </v-btn>
+      <v-btn rounded depressed dark large color="white" @click="gotoSettings()">
+        <h3>Settings</h3>
+        <v-icon class="px-2">mdi-settings</v-icon>
+      </v-btn>
     </v-app-bar>
     <v-dialog v-model="dialog" fullscreen hide-overlay transition="dialog-bottom-transition">
       <v-card>
@@ -61,6 +65,9 @@ export default {
   methods: {
     gotoHome() {
       this.$router.push('/')
+    },
+    gotoSettings() {
+      this.$router.push('/settings')
     },
     gotoMarket: function() {
       // console.log("Going to new market..." + base + "/")// + rel)
