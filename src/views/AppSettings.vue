@@ -1,7 +1,7 @@
 <template>
   <v-app>
     
-  <div>
+  <div style="margin-top: 100px;">
     <h2>{{ appName }}</h2>
 
     <v-btn
