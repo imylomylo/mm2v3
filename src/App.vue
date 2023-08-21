@@ -16,7 +16,7 @@
       </v-btn>
       <v-btn rounded depressed dark large color="white" @click="gotoSettings()">
         <h3>Settings</h3>
-        <v-icon class="px-2">mdi-setting</v-icon>
+        <v-icon class="px-2"><mdi-setting></mdi-setting></v-icon>
       </v-btn>
     </v-app-bar>
     <v-dialog v-model="dialog" fullscreen hide-overlay transition="dialog-bottom-transition">
