@@ -16,7 +16,7 @@
     </v-btn>
 
     <div>
-      <v-table :headers="headers" :items="configService">
+      <v-data-table :headers="headers" :items="configService">
         <template v-slot:item.bidmargin="props">
           <v-edit-dialog
             :return-value.sync="props.item.bidmargin"
@@ -65,7 +65,7 @@
             </template>
           </v-edit-dialog>
         </template>
-      </v-table>
+      </v-data-table>
 
       <v-snackbar v-model="snack" :timeout="3000" :color="snackColor">
         {{ snackText }}
@@ -77,9 +77,13 @@
 </template>
 <script>
 import axios from "axios";
+import { VDataTable } from 'vuetify/labs/VDataTable';
 
 export default {
   name: "AppSettings",
+  components: {
+    VDataTable,
+  },
   data: function() {
     return {
       appName: "Settings",
