@@ -78,6 +78,7 @@
 <script>
 import axios from "axios";
 import { VDataTable } from 'vuetify/labs/VDataTable';
+import { ref } from "vue";
 
 export default {
   name: "AppSettings",
@@ -87,12 +88,12 @@ export default {
   data: function() {
     return {
       appName: "Settings",
-      loading5: false,
+      loading5: ref(false),
       loader: null,
       configService: [],
       supportedCoins: "",
       customerrors: [],
-      snack: false,
+      snack: ref(false),
       snackColor: "",
       snackText: "",
       max25chars: v => v.length <= 25 || "Input too long!",
@@ -117,17 +118,17 @@ export default {
   },
   methods: {
     save() {
-      this.snack = true;
+      this.snack = ref(true);
       this.snackColor = "success";
       this.snackText = "Data saved";
     },
     cancel() {
-      this.snack = true;
+      this.snack = ref(true);
       this.snackColor = "error";
       this.snackText = "Canceled";
     },
     open() {
-      this.snack = true;
+      this.snack = ref(true);
       this.snackColor = "info";
       this.snackText = "Dialog opened";
     },
