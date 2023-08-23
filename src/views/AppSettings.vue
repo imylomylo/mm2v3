@@ -75,9 +75,13 @@
 <script>
 import axios from "axios";
 import { ref } from "vue";
+import {VDataTable} from "vuetify/labs/VDataTable";
 
 export default {
   name: "AppSettings",
+  components:{
+    VDataTable,
+  },
   data() {
     return {
       appName: "Settings",
