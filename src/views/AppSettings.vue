@@ -1,8 +1,16 @@
 <template>
   <v-app>
+    <v-card>
     <div style="margin-top: 100px;">
       <h2>{{ appName }}</h2>
-
+      <v-text-field
+      v-model="url"
+      label="Enter URL"
+      :rules="rules"
+      hide-details="auto"
+    ></v-text-field>
+    <v-btn @click="submitForm"> Submit </v-btn>
+    <v-snackbar v-model="snackbar1"> URL submitted Successfully</v-snackbar>
       <v-btn
         :loading="loading5"
         :disabled="loading5"
@@ -69,6 +77,7 @@
         </v-snackbar>
       </div>
     </div>
+    </v-card>
   </v-app>
 </template>
 
@@ -85,8 +94,14 @@ export default {
   data() {
     return {
       appName: "Settings",
+      rules: [
+        value => !!value || 'Required.',
+        value => (value && value.length >= 3) || 'Min 3 characters',
+      ],
+      url: '',
       loading5: ref(false),
-      loader: null,
+      loader: ref(null),
+      snackbar1: ref(false),
       configService: [],
       supportedCoins: "",
       customerrors: [],
@@ -114,6 +129,10 @@ export default {
     };
   },
   methods: {
+    submitForm() {
+      this.url = '';
+      this.snackbar1 = true;
+    },
     save() {
       this.snack = ref(true);
       this.snackColor = "success";
