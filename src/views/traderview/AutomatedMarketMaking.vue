@@ -8,7 +8,7 @@
       </v-overlay>
     </v-row>
     <div>
-      <v-toolbar flat dense color="indigo" style="height: 80px;">
+      <v-toolbar flat dense color="#ECEFF1" style="height: 80px;">
         <v-toolbar-title style="margin-top: 40px;">
           <span class="subheading">Automated Market Making</span>
         </v-toolbar-title>
@@ -36,9 +36,8 @@
             </v-fade-transition>
           </v-col>
           <v-col class="text-right">
-            <v-btn :color="mmcolor" dark depressed fab @click="toggle">
-              <v-icon large>{{ isPlaying ? 'pause' : 'play_arrow' }}</v-icon>
-              Make visible
+            <v-btn color="indigo" rounded dark depressed @click="toggle()">
+              <v-icon :class="{ 'mdi-play': !isPlaying, 'mdi-pause': isPlaying }" @click="toggle()"></v-icon>
             </v-btn>
           </v-col>
         </v-row>
@@ -92,7 +91,7 @@ export default {
       ordersize: 10,
       overlay: ref(true),
       interval: null,
-      isPlaying: false,
+      isPlaying: ref(false),
       mmcolor: "indigo"
     };
   },

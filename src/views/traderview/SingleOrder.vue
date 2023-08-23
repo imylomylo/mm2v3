@@ -10,13 +10,11 @@
 
       <v-divider class="mx-4"></v-divider>
 
-      <v-form ref="form" background-color="white">
-        <v-text-field v-model="price" :label="priceInOtherCoinLabel()" required></v-text-field>
+      <v-form ref="form" style="background-color: white;">
+        <v-text-field style="background-color: white;" v-model="price" :label="priceInOtherCoinLabel()" required></v-text-field>
         <v-text-field v-model="amount" :label="amountInBaseCoinLabel()" required></v-text-field>
         <v-card-text>
-          <v-chip-group
-            class="justify-space-around"
-            active-class="deep-purple accent-4 white--text"
+          <v-chip-group     
             column
           >
             <v-chip @click="ordersize_pc(5)">5%</v-chip>
@@ -28,12 +26,12 @@
         </v-card-text>
         <v-text-field v-model="total" :label="totalInOtherCoinLabel()" required></v-text-field>
         <div class="text-center">
-          <v-chip class="ma-2" color="success" @click="buyBase(wallets.base.ticker)">
-            <v-icon left>mdi-server-plus</v-icon>
+          <v-chip class="ma-2" style="color:white; background-color: green;" @click="buyBase(wallets.base.ticker)">
+            
             Buy {{ amount }} {{ wallets.base.ticker }}
           </v-chip>
-          <v-chip class="ma-2" color="red" dark @click="sellBase(wallets.base.ticker)">
-            <v-icon left>mdi-server-plus</v-icon>
+          <v-chip class="ma-2" style="color:white; background-color: red;" dark @click="sellBase(wallets.base.ticker)">
+            
             Sell {{ amount }} {{ wallets.base.ticker }}
           </v-chip>
         </div>

@@ -97,13 +97,13 @@ REL COIN (e.g. BTC)
 </template>
 <script>
 import axios from 'axios';
-
+import {ref} from 'vue'
 export default {
   name: "Markets",
   // props: ['rows'],
   data: function() {
     return {
-      componentKey: 0,
+      componentKey: ref(0),
       newmarket: { 
         base: { 
           ticker: '',

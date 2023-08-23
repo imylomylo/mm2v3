@@ -14,6 +14,10 @@
         <h3>Markets</h3>
         <v-icon class="px-2">mdi-apps</v-icon>
       </v-btn>
+      <v-btn rounded depressed dark large color="white" @click="gotoSettings()">
+        <h3>Settings</h3>
+        <v-icon class="px-2">settings</v-icon>
+      </v-btn>
     </v-app-bar>
     <v-dialog v-model="dialog" fullscreen hide-overlay transition="dialog-bottom-transition">
       <v-card>
@@ -48,6 +52,7 @@
 
 <script>
 import AppMarkets from './views/AppMarkets.vue'
+import {ref} from 'vue'
 
 export default {
   name: 'App',
@@ -60,6 +65,9 @@ export default {
   methods: {
     gotoHome() {
       this.$router.push('/')
+    },
+    gotoSettings() {
+      this.$router.push('/settings')
     },
     gotoMarket: function() {
       // console.log("Going to new market..." + base + "/")// + rel)
@@ -78,7 +86,7 @@ export default {
   data: () => ({
     appName: 'OrderBook Live',
     base: '',  
-    componentKey: 0,
+    componentKey: ref(0),
     dialog: false,
     drawer: false,
     items: [

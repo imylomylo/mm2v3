@@ -1,15 +1,15 @@
 <template>
   <div>
     <v-card max-width="max-width" class="mx-auto" outlined>
-      <v-toolbar flat dense color="indigo">
+      <v-toolbar flat dense color="#ECEFF1">
         <v-toolbar-title>
           <span class="subheading">Orders For {{ meName || "This Node"}}</span>
         </v-toolbar-title>
         <div class="flex-grow-1"></div>
 <!-- mePrivate and mePublic are set in .env* files of the root of the webapp project and read in at runtime -->
 <div v-if="mePrivate == 'true' && mePublic == 'false'">
-        <v-chip class="ma-2" color="white" outlined @click="cancelAllOrders()">
-          <v-icon left>mdi-server-plus</v-icon>Cancel All
+        <v-chip class="ma-2" style="color:red; outline-color: red; background-color: transparent;" outlined @click="cancelAllOrders()">
+          Cancel All
         </v-chip>
 </div>
       </v-toolbar>
@@ -46,8 +46,8 @@
                   </v-chip>-->
 <!-- mePrivate and mePublic are set in .env* files of the root of the webapp project and read in at runtime -->
 <div v-if="mePrivate == 'true' && mePublic == 'false'">
-                  <v-chip class="ma-2" color="red" dark @click="cancelOrder(tidyMarketOrders[row].uuid)">
-                    <v-icon left>mdi-server-plus</v-icon>Cancel
+                  <v-chip class="ma-2" style="color: white; background-color: red;" dark @click="cancelOrder(tidyMarketOrders[row].uuid)">
+                    Cancel
                   </v-chip>
 </div>
                 </div>
