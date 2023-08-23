@@ -76,17 +76,12 @@
 <script>
 import axios from "axios";
 import { ref } from "vue";
-import { VDataTable, VEditDialog, VIcon, VTextField, VSnackbar, VBtn } from 'vuetify';
+import { VDataTable} from 'vuetify';
 
 export default {
   name: "AppSettings",
   components: {
     VDataTable,
-    VEditDialog,
-    VIcon,
-    VTextField,
-    VSnackbar,
-    VBtn,
   },
   data() {
     return {
