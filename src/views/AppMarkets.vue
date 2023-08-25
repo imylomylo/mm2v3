@@ -322,7 +322,7 @@ export default {
       console.log("market selected going to trader view: " + this.newmarket.base.ticker + "/" + this.newmarket.rel.ticker);
       this.$emit("closeDialog");
       // window.location.href = "/traderview?base=" + base + "&rel=" + rel;
-      //this.$router.push("/traderview?base=" + this.base + "&rel=" + this.rel);
+      this.$router.push("/traderview?base=" + this.base + "&rel=" + this.rel);
       // this.$router.push({
       //   name: "TraderView",
       //   query: {
