@@ -84,7 +84,7 @@ export default {
       this.componentKey += 1
       this.dialog = !this.dialog
       
-      //this.$router.push("/traderview/RICK/MORTY");
+      this.$router.push("/traderview/RICK/MORTY");
       //this.$router.push("/traderview?base=" + this.base + "&rel=" +this.rel); 
       //window.location.href='/traderview/'+base+'/'+rel;
     },

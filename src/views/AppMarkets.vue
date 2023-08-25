@@ -321,6 +321,9 @@ export default {
       this.newmarket.rel.ticker = rel
       console.log("market selected going to trader view: " + this.newmarket.base.ticker + "/" + this.newmarket.rel.ticker);
       this.$emit("closeDialog");
+      //this.$router.push({name: "TraderView", params: {base: base, rel: rel}})
+      //this.$forceUpdate()
+      //this.$router.go(this.$router.currentRoute)
       // window.location.href = "/traderview?base=" + base + "&rel=" + rel;
       //this.$router.push("/traderview?base=" + this.base + "&rel=" + this.rel);
       // this.$router.push({
@@ -332,9 +335,7 @@ export default {
       // });
       // window.location.href='/traderview?base='+base+'&rel='+rel
       // window.location.href='/traderview/'+base+'/'+rel;
-      this.$router.push({name: "TraderView", params: {base: base, rel: rel}})
-      //this.$forceUpdate()
-      this.$router.go(this.$router.currentRoute)
+      
 
       // this.forceRerender();
       // "http://" +
