@@ -94,7 +94,7 @@ export default {
   },
   data: () => ({
     appName: 'OrderBook Live',
-    base: ref(''),  
+    base: '',  
     componentKey: ref(0),
     dialog: ref(false),
     drawer: ref(false),
