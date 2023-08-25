@@ -43,6 +43,15 @@
         </v-list>
       </v-card>
     </v-dialog>
+    <v-navigation-drawer
+        v-model="drawer"
+        location="left"
+        temporary
+      >
+        <v-list
+          :items="items"
+        ></v-list>
+      </v-navigation-drawer>
     <v-content>
       <router-view></router-view>
     </v-content>
@@ -85,10 +94,10 @@ export default {
   },
   data: () => ({
     appName: 'OrderBook Live',
-    base: '',  
+    base: ref(''),  
     componentKey: ref(0),
-    dialog: false,
-    drawer: false,
+    dialog: ref(false),
+    drawer: ref(false),
     items: [
       { icon: "play_circle_outline", text: "Coins" },
       { icon: "blur_linear", text: "Orderbooks" },
