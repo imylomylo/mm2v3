@@ -334,7 +334,7 @@ export default {
       // window.location.href='/traderview/'+base+'/'+rel;
       this.$router.push({name: "TraderView", params: {base: base, rel: rel}})
       //this.$forceUpdate()
-      //this.$router.go(this.$router.currentRoute)
+      this.$router.go(this.$router.currentRoute)
 
       // this.forceRerender();
       // "http://" +
