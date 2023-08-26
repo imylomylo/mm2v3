@@ -22,7 +22,8 @@
             <div class="table-container">
             <v-data-table
               dense
-              :sort-by="sortBy"
+              :sort-by.sync="sortBy"
+              :sort-desc.sync="sortDesc"
               :headers="asksHeaders"
               :items="marketdata.asks"
               :rows-per-page="-1"
@@ -161,7 +162,9 @@ export default {
       trade: { base: "", rel: "", price: "", amount: "0" },
       appName: "MarketData",
       customerrors: [],
-      sortBy: [{ key: '[price]', order: 'desc' }],
+      sortBy: ['price'],
+      sortDesc: [false],
+      //sortBy: [{ key: '[price]', order: 'desc' }],
       asksHeaders: [
         {
           title: "Price (rel)",
