@@ -22,14 +22,12 @@
             <div class="table-container">
             <v-data-table
               dense
-              :sort-by.sync="sortBy"
-              :sort-desc.sync="sortDesc"
+              :sort-by="sortBy"
               :headers="asksHeaders"
               :items="marketdata.asks"
               :rows-per-page="-1"
               options="disablePagination"
               class="elevation-1"
-              @update:options="printOptions($event)"
             >
               <template v-slot:column.price="{ header }">
                 <!-- {{ header.text.toUpperCase() }} -->
@@ -163,9 +161,9 @@ export default {
       trade: { base: "", rel: "", price: "", amount: "0" },
       appName: "MarketData",
       customerrors: [],
-      sortBy: ['price'],
-      sortDesc: [false],
-      //sortBy: [{ key: '[price]', order: 'desc' }],
+      // sortBy: ['price'],
+      // sortDesc: [false],
+      sortBy: [{ key: '[price]', order: 'desc' }],
       asksHeaders: [
         {
           title: "Price (rel)",
@@ -189,9 +187,6 @@ export default {
     }
   },
   methods: {
-    printOptions(e) {
-      console.log("What is in my sort Array:",e)
-    },
     refreshMarket: function() {
       this.$emit("refresh-market")
     },
