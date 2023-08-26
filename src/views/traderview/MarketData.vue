@@ -29,6 +29,7 @@
               :rows-per-page="-1"
               options="disablePagination"
               class="elevation-1"
+              @update:options="printOptions($event)"
             >
               <template v-slot:column.price="{ header }">
                 <!-- {{ header.text.toUpperCase() }} -->
@@ -188,6 +189,9 @@ export default {
     }
   },
   methods: {
+    printOptions(e) {
+      console.log("What is in my sort Array:",e)
+    },
     refreshMarket: function() {
       this.$emit("refresh-market")
     },
