@@ -31,7 +31,7 @@
             >
               <template v-slot:column.price="{ header }">
                 <!-- {{ header.text.toUpperCase() }} -->
-                Price ({{wallets.rel.ticker }})
+                Price ({{wallets.rel.ticker }}) 
               </template>
 
               <template v-slot:column.maxvolume="{ header }">
@@ -161,6 +161,8 @@ export default {
       trade: { base: "", rel: "", price: "", amount: "0" },
       appName: "MarketData",
       customerrors: [],
+      // sortBy: ['price'],
+      // sortDesc: [false],
       sortBy: [{ key: '[price]', order: 'desc' }],
       asksHeaders: [
         {

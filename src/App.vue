@@ -37,12 +37,21 @@
             <v-list-item-content>
               <v-list-item-title>Informational Section</v-list-item-title>
               <v-list-item-subtitle>Please wait for the available market links to load</v-list-item-subtitle>
-              <AppMarkets v-on:closeDialog="gotoMarket" :key="componentKey" />
+              <AppMarkets v-on:gotoMarket="gotoMarket" :key="componentKey" />
             </v-list-item-content>
           </v-list-item>
         </v-list>
       </v-card>
     </v-dialog>
+    <v-navigation-drawer
+        v-model="drawer"
+        location="left"
+        temporary
+      >
+        <v-list
+          :items="items"
+        ></v-list>
+      </v-navigation-drawer>
     <v-content>
       <router-view></router-view>
     </v-content>
@@ -69,15 +78,12 @@ export default {
     gotoSettings() {
       this.$router.push('/settings')
     },
-    gotoMarket: function() {
-      // console.log("Going to new market..." + base + "/")// + rel)
+    gotoMarket: function(base, rel) {
+      console.log("Going to new market..." + base + "/")// + rel)
       console.log(this.componentKey)
       this.componentKey += 1
       this.dialog = !this.dialog
-      
-      this.$router.push("/traderview/RICK/MORTY");
-      //this.$router.push("/traderview?base=" + base + "&rel=" +rel); 
-      //window.location.href='/traderview/'+base+'/'+rel;
+      window.location.href='/traderview/'+base+'/'+rel;
     },
     doAction: function(command) {
       window.location.href = "/" + command.toLowerCase().replace(/ /g, "");
@@ -87,8 +93,8 @@ export default {
     appName: 'OrderBook Live',
     base: '',  
     componentKey: ref(0),
-    dialog: false,
-    drawer: false,
+    dialog: ref(false),
+    drawer: ref(false),
     items: [
       { icon: "play_circle_outline", text: "Coins" },
       { icon: "blur_linear", text: "Orderbooks" },
