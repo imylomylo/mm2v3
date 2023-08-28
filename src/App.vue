@@ -78,7 +78,7 @@ export default {
     gotoSettings() {
       this.$router.push('/settings')
     },
-    gotoMarket: function() {
+    gotoMarket: function(base, rel) {
       // console.log("Going to new market..." + base + "/")// + rel)
       console.log(this.componentKey)
       this.componentKey += 1
