@@ -85,7 +85,8 @@ export default {
       this.dialog = !this.dialog
       
       //this.$router.push("/traderview/RICK/MORTY");
-      this.$router.push("/traderview?base=" + this.base + "&rel=" +this.rel); 
+      this.$router.push({ name: 'Traderview', params: { base, rel } });
+      //this.$router.push("/traderview?base=" + this.base + "&rel=" +this.rel); 
       //window.location.href='/traderview/'+base+'/'+rel;
     },
     doAction: function(command) {
