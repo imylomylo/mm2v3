@@ -86,8 +86,8 @@ export default {
       
       //this.$router.push("/traderview/RICK/MORTY");
       //this.$router.push({ name: 'Traderview', params: { base, rel } });
-      this.$router.push("/traderview?base=" + base + "&rel=" +rel); 
-      //window.location.href='/traderview/'+base+'/'+rel;
+      //this.$router.push("/traderview?base=" + base + "&rel=" +rel); 
+      window.location.href='/traderview/'+base+'/'+rel;
     },
     doAction: function(command) {
       window.location.href = "/" + command.toLowerCase().replace(/ /g, "");
