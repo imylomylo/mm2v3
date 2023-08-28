@@ -37,7 +37,7 @@
             <v-list-item-content>
               <v-list-item-title>Informational Section</v-list-item-title>
               <v-list-item-subtitle>Please wait for the available market links to load</v-list-item-subtitle>
-              <AppMarkets @gotoMarket="gotoMarket" :key="componentKey" />
+              <AppMarkets v-on:closeDialog="gotoMarket" :key="componentKey" />
             </v-list-item-content>
           </v-list-item>
         </v-list>
