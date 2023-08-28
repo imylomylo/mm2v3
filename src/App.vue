@@ -37,7 +37,7 @@
             <v-list-item-content>
               <v-list-item-title>Informational Section</v-list-item-title>
               <v-list-item-subtitle>Please wait for the available market links to load</v-list-item-subtitle>
-              <AppMarkets v-on:closeDialog="gotoMarket" :key="componentKey" />
+              <AppMarkets @gotoMarket="gotoMarket" :key="componentKey" />
             </v-list-item-content>
           </v-list-item>
         </v-list>
@@ -84,8 +84,8 @@ export default {
       this.componentKey += 1
       this.dialog = !this.dialog
       
-      this.$router.push("/traderview/RICK/MORTY");
-      //this.$router.push("/traderview?base=" + this.base + "&rel=" +this.rel); 
+      //this.$router.push("/traderview/RICK/MORTY");
+      this.$router.push("/traderview?base=" + this.base + "&rel=" +this.rel); 
       //window.location.href='/traderview/'+base+'/'+rel;
     },
     doAction: function(command) {

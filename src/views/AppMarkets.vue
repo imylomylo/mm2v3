@@ -321,6 +321,7 @@ export default {
       this.newmarket.rel.ticker = rel
       console.log("market selected going to trader view: " + this.newmarket.base.ticker + "/" + this.newmarket.rel.ticker);
       this.$emit("closeDialog");
+      this.$emit("gotoMarket", base, rel);
       //this.$router.push({name: "TraderView", params: {base: base, rel: rel}})
       //this.$forceUpdate()
       //this.$router.go(this.$router.currentRoute)
