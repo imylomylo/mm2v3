@@ -79,14 +79,10 @@ export default {
       this.$router.push('/settings')
     },
     gotoMarket: function(base, rel) {
-      // console.log("Going to new market..." + base + "/")// + rel)
+      console.log("Going to new market..." + base + "/")// + rel)
       console.log(this.componentKey)
       this.componentKey += 1
       this.dialog = !this.dialog
-      
-      //this.$router.push("/traderview/RICK/MORTY");
-      //this.$router.push({ name: 'Traderview', params: { base, rel } });
-      //this.$router.push("/traderview?base=" + base + "&rel=" +rel); 
       window.location.href='/traderview/'+base+'/'+rel;
     },
     doAction: function(command) {
