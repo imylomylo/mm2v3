@@ -12,6 +12,7 @@ import AppPaprika from '../views/AppPaprika.vue'
 import AppHome from '../views/AppHome.vue'
 import AppTraderView from '../views/traderview/AppTraderView.vue'
 import RecentSwaps from '../views/RecentSwaps.vue'
+import AppVerus from '../views/AppVerus.vue'
 
 
 const router = createRouter({
@@ -81,6 +82,12 @@ const router = createRouter({
       path: '/recentswaps',
       name: 'RecentSwaps',
       component: RecentSwaps
+    },
+    {
+
+      path: '/verus',
+      name: 'Verus',
+      component: AppVerus
     },
     {
 
