@@ -18,6 +18,10 @@
         <h3>Settings</h3>
         <v-icon class="px-2">settings</v-icon>
       </v-btn>
+      <v-btn rounded depressed dark large color="white" @click="gotoVerus()">
+        <h3>Verus</h3>
+        <v-icon class="px-2">mdi-apps</v-icon>
+      </v-btn>
     </v-app-bar>
     <v-dialog v-model="dialog" fullscreen hide-overlay transition="dialog-bottom-transition">
       <v-card>
@@ -77,6 +81,9 @@ export default {
     },
     gotoSettings() {
       this.$router.push('/settings')
+    },
+    gotoVerus() {
+      this.$router.push('/verus')
     },
     gotoMarket: function(base, rel) {
       console.log("Going to new market..." + base + "/")// + rel)

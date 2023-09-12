@@ -1,7 +1,7 @@
 <template>
 <v-main>
- <v-card max-width="auto" class="mx-auto">
-    <v-toolbar flat dense color="#ECEFF1">
+ <v-card>
+    <v-toolbar>
       <v-toolbar-title>
         <span class="subheading">Wallets</span>
       </v-toolbar-title>
@@ -9,7 +9,6 @@
       <span class="ma-5 mt-11"><v-checkbox v-model="hideZero" :disabled="hideZeroDisable" label="Hide Zero Balance" ></v-checkbox></span>
       <v-chip
         class="ma-2"
-        color="#9D29B1"
         :disabled="hideZeroDisable"
         outlined
         @click="updateBalances()"
@@ -20,7 +19,7 @@
       </v-chip>
     </v-toolbar>
     <v-divider class="mx-4"></v-divider>
-    <div style="width: 700px;">
+    <div>
     <v-table style="min-width: 700px;" fixed-header height="auto" bordered>
       <thead>
         <tr>
@@ -40,15 +39,15 @@
             <div class="text-left">
 <!-- mePrivate and mePublic are set in .env* files of the root of the webapp project and read in at runtime -->
 <div v-if="mePrivate == 'true' && mePublic == 'false'">
-              <v-chip class="ma-2" style="color:white; background-color: green;" @click="deposit(row.ticker, row.address)">
+              <v-chip class="ma-2" @click="deposit(row.ticker, row.address)">
                 <v-icon left>mdi-server-plus</v-icon>Deposit
               </v-chip>
-              <v-chip class="ma-2" style="color:white; background-color: red;" dark @click="showWithdrawOverlay(row.ticker)">
+              <v-chip class="ma-2" dark @click="showWithdrawOverlay(row.ticker)">
                 <v-icon left>mdi-server-plus</v-icon>Withdraw
               </v-chip>
 </div>
 <div v-else>
-              <v-chip class="ma-2" style="color:white; background-color: green;" @click="deposit(row.ticker, row.address)">
+              <v-chip class="ma-2" @click="deposit(row.ticker, row.address)">
                 <v-icon left>mdi-server-plus</v-icon>Donate
               </v-chip>
 </div>
@@ -65,15 +64,15 @@
             <div class="text-left">
 <!-- mePrivate and mePublic are set in .env* files of the root of the webapp project and read in at runtime -->
 <div v-if="mePrivate == 'true' && mePublic == 'false'">
-              <v-chip class="ma-2" style="color:white; background-color: green;" @click="deposit(row.ticker, row.address, true)">
+              <v-chip class="ma-2" @click="deposit(row.ticker, row.address, true)">
                 <v-icon left>mdi-server-plus</v-icon>Deposit
               </v-chip>
-              <v-chip class="ma-2" style="color:white; background-color: red;" dark @click="showWithdrawOverlay(row.ticker)">
+              <v-chip class="ma-2" dark @click="showWithdrawOverlay(row.ticker)">
                 <v-icon left>mdi-server-plus</v-icon>Withdraw
               </v-chip>
 </div>
 <div v-else>
-              <v-chip class="ma-2" style="color:white; background-color: green;" @click="deposit(row.ticker, row.address, true)">
+              <v-chip class="ma-2" @click="deposit(row.ticker, row.address, true)">
                 <v-icon left>mdi-server-plus</v-icon>Donate
               </v-chip>
 </div>
