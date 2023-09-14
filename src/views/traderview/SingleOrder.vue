@@ -1,7 +1,7 @@
 <template>
   <div>
-    <v-card class="mx-auto" max-width="max-width" outlined>
-      <v-toolbar flat dense color="indigo">
+    <v-card class="mx-auto" outlined>
+      <v-toolbar flat dense>
         <v-toolbar-title>
           <span class="subheading">Single Order {{wallets.base.ticker}}</span>
         </v-toolbar-title>
@@ -10,8 +10,8 @@
 
       <v-divider class="mx-4"></v-divider>
 
-      <v-form ref="form" style="background-color: white;">
-        <v-text-field style="background-color: white;" v-model="price" :label="priceInOtherCoinLabel()" required></v-text-field>
+      <v-form ref="form">
+        <v-text-field v-model="price" :label="priceInOtherCoinLabel()" required></v-text-field>
         <v-text-field v-model="amount" :label="amountInBaseCoinLabel()" required></v-text-field>
         <v-card-text>
           <v-chip-group     
@@ -26,11 +26,11 @@
         </v-card-text>
         <v-text-field v-model="total" :label="totalInOtherCoinLabel()" required></v-text-field>
         <div class="text-center">
-          <v-chip class="ma-2" style="color:white; background-color: green;" @click="buyBase(wallets.base.ticker)">
+          <v-chip class="ma-2" @click="buyBase(wallets.base.ticker)">
             
             Buy {{ amount }} {{ wallets.base.ticker }}
           </v-chip>
-          <v-chip class="ma-2" style="color:white; background-color: red;" dark @click="sellBase(wallets.base.ticker)">
+          <v-chip class="ma-2" dark @click="sellBase(wallets.base.ticker)">
             
             Sell {{ amount }} {{ wallets.base.ticker }}
           </v-chip>

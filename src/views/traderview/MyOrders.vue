@@ -1,21 +1,21 @@
 <template>
   <div>
-    <v-card max-width="max-width" class="mx-auto" outlined>
-      <v-toolbar flat dense color="#ECEFF1">
+    <v-card  class="mx-auto" outlined>
+      <v-toolbar flat dense>
         <v-toolbar-title>
           <span class="subheading">Orders For {{ meName || "This Node"}}</span>
         </v-toolbar-title>
         <div class="flex-grow-1"></div>
 <!-- mePrivate and mePublic are set in .env* files of the root of the webapp project and read in at runtime -->
 <div v-if="mePrivate == 'true' && mePublic == 'false'">
-        <v-chip class="ma-2" style="color:red; outline-color: red; background-color: transparent;" outlined @click="cancelAllOrders()">
+        <v-chip class="ma-2" outlined @click="cancelAllOrders()">
           Cancel All
         </v-chip>
 </div>
       </v-toolbar>
       <v-divider class="mx-4"></v-divider>
       <div v-if="myOrders !== undefined && Object.keys(myOrders).length > 0">
-        <v-table fixed-header height="auto">
+        <v-table fixed-header>
           <thead>
             <tr>
               <th class="text-left">Pair</th>
@@ -46,7 +46,7 @@
                   </v-chip>-->
 <!-- mePrivate and mePublic are set in .env* files of the root of the webapp project and read in at runtime -->
 <div v-if="mePrivate == 'true' && mePublic == 'false'">
-                  <v-chip class="ma-2" style="color: white; background-color: red;" dark @click="cancelOrder(tidyMarketOrders[row].uuid)">
+                  <v-chip class="ma-2" dark @click="cancelOrder(tidyMarketOrders[row].uuid)">
                     Cancel
                   </v-chip>
 </div>
