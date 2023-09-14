@@ -1,5 +1,5 @@
 <template>
-  <div style="max-width: max-content;">
+  <div>
     <h2 justify-center>{{ appName }}</h2>
     <div v-if="history.swaps !== undefined && history.swaps.length > 0">
       <div>
