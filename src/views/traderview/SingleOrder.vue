@@ -13,7 +13,7 @@
       <v-form ref="form">
         <v-text-field v-model="price" :label="priceInOtherCoinLabel()" required></v-text-field>
         <v-text-field v-model="amount" :label="amountInBaseCoinLabel()" required></v-text-field>
-        <v-card-text class="mx-auto">
+        <v-card-text>
           <v-chip-group   
             class="justify-space-around"
             active-class="deep-purple accent-4 white--text"
@@ -46,6 +46,7 @@
 </template>
 <script>
 import axios from "axios";
+import {ref} from "vue";
 
 export default {
   name: "SingleOrder",
@@ -53,8 +54,8 @@ export default {
   props: { wallets: { type: Object } },
   data: function() {
     return {
-      absoluteOverlay: true,
-      orderSentOverlay: false,
+      absoluteOverlay: ref(true),
+      orderSentOverlay: ref(false),
       currentStrategyInfo: "na...",
       price: "",
       amount: "",
