@@ -13,9 +13,10 @@
       <v-form ref="form">
         <v-text-field v-model="price" :label="priceInOtherCoinLabel()" required></v-text-field>
         <v-text-field v-model="amount" :label="amountInBaseCoinLabel()" required></v-text-field>
-        <v-card-text>
+        <v-card-text class="mx-auto">
           <v-chip-group   
-            class="mx-auto"  
+            class="justify-space-around"
+            active-class="deep-purple accent-4 white--text"
             column
           >
             <v-chip @click="ordersize_pc(5)">5%</v-chip>
