@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <v-card>
-    <div style="margin-top: 100px;">
+    <div>
       <h2>{{ appName }}</h2>
       <v-text-field
       v-model="url"
