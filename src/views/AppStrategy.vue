@@ -8,13 +8,13 @@
       </v-overlay>
     </v-row>
 
-    <v-toolbar flat dense color="#ECEFF1" style="height: 80px;">
-      <v-toolbar-title style="padding-top: 40px;">
+    <v-toolbar flat dense>
+      <v-toolbar-title>
         Active Strategies
       </v-toolbar-title>
     </v-toolbar>
     <v-divider class="mx-4"></v-divider>
-    <v-table fixed-header height="auto">
+    <v-table fixed-header>
       <thead>
         <tr>
           <th class="text-left">Assetpair</th>
@@ -28,7 +28,7 @@
           <td>{{ row.strategy }}</td>
           <td>
             <div class="text-left">
-              <v-chip class="ma-2" color="red" dark @click="stopStrategy(127)">
+              <v-chip class="ma-2" dark @click="stopStrategy(127)">
                 <v-icon left>mdi-server-plus</v-icon>Stop  Strategy
               </v-chip>
             </div>
