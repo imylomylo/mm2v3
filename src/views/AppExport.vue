@@ -3,7 +3,7 @@
         <v-overlay :absolute="true" :model-value="overlay" contained persistent class="align-center justify-center">
             <v-btn color="warning" @click="show(true)">Swap History</v-btn>
         </v-overlay>
-        <v-toolbar flat dense color="#ECEFF1">
+        <v-toolbar flat dense>
             <v-toolbar-title>
                 <span class="subheading">Recent Swaps</span>
             </v-toolbar-title>
@@ -11,7 +11,7 @@
         <v-divider class="mx-4"></v-divider>
         <div v-if="swapHistory.swaps !== undefined && swapHistory.swaps.length > 0">
             <div>
-                <v-table :scroll-x="true" style="overflow-x: hidden;">
+                <v-table :scroll-x="true">
                     <thead>
                         <tr>
                             <th class="text-left">Type</th>
