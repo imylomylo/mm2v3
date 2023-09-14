@@ -1,7 +1,7 @@
 <template>
     <v-app>
         <v-card>
-            <h1>Verus Trading</h1>
+            <h1 style="margin-top: 100px;">Verus Trading</h1>
         </v-card>
     </v-app>
 </template>
