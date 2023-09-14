@@ -1,6 +1,6 @@
 <template>
     <v-main>
-        <div style="margin-top: 20px;">
+        <div>
             <div>
                 <!-- <Description v-on:mmenable="mmenable()" v-bind="wallets" /> -->
                 <div>
@@ -9,24 +9,24 @@
                             <v-toolbar color="white" flat>
                                 <h2 class="ma-2">Trading</h2>
                                 <v-divider vertical margin-left="10px"></v-divider>
-                                <h2 style="margin-left: 10px;">{{ wallets.base.ticker + " / " + wallets.rel.ticker}}</h2>
+                                <h2>{{ wallets.base.ticker + " / " + wallets.rel.ticker}}</h2>
                                 <v-chip class="ma-2" color="success" outlined @click="invertbase(wallets.base.ticker, wallets.rel.ticker)">
                                     <v-icon left>mdi-server-plus</v-icon> 
                                     INVERT
                                 </v-chip>
-                                <v-btn v-if="!ammdisabled" depressed small style="color:white; background-color: green;">Automated</v-btn>
-                                <v-btn v-else depressed small style="color:white; background-color: red;">No Automation</v-btn>
+                                <v-btn v-if="!ammdisabled" depressed small>Automated</v-btn>
+                                <v-btn v-else depressed small>No Automation</v-btn>
                                 <FiatPrice v-bind:wallets="wallets" v-on:refresh-fiat="handleRefreshFiat" ref="refFiatInfo"></FiatPrice>
                                 <v-toolbar-items class="hidden-sm-and-down">
                                     <v-divider vertical></v-divider>
                                     <template v-if="!ammdisabled">
-                                        <v-btn rounded depressed dark large style="color:white; background-color: red;"> 
+                                        <v-btn rounded depressed dark large> 
                                             <!-- @click="dismmenable"> -->
                                             <h3>Disable Automation</h3>
                                         </v-btn>
                                     </template>
                                     <template v-else>
-                                        <v-btn rounded depressed dark large style="color: white; background-color: green;"> 
+                                        <v-btn rounded depressed dark large> 
                                             <!-- @click="dismmenable"> -->
                                             <h3>Enable Automation</h3>
                                         </v-btn>
@@ -48,7 +48,7 @@
                     <!-- <CurrentStrategies /> -->
                 </div>
                 <v-divider class="mx-4 pb-5"></v-divider>
-                <v-layout style="width: 100%;">
+                <v-layout >
                     <v-flex md6 lg6 class="flex-grow-1 flex-shrink-1">
                         <v-row class="px-4">
                             <v-col>
