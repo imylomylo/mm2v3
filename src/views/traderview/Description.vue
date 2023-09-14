@@ -2,7 +2,7 @@
   <div class="top-spaced">
     <div>
       <v-row no-gutters>
-        <v-toolbar color="white" flat>
+        <v-toolbar flat>
           <v-toolbar-title>Trading</v-toolbar-title>
 
           <v-divider class="mx-4" vertical></v-divider>

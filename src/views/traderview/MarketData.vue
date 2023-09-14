@@ -1,13 +1,12 @@
 <template>
-  <v-card max-width="max-width" class="mx-auto" outlined>
-    <v-toolbar flat dense color="#ECEFF1">
+  <v-card class="mx-auto" outlined>
+    <v-toolbar flat dense>
       <v-toolbar-title>
         <span class="subheading">AtomicDEX order book</span>
       </v-toolbar-title>
       <div class="flex-grow-1"></div>
       <v-chip
         class="ma-2"
-        color="#9D29B1"
         outlined
         @click="refreshMarket()"
       >
