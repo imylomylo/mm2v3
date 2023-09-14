@@ -1,13 +1,12 @@
 <template>
-  <v-card max-width="max-width" class="mx-auto" outlined>
-    <v-toolbar flat dense color="#ECEFF1">
+  <v-card class="mx-auto" outlined>
+    <v-toolbar flat dense>
       <v-toolbar-title>
         <span class="subheading">Wallets</span>
       </v-toolbar-title>
       <div class="flex-grow-1"></div>
       <v-chip
         class="ma-2"
-        color="#9D29B1"
         outlined
         @click="refreshBalances()"
       >
@@ -17,7 +16,7 @@
     </v-toolbar>
     <v-divider class="mx-4"></v-divider>
 
-    <v-table fixed-header height="auto">
+    <v-table fixed-header>
       <thead>
         <tr>
           <th class="text-left">TICKER</th>
@@ -35,10 +34,10 @@
             <div class="text-left">
 <!-- mePrivate and mePublic are set in .env* files of the root of the webapp project and read in at runtime -->
 <div v-if="mePrivate == 'true' && mePublic == 'false'">
-              <v-chip class="ma-2" style="color:white; background-color: green;" @click="deposit(row.ticker, row.address , true)">
+              <v-chip class="ma-2" @click="deposit(row.ticker, row.address , true)">
                 <v-icon left>mdi-server-plus</v-icon>Deposit
               </v-chip>
-              <v-chip class="ma-2" style="color:white; background-color: red;" dark @click="showWithdrawOverlay(row.ticker, true)">
+              <v-chip class="ma-2" dark @click="showWithdrawOverlay(row.ticker, true)">
                 <v-icon left>mdi-server-plus</v-icon>Withdraw
               </v-chip>
 </div>
