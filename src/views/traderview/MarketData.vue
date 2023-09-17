@@ -120,7 +120,7 @@ better implementation handled in parent component on load of orders, then promis
 better implementation in parent component
                 <v-chip v-if="hasMyOrder(item.price)" color="purple" dark>me</v-chip>
 -->
-                <v-chip v-if="item.myOrder" x-small color="purple" dark>*</v-chip>
+                <v-chip v-if="item.myOrder" x-small dark>*</v-chip>
               </template> 
               <template
                 v-slot:item.baseamount="{ item }"

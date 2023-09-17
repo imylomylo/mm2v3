@@ -6,7 +6,7 @@
                 <div>
                     <div>
                         <v-row no-gutters>
-                            <v-toolbar color="white" flat>
+                            <v-toolbar flat>
                                 <h2 class="ma-2">Trading</h2>
                                 <v-divider vertical margin-left="10px"></v-divider>
                                 <h2>{{ wallets.base.ticker + " / " + wallets.rel.ticker}}</h2>
@@ -37,7 +37,7 @@
                             </v-toolbar>
                         </v-row>
                     </div>
-                    <v-card-text color="blue">
+                    <v-card-text>
                         <div>
                             CURRENT STRATEGY: {{ currentStrategyInfo}}
                             <!-- <v-btn text color="deep-purple accent-4">Learn More</v-btn> -->

@@ -27,7 +27,7 @@
     </div>
     <div v-else>Nothing to show</div>
     <v-layout justify-center>
-      <v-dialog v-model="dialog" width="600px">
+      <v-dialog v-model="dialog">
         <template v-slot:activator="{ on }">
           <v-btn color="primary" dark v-on="on">Show Raw Data</v-btn>
         </template>
@@ -42,8 +42,8 @@
           </v-card-text>
           <v-card-actions>
             <v-spacer></v-spacer>
-            <v-btn color="green darken-1" text @click="dialog = false">Save As</v-btn>
-            <v-btn color="green darken-1" text @click="dialog = false">Close</v-btn>
+            <v-btn text @click="dialog = false">Save As</v-btn>
+            <v-btn text @click="dialog = false">Close</v-btn>
           </v-card-actions>
         </v-card>
       </v-dialog>

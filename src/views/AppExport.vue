@@ -32,7 +32,7 @@
                             <td>{{ roundedPrice(row.my_info.other_amount) }}</td>
                             <td>{{ row.uuid }}</td>
                             <td>
-                                <v-chip class="ma-2" color="blue" dark @click="showDetails(row.uuid)">
+                                <v-chip class="ma-2" dark @click="showDetails(row.uuid)">
                                     <v-icon left>mdi-server-plus</v-icon>                                                                        Details
                                 </v-chip>
                             </td>
@@ -53,10 +53,10 @@
                     <td>
                         <p>Export all your trade, deposits and withdrawal in csv format</p>
                         <div class="text-left">
-                            <v-chip class="ma-2" color="success" dark disabled @click="doExport(128)">
+                            <v-chip class="ma-2" dark disabled @click="doExport(128)">
                                 <v-icon left>mdi-plus</v-icon>                                                                Export All
                             </v-chip>
-                            <v-chip class="ma-2" color="warning" dark @click="show(false)">
+                            <v-chip class="ma-2" dark @click="show(false)">
                                 <v-icon left>mdi-plus</v-icon>                                                                Hide
                             </v-chip>
                         </div>
@@ -65,7 +65,7 @@
             </tbody>
         </v-table>
         <v-layout justify-center>
-            <v-dialog v-model="dialog" width="600px">
+            <v-dialog v-model="dialog">
                 <!--
         <template v-slot:activator="{ on }">
           <v-btn color="primary" dark v-on="on">Swap Details</v-btn>
@@ -82,8 +82,8 @@
                     </v-card-text>
                     <v-card-actions>
                         <v-spacer></v-spacer>
-                        <v-btn color="green darken-1" text @click="save()">Save As</v-btn>
-                        <v-btn color="green darken-1" text @click="dialog = false">Close</v-btn>
+                        <v-btn text @click="save()">Save As</v-btn>
+                        <v-btn text @click="dialog = false">Close</v-btn>
                     </v-card-actions>
                 </v-card>
             </v-dialog>

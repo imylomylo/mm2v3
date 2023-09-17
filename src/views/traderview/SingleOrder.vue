@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-card class="mx-auto" outlined>
-      <v-toolbar flat dense color="red lighten-1">
+      <v-toolbar flat dense>
         <v-toolbar-title>
           <span class="subheading">Single Order {{wallets.base.ticker}}</span>
         </v-toolbar-title>
@@ -39,7 +39,7 @@
         </div>
       </v-form>
       <v-overlay :opacity="0.88" :absolute="true" :model-value="orderSentOverlay">
-          <v-progress-circular :size="70" :width="7" color="purple" indeterminate></v-progress-circular>
+          <v-progress-circular :size="70" :width="7" indeterminate></v-progress-circular>
       </v-overlay>
     </v-card>
   </div>

@@ -6,7 +6,7 @@
       slides
       orderbutton
     </div>-->
-      <v-card-text color="blue">
+      <v-card-text>
         <div>
           CURRENT STRATEGY: {{ currentStrategyInfo}}
           <!-- <v-btn text color="deep-purple accent-4">Learn More</v-btn> -->
