@@ -1,6 +1,6 @@
 <template>
     <v-app>
-    <v-card style="margin-top: 50px;">
+    <v-card style="margin-top: 100px;">
         <v-tabs
         fixed-tabs
         bg-color="indigo-darken-2"
