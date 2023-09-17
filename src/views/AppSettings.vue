@@ -14,7 +14,6 @@
       <v-btn
         :loading="loading5"
         :disabled="loading5"
-        color="blue-grey"
         class="ma-2 white--text"
         fab
         @click="loader = 'loading5'"

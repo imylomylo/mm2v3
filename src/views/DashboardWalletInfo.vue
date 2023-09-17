@@ -114,8 +114,8 @@ export default {
       depositOverlaySize: 400,
       depositTicker: "",
       depositAddress: "",
-      hideZero: false,
-      hideZeroDisable: true,
+      hideZero: ref(false),
+      hideZeroDisable: ref(true),
       customerrors: [],
     };
   },

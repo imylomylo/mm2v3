@@ -15,20 +15,19 @@
               {{ marketData.base }} / {{ marketData.rel }} - Asks
               <v-chip
                 class="ma-2"
-                color="red"
                 outlined
                 @click.stop="newAsk(marketData.base, marketData.rel)"
               >
                 <v-icon left>mdi-server-plus</v-icon>
                 SELL {{ marketData.base}}
               </v-chip>
-              <v-chip v-if="marketData" class="ma-2" color="blue" outlined @click="soon">
+              <v-chip v-if="marketData" class="ma-2" outlined @click="soon">
                 <v-icon left>vertical_align_center</v-icon>Spread
               </v-chip>
-              <v-chip v-if="marketData" class="ma-2" color="blue" outlined @click="soon">
+              <v-chip v-if="marketData" class="ma-2" outlined @click="soon">
                 <v-icon left>vertical_align_bottom</v-icon>Layer
               </v-chip>
-              <v-chip v-if="marketData" class="ma-2" color="blue" outlined @click="soon">
+              <v-chip v-if="marketData" class="ma-2" outlined @click="soon">
                 <v-icon left>vertical_align_top</v-icon>Layer
               </v-chip>
             </h2>
@@ -57,7 +56,6 @@
 
               <template v-slot:item.taker="{ item }">
                 <v-chip
-                  color="green"
                   dark
                   @click.stop.prevent="takerAsk(marketData.base, marketData.rel, item.price)"
                 >
@@ -74,20 +72,19 @@
               {{ marketData.base }} / {{ marketData.rel }} - Bids
               <v-chip
                 class="ma-2"
-                color="success"
                 outlined
                 @click.stop="newBid(marketData.base, marketData.rel)"
               >
                 <v-icon left>mdi-server-plus</v-icon>
                 BUY {{ marketData.base}}
               </v-chip>
-              <v-chip v-if="marketData" class="ma-2" color="blue" outlined @click="soon">
+              <v-chip v-if="marketData" class="ma-2" outlined @click="soon">
                 <v-icon left>vertical_align_center</v-icon>Spread
               </v-chip>
-              <v-chip v-if="marketData" class="ma-2" color="blue" outlined @click="soon">
+              <v-chip v-if="marketData" class="ma-2" outlined @click="soon">
                 <v-icon left>vertical_align_bottom</v-icon>Layer
               </v-chip>
-              <v-chip v-if="marketData" class="ma-2" color="blue" outlined @click="soon">
+              <v-chip v-if="marketData" class="ma-2" outlined @click="soon">
                 <v-icon left>vertical_align_top</v-icon>Layer
               </v-chip>
             </h2>
@@ -99,7 +96,6 @@
             >
               <template v-slot:item.taker="{ item }">
                 <v-chip
-                  color="red"
                   dark
                   @click="takerBid(marketData.base, marketData.rel, item.price)"
                 >
@@ -123,7 +119,6 @@
           <v-chip
             v-if="marketData"
             class="ma-2"
-            color="blue"
             outlined
             @click="showDEXMarket(marketData.rel, marketData.base)"
           >
@@ -171,7 +166,7 @@
               class="elevation-1"
             >
               <template v-slot:item.taker="{ item }">
-                <v-chip color="green" dark @click.stop.prevent="soon()">
+                <v-chip dark @click.stop.prevent="soon()">
                   Cancel
                   <v-icon left>swap_horiz</v-icon>Cancel
                 </v-chip>
@@ -194,7 +189,7 @@
               class="elevation-1"
             >
               <template v-slot:item.taker="{ item }">
-                <v-chip color="green" dark @click.stop.prevent="soon()">
+                <v-chip dark @click.stop.prevent="soon()">
                   Cancel
                   <v-icon left>swap_horiz</v-icon>Cancel
                 </v-chip>
@@ -207,7 +202,7 @@
     <div v-else>No current taker orders to display.</div>
 
     <v-layout justify-center>
-      <v-dialog v-model="makerDialog" persistent max-width="600px">
+      <v-dialog v-model="makerDialog" persistent>
         <v-card>
           <v-card-title>
             <span class="headline">Maker Order Creation</span>
@@ -248,9 +243,8 @@
           </v-card-text>
           <v-card-actions>
             <v-spacer></v-spacer>
-            <v-btn color="blue darken-1" text @click="makerDialog = false">No, Go Back</v-btn>
+            <v-btn text @click="makerDialog = false">No, Go Back</v-btn>
             <v-btn
-              color="blue darken-1"
               text
               @click="doMarketMaker(trade.base, trade.rel, trade.price, trade.amount)"
             >Yes! Send Order</v-btn>
@@ -260,7 +254,7 @@
     </v-layout>
 
     <v-layout justify-center>
-      <v-dialog v-model="takerDialog" persistent max-width="600px">
+      <v-dialog v-model="takerDialog" persistent>
         <v-card>
           <v-card-title>
             <span class="headline">Taker Order Creation</span>
