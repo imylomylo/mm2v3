@@ -12,7 +12,7 @@
          Verus ID's
         </v-tab>
         <v-tab>
-         Verus Currecies
+         Verus Currencies
         </v-tab>
         </v-tabs>
   </v-card>
