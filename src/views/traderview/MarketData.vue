@@ -33,8 +33,6 @@
                 Price ({{wallets.rel.ticker }}) 
                 <v-icon
                   class="v-data-table-header__sort-icon"
-                 :icon="getSortIcon(column)"
-                 @click="toggleSort(column)"
                  />
               </template>
 
