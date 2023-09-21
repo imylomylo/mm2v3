@@ -31,6 +31,11 @@
               <template v-slot:column.price="{ header }">
                 <!-- {{ header.text.toUpperCase() }} -->
                 Price ({{wallets.rel.ticker }}) 
+                <v-icon
+                  class="v-data-table-header__sort-icon"
+                 :icon="getSortIcon(column)"
+                 @click="toggleSort(column)"
+                 />
               </template>
 
               <template v-slot:column.maxvolume="{ header }">
