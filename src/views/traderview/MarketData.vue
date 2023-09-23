@@ -30,14 +30,9 @@
             >
               <template v-slot:column.price="{ header, getSortIcon, toggleSort  }">
                 <!-- {{ header.text.toUpperCase() }} -->
-                <div class="v-data-table-header__content">
+
                 <span>Price ({{wallets.rel.ticker }}) </span>
-                <v-icon
-                class="v-data-table-header__sort-icon"
-                :icon="getSortIcon(header)"
-                @click="toggleSort(header)"
-                />
-              </div>
+                
               </template>
 
               <template v-slot:column.maxvolume="{ header }">
