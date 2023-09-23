@@ -28,7 +28,7 @@
               options="disablePagination"
               class="elevation-1"
             >
-              <template v-slot:column.price="{ header, getSortIcon, toggleSort  }">
+              <template v-slot:column.price="{ getSortIcon, toggleSort  }">
                 <!-- {{ header.text.toUpperCase() }} -->
 
                 <span>Price ({{wallets.rel.ticker }}) </span>
