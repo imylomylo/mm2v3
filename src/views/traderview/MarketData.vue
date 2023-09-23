@@ -14,7 +14,7 @@
       </v-chip>
     </v-toolbar>
     <div v-if="marketdata.asks">
-      <div>
+      <div> 
         <v-layout>
           <v-flex md lg>
             <v-card-title>Asks</v-card-title>
@@ -28,14 +28,16 @@
               options="disablePagination"
               class="elevation-1"
             >
-              <template v-slot:column.price="{ header }">
+              <template v-slot:column.price="{ column, getSortIcon, toggleSort  }">
                 <!-- {{ header.text.toUpperCase() }} -->
-                Price ({{wallets.rel.ticker }}) 
+                <div class="v-data-table-header__content">
+                <span>Price ({{wallets.rel.ticker }}) </span>
                 <v-icon
-                  class="v-data-table-header__sort-icon"
-                 :icon="getSortIcon(column)"
-                 @click="sortBy"
-                 />
+                class="v-data-table-header__sort-icon"
+                :icon="getSortIcon(column)"
+                @click="toggleSort(column)"
+                />
+              </div>
               </template>
 
               <template v-slot:column.maxvolume="{ header }">
