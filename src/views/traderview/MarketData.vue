@@ -34,8 +34,8 @@
                 <span>Price ({{wallets.rel.ticker }}) </span>
                 <v-icon
                 class="v-data-table-header__sort-icon"
-                :icon="getSortIcon(column)"
-                @click="toggleSort(column)"
+                :icon="getSortIcon(header)"
+                @click="toggleSort(header)"
                 />
               </div>
               </template>
