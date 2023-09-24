@@ -244,10 +244,3 @@ export default {
   }
 };
 </script>
-<style>
-.table-container{
-  widows: 100%;
-  overflow-x: auto;
-}
-
-</style>
