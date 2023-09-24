@@ -29,15 +29,8 @@
               class="elevation-1"
             >
               <template v-slot:column.price="{ column, getSortIcon, toggleSort }">
-  <div class="v-data-table-header__content">
-    <span>Price ({{wallets.rel.ticker }}) </span>
-    <v-icon
-      class="v-data-table-header__sort-icon"
-      :icon="getSortIcon(column)"
-      @click="toggleSort(column)"
-    />
-  </div>
-</template>
+               <span>Price ({{wallets.rel.ticker }}) </span>
+              </template>
 
               <template v-slot:column.maxvolume="{ header }">
                 <!-- {{ header.text.toUpperCase() }} -->
