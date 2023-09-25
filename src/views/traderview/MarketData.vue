@@ -29,19 +29,37 @@
               class="elevation-1"
             >
               <template v-slot:column.price="{ column, getSortIcon, toggleSort }">
-               <span>Price ({{wallets.rel.ticker }}) </span>
-              </template>
+      <div class="v-data-table-header__content">
+        <span>Price ({{wallets.rel.ticker }}) </span>
+        <v-icon
+          class="v-data-table-header__sort-icon"
+          :icon="getSortIcon(column)"
+          @click="toggleSort(column)"
+        />
+      </div>
+    </template>
 
-              <template v-slot:column.maxvolume="{ header }">
-                <!-- {{ header.text.toUpperCase() }} -->
-                Amount ({{wallets.base.ticker }})
-              </template>
+    <template v-slot:column.maxvolume="{ column, getSortIcon, toggleSort }">
+      <div class="v-data-table-header__content">
+        <span>Amount ({{wallets.base.ticker }})</span>
+        <v-icon
+          class="v-data-table-header__sort-icon"
+          :icon="getSortIcon(column)"
+          @click="toggleSort(column)"
+        />
+      </div>
+    </template>
 
-              <template v-slot:column.relamount="{ header }">
-                <!-- {{ header.text.toUpperCase() }} -->
-                Total ({{wallets.rel.ticker }})
-              </template>
-
+    <template v-slot:column.relamount="{ column, getSortIcon, toggleSort }">
+      <div class="v-data-table-header__content">
+        <span>Total ({{wallets.rel.ticker }})</span>
+        <v-icon
+          class="v-data-table-header__sort-icon"
+          :icon="getSortIcon(column)"
+          @click="toggleSort(column)"
+        />
+      </div>
+    </template>
               <!-- Rounding from https://www.jacklmoore.com/notes/rounding-in-javascript/ -->
               <!-- Better to move to computed function for maintainability/non-repetitive -->
               <template v-slot:item.price="{ item }">
