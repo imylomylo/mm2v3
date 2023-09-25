@@ -145,14 +145,14 @@ export default {
   // props: ['rows'],
   data: function() {
     return {
-      componentReadyOrders: false,
-      componentReadyMarket: false,
-      marketOrders: [],
+      componentReadyOrders: ref(false),
+      componentReadyMarket: ref(false),
+      marketOrders: ref([]),
       mePrivate: import.meta.env.VITE_VUE_APP_MEPRIVATE,
       mePublic: import.meta.env.VITE_VUE_APP_MEPUBLIC,
-      myOrders: [],
-      myOrdersThisMarket: [],
-      priceuuid: [],
+      myOrders: ref([]),
+      myOrdersThisMarket: ref([]),
+      priceuuid: ref([]),
       wallets: {
         base: {
           ticker: "base1",
