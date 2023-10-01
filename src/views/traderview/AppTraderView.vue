@@ -48,7 +48,7 @@
                     <!-- <CurrentStrategies /> -->
                 </div>
                 <v-divider class="mx-4 pb-5"></v-divider>
-                <v-layout >
+                <v-row>
                     <v-flex md6 lg6 class="flex-grow-1 flex-shrink-1">
                         <v-row class="px-4">
                             <v-col>
@@ -111,7 +111,7 @@
             </v-col>
           </v-row>
         </v-flex>-->
-                </v-layout>
+                </v-row>
             </div>
         </div>
     </v-main>

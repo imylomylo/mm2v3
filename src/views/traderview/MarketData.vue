@@ -15,8 +15,8 @@
     </v-toolbar>
     <div v-if="marketdata.asks">
       <div> 
-        <v-layout>
-          <v-flex md lg>
+        <v-row>
+          <v-col md lg>
             <v-card-title>Asks</v-card-title>
             <div class="table-container">
             <v-data-table
@@ -69,8 +69,8 @@ better implementation handled in parent component on load of orders, then promis
               <template v-slot:bottom></template>
             </v-data-table>
             </div>
-          </v-flex>
-        </v-layout>
+          </v-col>
+        </v-row>
       </div>
     </div>
     <div v-else>No current asks to display.</div>
@@ -78,8 +78,8 @@ better implementation handled in parent component on load of orders, then promis
 
     <div v-if="marketdata.bids">
       <div>
-        <v-layout>
-          <v-flex md lg>
+        <v-row>
+          <v-col md lg>
             <v-card-title>Bids</v-card-title>
             <div class="table-container">
             <v-data-table
@@ -130,8 +130,8 @@ better implementation in parent component
               <template v-slot:bottom></template>
             </v-data-table>
             </div>
-          </v-flex>
-        </v-layout>
+          </v-col>
+        </v-row>
         
       </div>
     </div>
@@ -141,6 +141,7 @@ better implementation in parent component
 <script>
 import axios from "axios";
 import { VDataTable } from 'vuetify/labs/VDataTable'
+import { VRow } from "vuetify/lib/components";
 
 export default {
   name: "MarketData",
