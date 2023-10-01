@@ -141,7 +141,6 @@ better implementation in parent component
 <script>
 import axios from "axios";
 import { VDataTable } from 'vuetify/labs/VDataTable'
-import { VRow } from "vuetify/lib/components";
 
 export default {
   name: "MarketData",
