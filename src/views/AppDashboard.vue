@@ -1,14 +1,14 @@
 <template>
     <v-main>
-        <v-layout>
-            <v-flex md6 lg6 class="flex-grow-1 flex-shrink-1">
+        <v-row>
+            <v-col md6 lg6 class="flex-grow-1 flex-shrink-1">
                 <v-row class="px-4">
                     <v-col>
                         <DashboardWalletInfo ref="dashboardWallets" :wallets="allwallets" @update-allwallets="updateAllWallets"/>
                     </v-col>
                 </v-row>
-            </v-flex>
-            <v-flex md6 lg6 class="flex-grow-1 flex-shrink-1">
+            </v-col>
+            <v-col md6 lg6 class="flex-grow-1 flex-shrink-1">
                 <v-row class="px-4">
                     <v-col>
                         <AppStrategy/>
@@ -38,8 +38,8 @@ not sure if something needed from this definition of component, keeping as comme
           </v-col>
         </v-row>
 -->
-            </v-flex>
-        </v-layout>
+            </v-col>
+        </v-row>
         <router-view></router-view>
     </v-main>
 </template>
