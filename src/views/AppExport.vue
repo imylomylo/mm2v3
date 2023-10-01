@@ -64,7 +64,7 @@
                 </tr>
             </tbody>
         </v-table>
-        <v-layout justify-center>
+        <v-row justify-center>
             <v-dialog v-model="dialog">
                 <!--
         <template v-slot:activator="{ on }">
@@ -87,7 +87,7 @@
                     </v-card-actions>
                 </v-card>
             </v-dialog>
-        </v-layout>
+        </v-row>
     </v-card>
 </template>
 <script>

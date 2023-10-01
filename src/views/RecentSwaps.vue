@@ -26,7 +26,7 @@
       </div>
     </div>
     <div v-else>Nothing to show</div>
-    <v-layout justify-center>
+    <v-row justify-center>
       <v-dialog v-model="dialog">
         <template v-slot:activator="{ on }">
           <v-btn color="primary" dark v-on="on">Show Raw Data</v-btn>
@@ -47,7 +47,7 @@
           </v-card-actions>
         </v-card>
       </v-dialog>
-    </v-layout>
+    </v-row>
   </div>
 </template>
 <script>

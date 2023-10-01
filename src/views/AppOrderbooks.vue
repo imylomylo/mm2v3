@@ -9,8 +9,8 @@
 
     <div v-if="marketData">
       <div>
-        <v-layout>
-          <v-flex md6 lg6>
+        <v-row>
+          <v-col md6 lg6>
             <h2>
               {{ marketData.base }} / {{ marketData.rel }} - Asks
               <v-chip
@@ -65,9 +65,9 @@
                 </v-chip>
               </template>
             </v-table>
-          </v-flex>
+          </v-col>
 
-          <v-flex md6 lg6>
+          <v-col md6 lg6>
             <h2>
               {{ marketData.base }} / {{ marketData.rel }} - Bids
               <v-chip
@@ -105,8 +105,8 @@
                 </v-chip>
               </template>
             </v-table>
-          </v-flex>
-        </v-layout>
+          </v-col>
+        </v-row>
       </div>
     </div>
     <div
@@ -157,8 +157,8 @@
 
     <div v-if="myOrders.maker">
       <div>
-        <v-layout>
-          <v-flex md6 lg6>
+        <v-row>
+          <v-col md6 lg6>
             <v-table
               :headers="orderHeaders"
               :items="myOrders.maker"
@@ -172,15 +172,15 @@
                 </v-chip>
               </template>
             </v-table>
-          </v-flex>
-        </v-layout>
+          </v-col>
+        </v-row>
       </div>
     </div>
     <div v-else>No current maker orders to display.</div>
     <div v-if="myOrders.taker">
       <div>
-        <v-layout>
-          <v-flex md6 lg6>
+        <v-row>
+          <v-col md6 lg6>
             <h2>My Market Taker Orders</h2>
             <v-table
               :headers="takerOrderHeaders"
@@ -195,13 +195,13 @@
                 </v-chip>
               </template>
             </v-table>
-          </v-flex>
-        </v-layout>
+          </v-col>
+        </v-row>
       </div>
     </div>
     <div v-else>No current taker orders to display.</div>
 
-    <v-layout justify-center>
+    <v-row justify-center>
       <v-dialog v-model="makerDialog" persistent>
         <v-card>
           <v-card-title>
@@ -209,26 +209,26 @@
           </v-card-title>
           <v-card-text>
             <v-container grid-list-md>
-              <v-layout wrap>
-                <v-flex xs12 sm6>
+              <v-row wrap>
+                <v-col xs12 sm6>
                   <v-text-field v-bind:value="trade.base" label="Base*" required>{{ trade.base }}</v-text-field>
-                </v-flex>
-                <v-flex xs12 sm6>
+                </v-col>
+                <v-col xs12 sm6>
                   <v-text-field
                     v-bind:value="trade.rel"
                     label="Rel*"
                     hint="example of helper text only on focus"
                   >{{ trade.rel }}</v-text-field>
-                </v-flex>
-                <v-flex xs12 sm6>
+                </v-col>
+                <v-col xs12 sm6>
                   <v-text-field
                     v-model="trade.price"
                     label="Price* 1 base = this price rel"
                     type="text"
                     required
                   >{{ trade.price}}</v-text-field>
-                </v-flex>
-                <v-flex xs12 sm6>
+                </v-col>
+                <v-col xs12 sm6>
                   <v-text-field
                     v-model="trade.amount"
                     label="Amount*"
@@ -236,8 +236,8 @@
                     persistent-hint
                     required
                   >{{ trade.amount }}</v-text-field>
-                </v-flex>
-              </v-layout>
+                </v-col>
+              </v-row>
             </v-container>
             <small>*indicates required field</small>
           </v-card-text>
@@ -251,9 +251,9 @@
           </v-card-actions>
         </v-card>
       </v-dialog>
-    </v-layout>
+    </v-row>
 
-    <v-layout justify-center>
+    <v-row justify-center>
       <v-dialog v-model="takerDialog" persistent>
         <v-card>
           <v-card-title>
@@ -261,26 +261,26 @@
           </v-card-title>
           <v-card-text>
             <v-container grid-list-md>
-              <v-layout wrap>
-                <v-flex xs12 sm6>
+              <v-row wrap>
+                <v-col xs12 sm6>
                   <v-text-field v-bind:value="trade.base" label="Base*" required>{{ trade.base }}</v-text-field>
-                </v-flex>
-                <v-flex xs12 sm6>
+                </v-col>
+                <v-col xs12 sm6>
                   <v-text-field
                     v-bind:value="trade.rel"
                     label="Rel*"
                     hint="example of helper text only on focus"
                   >{{ trade.rel }}</v-text-field>
-                </v-flex>
-                <v-flex xs12 sm6>
+                </v-col>
+                <v-col xs12 sm6>
                   <v-text-field
                     v-model="trade.price"
                     label="Price* 1 base = this price rel"
                     type="text"
                     required
                   >{{ trade.price}}</v-text-field>
-                </v-flex>
-                <v-flex xs12 sm6>
+                </v-col>
+                <v-col xs12 sm6>
                   <v-text-field
                     v-model="trade.amount"
                     label="Amount*"
@@ -288,8 +288,8 @@
                     persistent-hint
                     required
                   >{{ trade.amount }}</v-text-field>
-                </v-flex>
-              </v-layout>
+                </v-col>
+              </v-row>
             </v-container>
             <small>*indicates required field</small>
           </v-card-text>
@@ -304,7 +304,7 @@
           </v-card-actions>
         </v-card>
       </v-dialog>
-    </v-layout>
+    </v-row>
   </div>
 </template>
 <script>
