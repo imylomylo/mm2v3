@@ -49,7 +49,7 @@
                 </div>
                 <v-divider class="mx-4 pb-5"></v-divider>
                 <v-row>
-                    <v-flex md6 lg6 class="flex-grow-1 flex-shrink-1">
+                    <v-col md6 lg6 class="flex-grow-1 flex-shrink-1">
                         <v-row class="px-4">
                             <v-col>
                                 <WalletInfo v-bind:wallets="wallets" v-on:refresh-balances="handleRefreshBalances" ref="refWalletInfo"/>
@@ -68,8 +68,8 @@
                                 </v-col>
                             </v-row>
                         </div>
-                    </v-flex>
-                    <v-flex md6 lg6 class="flex-grow-1 flex-shrink-1">
+                    </v-col>
+                    <v-col md6 lg6 class="flex-grow-1 flex-shrink-1">
                         <v-row class="px-4">
                             <v-col>
                                 <MarketData v-bind:wallets="wallets" v-bind:marketdata="marketOrders" v-bind:myOrdersThisMarket="myOrdersThisMarket" ref="refMarketData" v-on:refresh-market="handleRefreshMarket"/>
@@ -80,7 +80,7 @@
                                 <AutomatedMarketMaking v-bind:overlay="ammdisabled" ref="amm"/>
                             </v-col>
                         </v-row>
-                    </v-flex>
+                    </v-col>
                     <!-- <v-flex md6 lg6>
           <v-row class="px-4">
             <v-col>
