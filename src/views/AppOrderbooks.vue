@@ -309,78 +309,79 @@
 </template>
 <script>
 import axios from "axios";
+import {ref} from 'vue'
 
 export default {
   name: "Orderbooks",
   // props: ['rows'],
   data: function() {
     return {
-      takerDialog: false,
-      makerDialog: false,
-      activeCoins: [],
+      takerDialog: ref(false),
+      makerDialog: ref(false),
+      activeCoins: ref([]),
       walletBalance: { base: 0, rel: 0 },
-      marketData: "",
-      myOrders: {},
+      marketData: ref(""),
+      myOrders: ref({}),
       trade: { base: "", rel: "", price: "", amount: "0" },
       appName: "Orderbooks",
-      customerrors: [],
+      customerrors: ref([]),
       headers: [
         {
-          text: "Price",
+          title: "Price",
           align: "left",
           sortable: true,
-          value: "price"
+          key: "price"
         },
-        { text: "Max Volume", value: "maxvolume" },
-        { text: "Age", value: "age" },
-        { text: "Coin", value: "coin" },
-        { text: "Trade As", value: "taker" }
+        { title: "Max Volume", key: "maxvolume" },
+        { title: "Age", key: "age" },
+        { title: "Coin", key: "coin" },
+        { title: "Trade As", key: "taker" }
       ],
       orderHeaders: [
         {
-          text: "Base",
+          title: "Base",
           align: "left",
           sortable: true,
-          value: "base"
+          key: "base"
         },
         {
-          text: "Rel",
+          title: "Rel",
           align: "left",
           sortable: true,
-          value: "rel"
+          key: "rel"
         },
         {
-          text: "Price",
+          title: "Price",
           align: "left",
           sortable: true,
-          value: "price"
+          key: "price"
         },
-        { text: "Created At", value: "created_at" },
-        { text: "Avail. Amount", value: "available_amount" },
-        { text: "Can Cancel", value: "cancellable" }
+        { title: "Created At", key: "created_at" },
+        { title: "Avail. Amount", key: "available_amount" },
+        { title: "Can Cancel", key: "cancellable" }
       ],
       takerOrderHeaders: [
         {
-          text: "Base",
+          title: "Base",
           align: "left",
           sortable: true,
-          value: "base"
+          key: "base"
         },
         {
-          text: "Rel",
+          title: "Rel",
           align: "left",
           sortable: true,
-          value: "rel"
+          key: "rel"
         },
         {
-          text: "Price",
+          title: "Price",
           align: "left",
           sortable: true,
-          value: "price"
+          key: "price"
         },
-        { text: "Created At", value: "created_at" },
-        { text: "Base Amount", value: "request.base_amount" },
-        { text: "Can Cancel", value: "cancellable" }
+        { title: "Created At", key: "created_at" },
+        { title: "Base Amount", key: "request.base_amount" },
+        { title: "Can Cancel", key: "cancellable" }
       ]
     };
   },

@@ -49,7 +49,7 @@ export default {
   data: function() {
     return {
       overlay: ref(true),
-      strategies: [],
+      strategies: ref([]),
     };
   },
   methods: {
