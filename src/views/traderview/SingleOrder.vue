@@ -112,3 +112,13 @@ export default {
   }
 };
 </script>
+<style scoped>
+.v-progress-circular {
+  margin: 1rem;
+}
+.v-text-field {
+  background-color: white;
+  color: black;
+}
+</style>
+

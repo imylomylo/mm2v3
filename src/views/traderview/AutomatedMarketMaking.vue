@@ -130,7 +130,7 @@ export default {
   }
 };
 </script>
-<style>
+<style scoped>
 @keyframes metronome-example {
   from {
     transform: scale(0.5);
