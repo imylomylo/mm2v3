@@ -14,11 +14,14 @@ const vuetify = createVuetify({
   components,
   directives, 
 })
-const selectedTheme = ref('komodo'); // Default to Komodo theme
 
 loadFonts()
 createApp(App)
   .use(router)
-  .use(vuetify)
+  .use(vuetify, {
+    theme:{
+      themes:theme.themes,
+    }
+  })
   .use(theme)
   .mount('#app')
