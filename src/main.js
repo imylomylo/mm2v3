@@ -8,11 +8,13 @@ import 'vuetify/styles'
 import { createVuetify } from 'vuetify'
 import * as components from 'vuetify/components'
 import * as directives from 'vuetify/directives'
+import {ref} from 'vue'
 
 const vuetify = createVuetify({
   components,
-  directives
+  directives, 
 })
+const selectedTheme = ref('komodo'); // Default to Komodo theme
 
 loadFonts()
 createApp(App)

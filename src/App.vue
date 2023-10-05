@@ -2,7 +2,7 @@
 
 <template>
   <v-app>
-    <v-app-bar color="primary">
+    <v-app-bar>
       <v-toolbar-title class="ml-0 pl-4">
         <span class="hidden-sm-and-down">{{ appName }}</span>
       </v-toolbar-title>
