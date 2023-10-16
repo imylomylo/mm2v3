@@ -25,6 +25,7 @@
 </template>
 <script>
 import axios from "axios";
+import { ref } from "vue";
 
 export default {
   name: "AppAggregators",
@@ -36,7 +37,7 @@ export default {
       cmcMarketData: "",
       market: null,
       appName: "Aggregator Prices",
-      customerrors: []
+      customerrors: ref([])
     };
   },
   methods: {

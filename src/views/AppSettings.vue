@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <v-card>
-    <div style="margin-top: 100px;">
+    <div>
       <h2>{{ appName }}</h2>
       <v-text-field
       v-model="url"
@@ -14,7 +14,6 @@
       <v-btn
         :loading="loading5"
         :disabled="loading5"
-        color="blue-grey"
         class="ma-2 white--text"
         fab
         @click="loader = 'loading5'"
@@ -102,9 +101,9 @@ export default {
       loading5: ref(false),
       loader: ref(null),
       snackbar1: ref(false),
-      configService: [],
+      configService: ref([]),
       supportedCoins: "",
-      customerrors: [],
+      customerrors: ref([]),
       snack: ref(false),
       snackColor: "",
       snackText: "",

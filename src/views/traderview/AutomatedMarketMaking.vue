@@ -8,8 +8,8 @@
       </v-overlay>
     </v-row>
     <div>
-      <v-toolbar flat dense color="#ECEFF1" style="height: 80px;">
-        <v-toolbar-title style="margin-top: 40px;">
+      <v-toolbar flat dense>
+        <v-toolbar-title>
           <span class="subheading">Automated Market Making</span>
         </v-toolbar-title>
         <div class="flex-grow-1"></div>
@@ -36,7 +36,7 @@
             </v-fade-transition>
           </v-col>
           <v-col class="text-right">
-            <v-btn color="indigo" rounded dark depressed @click="toggle()">
+            <v-btn rounded dark depressed @click="toggle()">
               <v-icon :class="{ 'mdi-play': !isPlaying, 'mdi-pause': isPlaying }" @click="toggle()"></v-icon>
             </v-btn>
           </v-col>
@@ -130,7 +130,7 @@ export default {
   }
 };
 </script>
-<style>
+<style scoped>
 @keyframes metronome-example {
   from {
     transform: scale(0.5);

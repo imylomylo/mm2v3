@@ -1,5 +1,5 @@
 <template>
     <div>
-        <v-btn depressed large color="red">Disable Asset Pair</v-btn>
+        <v-btn depressed large>Disable Asset Pair</v-btn>
     </div>
 </template>

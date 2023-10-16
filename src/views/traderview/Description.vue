@@ -2,7 +2,7 @@
   <div class="top-spaced">
     <div>
       <v-row no-gutters>
-        <v-toolbar color="white" flat>
+        <v-toolbar flat>
           <v-toolbar-title>Trading</v-toolbar-title>
 
           <v-divider class="mx-4" vertical></v-divider>
@@ -29,7 +29,7 @@
         </v-toolbar>
       </v-row>
     </div>
-          <v-card-text color="blue">
+          <v-card-text>
         <div>
           CURRENT STRATEGY: {{ currentStrategyInfo}}
           <!-- <v-btn text color="deep-purple accent-4">Learn More</v-btn> -->

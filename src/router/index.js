@@ -13,6 +13,10 @@ import AppHome from '../views/AppHome.vue'
 import AppTraderView from '../views/traderview/AppTraderView.vue'
 import RecentSwaps from '../views/RecentSwaps.vue'
 import AppVerus from '../views/AppVerus.vue'
+import VerusStaking from '../views/verus/VerusStaking.vue';
+import VerusIds from '../views/verus/VerusId.vue';
+import VerusCurrencies from '../views/verus/VerusCurrencies.vue';
+
 
 
 const router = createRouter({
@@ -95,7 +99,11 @@ const router = createRouter({
       name: 'Traderview',
       component: AppTraderView,
       props: true
-    }
+    },
+    { path: '/verus-staking', component: VerusStaking },
+    { path: '/verus-ids', component: VerusIds },
+    { path: '/verus-currencies', component: VerusCurrencies },
+    
   ]
 })
 

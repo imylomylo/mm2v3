@@ -9,26 +9,25 @@
 
     <div v-if="marketData">
       <div>
-        <v-layout>
-          <v-flex md6 lg6>
+        <v-row>
+          <v-col md6 lg6>
             <h2>
               {{ marketData.base }} / {{ marketData.rel }} - Asks
               <v-chip
                 class="ma-2"
-                color="red"
                 outlined
                 @click.stop="newAsk(marketData.base, marketData.rel)"
               >
                 <v-icon left>mdi-server-plus</v-icon>
                 SELL {{ marketData.base}}
               </v-chip>
-              <v-chip v-if="marketData" class="ma-2" color="blue" outlined @click="soon">
+              <v-chip v-if="marketData" class="ma-2" outlined @click="soon">
                 <v-icon left>vertical_align_center</v-icon>Spread
               </v-chip>
-              <v-chip v-if="marketData" class="ma-2" color="blue" outlined @click="soon">
+              <v-chip v-if="marketData" class="ma-2" outlined @click="soon">
                 <v-icon left>vertical_align_bottom</v-icon>Layer
               </v-chip>
-              <v-chip v-if="marketData" class="ma-2" color="blue" outlined @click="soon">
+              <v-chip v-if="marketData" class="ma-2" outlined @click="soon">
                 <v-icon left>vertical_align_top</v-icon>Layer
               </v-chip>
             </h2>
@@ -57,7 +56,6 @@
 
               <template v-slot:item.taker="{ item }">
                 <v-chip
-                  color="green"
                   dark
                   @click.stop.prevent="takerAsk(marketData.base, marketData.rel, item.price)"
                 >
@@ -67,27 +65,26 @@
                 </v-chip>
               </template>
             </v-table>
-          </v-flex>
+          </v-col>
 
-          <v-flex md6 lg6>
+          <v-col md6 lg6>
             <h2>
               {{ marketData.base }} / {{ marketData.rel }} - Bids
               <v-chip
                 class="ma-2"
-                color="success"
                 outlined
                 @click.stop="newBid(marketData.base, marketData.rel)"
               >
                 <v-icon left>mdi-server-plus</v-icon>
                 BUY {{ marketData.base}}
               </v-chip>
-              <v-chip v-if="marketData" class="ma-2" color="blue" outlined @click="soon">
+              <v-chip v-if="marketData" class="ma-2" outlined @click="soon">
                 <v-icon left>vertical_align_center</v-icon>Spread
               </v-chip>
-              <v-chip v-if="marketData" class="ma-2" color="blue" outlined @click="soon">
+              <v-chip v-if="marketData" class="ma-2" outlined @click="soon">
                 <v-icon left>vertical_align_bottom</v-icon>Layer
               </v-chip>
-              <v-chip v-if="marketData" class="ma-2" color="blue" outlined @click="soon">
+              <v-chip v-if="marketData" class="ma-2" outlined @click="soon">
                 <v-icon left>vertical_align_top</v-icon>Layer
               </v-chip>
             </h2>
@@ -99,7 +96,6 @@
             >
               <template v-slot:item.taker="{ item }">
                 <v-chip
-                  color="red"
                   dark
                   @click="takerBid(marketData.base, marketData.rel, item.price)"
                 >
@@ -109,8 +105,8 @@
                 </v-chip>
               </template>
             </v-table>
-          </v-flex>
-        </v-layout>
+          </v-col>
+        </v-row>
       </div>
     </div>
     <div
@@ -123,7 +119,6 @@
           <v-chip
             v-if="marketData"
             class="ma-2"
-            color="blue"
             outlined
             @click="showDEXMarket(marketData.rel, marketData.base)"
           >
@@ -162,8 +157,8 @@
 
     <div v-if="myOrders.maker">
       <div>
-        <v-layout>
-          <v-flex md6 lg6>
+        <v-row>
+          <v-col md6 lg6>
             <v-table
               :headers="orderHeaders"
               :items="myOrders.maker"
@@ -171,21 +166,21 @@
               class="elevation-1"
             >
               <template v-slot:item.taker="{ item }">
-                <v-chip color="green" dark @click.stop.prevent="soon()">
+                <v-chip dark @click.stop.prevent="soon()">
                   Cancel
                   <v-icon left>swap_horiz</v-icon>Cancel
                 </v-chip>
               </template>
             </v-table>
-          </v-flex>
-        </v-layout>
+          </v-col>
+        </v-row>
       </div>
     </div>
     <div v-else>No current maker orders to display.</div>
     <div v-if="myOrders.taker">
       <div>
-        <v-layout>
-          <v-flex md6 lg6>
+        <v-row>
+          <v-col md6 lg6>
             <h2>My Market Taker Orders</h2>
             <v-table
               :headers="takerOrderHeaders"
@@ -194,46 +189,46 @@
               class="elevation-1"
             >
               <template v-slot:item.taker="{ item }">
-                <v-chip color="green" dark @click.stop.prevent="soon()">
+                <v-chip dark @click.stop.prevent="soon()">
                   Cancel
                   <v-icon left>swap_horiz</v-icon>Cancel
                 </v-chip>
               </template>
             </v-table>
-          </v-flex>
-        </v-layout>
+          </v-col>
+        </v-row>
       </div>
     </div>
     <div v-else>No current taker orders to display.</div>
 
-    <v-layout justify-center>
-      <v-dialog v-model="makerDialog" persistent max-width="600px">
+    <v-row justify-center>
+      <v-dialog v-model="makerDialog" persistent>
         <v-card>
           <v-card-title>
             <span class="headline">Maker Order Creation</span>
           </v-card-title>
           <v-card-text>
             <v-container grid-list-md>
-              <v-layout wrap>
-                <v-flex xs12 sm6>
+              <v-row wrap>
+                <v-col xs12 sm6>
                   <v-text-field v-bind:value="trade.base" label="Base*" required>{{ trade.base }}</v-text-field>
-                </v-flex>
-                <v-flex xs12 sm6>
+                </v-col>
+                <v-col xs12 sm6>
                   <v-text-field
                     v-bind:value="trade.rel"
                     label="Rel*"
                     hint="example of helper text only on focus"
                   >{{ trade.rel }}</v-text-field>
-                </v-flex>
-                <v-flex xs12 sm6>
+                </v-col>
+                <v-col xs12 sm6>
                   <v-text-field
                     v-model="trade.price"
                     label="Price* 1 base = this price rel"
                     type="text"
                     required
                   >{{ trade.price}}</v-text-field>
-                </v-flex>
-                <v-flex xs12 sm6>
+                </v-col>
+                <v-col xs12 sm6>
                   <v-text-field
                     v-model="trade.amount"
                     label="Amount*"
@@ -241,52 +236,51 @@
                     persistent-hint
                     required
                   >{{ trade.amount }}</v-text-field>
-                </v-flex>
-              </v-layout>
+                </v-col>
+              </v-row>
             </v-container>
             <small>*indicates required field</small>
           </v-card-text>
           <v-card-actions>
             <v-spacer></v-spacer>
-            <v-btn color="blue darken-1" text @click="makerDialog = false">No, Go Back</v-btn>
+            <v-btn text @click="makerDialog = false">No, Go Back</v-btn>
             <v-btn
-              color="blue darken-1"
               text
               @click="doMarketMaker(trade.base, trade.rel, trade.price, trade.amount)"
             >Yes! Send Order</v-btn>
           </v-card-actions>
         </v-card>
       </v-dialog>
-    </v-layout>
+    </v-row>
 
-    <v-layout justify-center>
-      <v-dialog v-model="takerDialog" persistent max-width="600px">
+    <v-row justify-center>
+      <v-dialog v-model="takerDialog" persistent>
         <v-card>
           <v-card-title>
             <span class="headline">Taker Order Creation</span>
           </v-card-title>
           <v-card-text>
             <v-container grid-list-md>
-              <v-layout wrap>
-                <v-flex xs12 sm6>
+              <v-row wrap>
+                <v-col xs12 sm6>
                   <v-text-field v-bind:value="trade.base" label="Base*" required>{{ trade.base }}</v-text-field>
-                </v-flex>
-                <v-flex xs12 sm6>
+                </v-col>
+                <v-col xs12 sm6>
                   <v-text-field
                     v-bind:value="trade.rel"
                     label="Rel*"
                     hint="example of helper text only on focus"
                   >{{ trade.rel }}</v-text-field>
-                </v-flex>
-                <v-flex xs12 sm6>
+                </v-col>
+                <v-col xs12 sm6>
                   <v-text-field
                     v-model="trade.price"
                     label="Price* 1 base = this price rel"
                     type="text"
                     required
                   >{{ trade.price}}</v-text-field>
-                </v-flex>
-                <v-flex xs12 sm6>
+                </v-col>
+                <v-col xs12 sm6>
                   <v-text-field
                     v-model="trade.amount"
                     label="Amount*"
@@ -294,8 +288,8 @@
                     persistent-hint
                     required
                   >{{ trade.amount }}</v-text-field>
-                </v-flex>
-              </v-layout>
+                </v-col>
+              </v-row>
             </v-container>
             <small>*indicates required field</small>
           </v-card-text>
@@ -310,83 +304,84 @@
           </v-card-actions>
         </v-card>
       </v-dialog>
-    </v-layout>
+    </v-row>
   </div>
 </template>
 <script>
 import axios from "axios";
+import {ref} from 'vue'
 
 export default {
   name: "Orderbooks",
   // props: ['rows'],
   data: function() {
     return {
-      takerDialog: false,
-      makerDialog: false,
-      activeCoins: [],
+      takerDialog: ref(false),
+      makerDialog: ref(false),
+      activeCoins: ref([]),
       walletBalance: { base: 0, rel: 0 },
-      marketData: "",
-      myOrders: {},
+      marketData: ref(""),
+      myOrders: ref({}),
       trade: { base: "", rel: "", price: "", amount: "0" },
       appName: "Orderbooks",
-      customerrors: [],
+      customerrors: ref([]),
       headers: [
         {
-          text: "Price",
+          title: "Price",
           align: "left",
           sortable: true,
-          value: "price"
+          key: "price"
         },
-        { text: "Max Volume", value: "maxvolume" },
-        { text: "Age", value: "age" },
-        { text: "Coin", value: "coin" },
-        { text: "Trade As", value: "taker" }
+        { title: "Max Volume", key: "maxvolume" },
+        { title: "Age", key: "age" },
+        { title: "Coin", key: "coin" },
+        { title: "Trade As", key: "taker" }
       ],
       orderHeaders: [
         {
-          text: "Base",
+          title: "Base",
           align: "left",
           sortable: true,
-          value: "base"
+          key: "base"
         },
         {
-          text: "Rel",
+          title: "Rel",
           align: "left",
           sortable: true,
-          value: "rel"
+          key: "rel"
         },
         {
-          text: "Price",
+          title: "Price",
           align: "left",
           sortable: true,
-          value: "price"
+          key: "price"
         },
-        { text: "Created At", value: "created_at" },
-        { text: "Avail. Amount", value: "available_amount" },
-        { text: "Can Cancel", value: "cancellable" }
+        { title: "Created At", key: "created_at" },
+        { title: "Avail. Amount", key: "available_amount" },
+        { title: "Can Cancel", key: "cancellable" }
       ],
       takerOrderHeaders: [
         {
-          text: "Base",
+          title: "Base",
           align: "left",
           sortable: true,
-          value: "base"
+          key: "base"
         },
         {
-          text: "Rel",
+          title: "Rel",
           align: "left",
           sortable: true,
-          value: "rel"
+          key: "rel"
         },
         {
-          text: "Price",
+          title: "Price",
           align: "left",
           sortable: true,
-          value: "price"
+          key: "price"
         },
-        { text: "Created At", value: "created_at" },
-        { text: "Base Amount", value: "request.base_amount" },
-        { text: "Can Cancel", value: "cancellable" }
+        { title: "Created At", key: "created_at" },
+        { title: "Base Amount", key: "request.base_amount" },
+        { title: "Can Cancel", key: "cancellable" }
       ]
     };
   },

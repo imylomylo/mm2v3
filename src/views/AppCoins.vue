@@ -24,7 +24,7 @@
               </td>
 
               <td>
-                <v-btn small class="mx-2" fab color="green">
+                <v-btn small class="mx-2" fab>
                   <v-icon>check_circle_outline</v-icon>
                 </v-btn>
               </td>

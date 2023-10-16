@@ -1,13 +1,12 @@
 <template>
-  <v-card max-width="max-width" class="mx-auto" outlined>
-    <v-toolbar flat dense color="#ECEFF1">
+  <v-card class="mx-auto" outlined>
+    <v-toolbar flat dense>
       <v-toolbar-title>
         <span class="subheading">AtomicDEX order book</span>
       </v-toolbar-title>
       <div class="flex-grow-1"></div>
       <v-chip
         class="ma-2"
-        color="#9D29B1"
         outlined
         @click="refreshMarket()"
       >
@@ -15,9 +14,9 @@
       </v-chip>
     </v-toolbar>
     <div v-if="marketdata.asks">
-      <div>
-        <v-layout>
-          <v-flex md lg>
+      <div> 
+        <v-row>
+          <v-col md lg>
             <v-card-title>Asks</v-card-title>
             <div class="table-container">
             <v-data-table
@@ -29,9 +28,8 @@
               options="disablePagination"
               class="elevation-1"
             >
-              <template v-slot:column.price="{ header }">
-                <!-- {{ header.text.toUpperCase() }} -->
-                Price ({{wallets.rel.ticker }}) 
+              <template v-slot:column.price="{ column, getSortIcon, toggleSort }">
+               <span>Price ({{wallets.rel.ticker }}) </span>
               </template>
 
               <template v-slot:column.maxvolume="{ header }">
@@ -71,8 +69,8 @@ better implementation handled in parent component on load of orders, then promis
               <template v-slot:bottom></template>
             </v-data-table>
             </div>
-          </v-flex>
-        </v-layout>
+          </v-col>
+        </v-row>
       </div>
     </div>
     <div v-else>No current asks to display.</div>
@@ -80,8 +78,8 @@ better implementation handled in parent component on load of orders, then promis
 
     <div v-if="marketdata.bids">
       <div>
-        <v-layout>
-          <v-flex md lg>
+        <v-row>
+          <v-col md lg>
             <v-card-title>Bids</v-card-title>
             <div class="table-container">
             <v-data-table
@@ -121,7 +119,7 @@ better implementation handled in parent component on load of orders, then promis
 better implementation in parent component
                 <v-chip v-if="hasMyOrder(item.price)" color="purple" dark>me</v-chip>
 -->
-                <v-chip v-if="item.myOrder" x-small color="purple" dark>*</v-chip>
+                <v-chip v-if="item.myOrder" x-small dark>*</v-chip>
               </template> 
               <template
                 v-slot:item.baseamount="{ item }"
@@ -132,8 +130,8 @@ better implementation in parent component
               <template v-slot:bottom></template>
             </v-data-table>
             </div>
-          </v-flex>
-        </v-layout>
+          </v-col>
+        </v-row>
         
       </div>
     </div>
@@ -246,10 +244,3 @@ export default {
   }
 };
 </script>
-<style>
-.table-container{
-  widows: 100%;
-  overflow-x: auto;
-}
-
-</style>
