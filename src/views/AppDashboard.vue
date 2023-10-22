@@ -112,7 +112,7 @@ export default {
       console.log("Getting enabled coins with MMBOTURL")
       axios
         .get(
-            process.env.VITE_VUE_APP_MMBOTURL +
+            import.meta.env.VITE_VUE_APP_MMBOTURL +
             "/coinsenabled"
         )
         .then(response => {
@@ -139,7 +139,7 @@ export default {
       console.log("Fetch myBalance: " + JSON.stringify(wallet));
       axios
         .get(
-            process.env.VITE_VUE_APP_MMBOTURL +
+            import.meta.env.VITE_VUE_APP_MMBOTURL +
             "/getBalance?coin=" +
             wallet.ticker
         )

@@ -39,19 +39,20 @@
 
 <script>
 import axios from "axios";
+import {ref} from 'vue'
 
 export default {
   name: "Coins",
   // props: ['rows'],
   data: function() {
     return {
-      activeCoins: [],
-      coinCount: 0,
-      supportedCoins: [], // reads from serviceConfig, in prod fill this with data from configService
-      inactiveCoins: [],
+      activeCoins: ref([]),
+      coinCount: ref(0),
+      supportedCoins: ref([]), // reads from serviceConfig, in prod fill this with data from configService
+      inactiveCoins: ref([]),
       configService: "",
       appName: "Coins",
-      customerrors: []
+      customerrors: ref([])
     };
   },
   methods: {
@@ -63,7 +64,7 @@ export default {
     },
     getServiceConfig: function() {
       axios
-        .get('http://' + process.env.VITE_VUE_APP_WEBHOST + ':7780/config2')
+        .get('http://' + import.meta.env.VITE_VUE_APP_WEBHOST + ':7780/config2')
         .then(response => {
           // console.log(response.data);
           // JSON responses are automatically parsed.
@@ -84,9 +85,9 @@ export default {
       console.log("getBalance " + coin);
       return axios
         .get("http://" + 
-  	   process.env.VITE_VUE_APP_MMBOTHOST + 
+  	   import.meta.env.VITE_VUE_APP_MMBOTHOST + 
 	   ":" +
-	   process.env.VITE_VUE_APP_MMBOTPORT + 
+	   import.meta.env.VITE_VUE_APP_MMBOTPORT + 
    	   "/getBalance?coin=" + coin)
         .then(response => {
           // if response.data.result == "success"
@@ -103,7 +104,7 @@ export default {
       let coinservers = this.supportedCoins[coin].servers;
       axios
         .post(
-          "http://" + process.env.VITE_VUE_APP_WEBHOST + ":7780/connectcoin?coin=" +
+          "http://" + import.meta.env.VITE_VUE_APP_WEBHOST + ":7780/connectcoin?coin=" +
             this.supportedCoins[coin].ticker +
             "&servers=" +
             JSON.stringify(coinservers)
@@ -126,7 +127,7 @@ export default {
     console.log("AppCoins Created");
     axios
       //.get("http://" + process.env.VUE_APP_WEBHOST + ":" + process.env.VUE_APP_WEBPORT + "/" + process.env.VUE_APP_MMBOTHOST + ":" + process.env.VUE_APP_MMBOTPORT + "/api/v1/legacy/mm2/get_enabled_coins")
-      .get("http://" + process.env.VITE_VUE_APP_MMBOTHOST + ":" + process.env.VITE_VUE_APP_MMBOTPORT + "/coinsenabled")
+      .get("http://" + import.meta.env.VITE_VUE_APP_MMBOTHOST + ":" + import.meta.env.VITE_VUE_APP_MMBOTPORT + "/coinsenabled")
       .then(response => {
         console.log("MYLO" + JSON.stringify(response.data.result));
         // JSON responses are automatically parsed.

@@ -389,7 +389,7 @@ export default {
     myBalance: function(base, rel) {
       console.log("My balance");
       axios
-        .get('http://' + process.env.VITE_VUE_APP_WEBHOST + ':7780/getBalance?coin=' + base)
+        .get('http://' + import.meta.env.VITE_VUE_APP_WEBHOST + ':7780/getBalance?coin=' + base)
         .then(response => {
           console.log(response.data);
           this.walletBalance.base = response.data.balance;
@@ -399,7 +399,7 @@ export default {
         });
 
       axios
-        .get('http://' + process.env.VITE_VUE_APP_WEBHOST + ':7780/getBalance?coin=' + rel)
+        .get('http://' + import.meta.env.VITE_VUE_APP_WEBHOST + ':7780/getBalance?coin=' + rel)
         .then(response => {
           console.log(response.data);
           this.walletBalance.rel = response.data.balance;
@@ -412,7 +412,7 @@ export default {
       console.log("base/rel: " + base + "/" + rel + " " + volume + "@" + price);
       axios
         .post(
-          'http://' + process.env.VITE_VUE_APP_WEBHOST + ':7780/doTaker?base=' +
+          'http://' + import.meta.env.VITE_VUE_APP_WEBHOST + ':7780/doTaker?base=' +
             base +
             '&rel=' +
             rel +
@@ -438,7 +438,7 @@ export default {
       console.log("base/rel: " + base + "/" + rel + " " + volume + "@" + price);
       axios
         .post(
-          'http://' + process.env.VITE_VUE_APP_WEBHOST + ':7780/doMaker?base=' +
+          'http://' + import.meta.env.VITE_VUE_APP_WEBHOST + ':7780/doMaker?base=' +
             base +
             '&rel=' +
             rel +
@@ -498,7 +498,7 @@ export default {
     showDEXMarket: function(base, rel) {
       console.log("Show market:" + base + "/" + rel);
       axios
-        .post(process.env.VITE_VUE_APP_MMBOTURL + '/getMarket?base=' + base + '&rel=' + rel)
+        .post(import.meta.env.VITE_VUE_APP_MMBOTURL + '/getMarket?base=' + base + '&rel=' + rel)
         .then(response => {
           this.marketData = response.data;
 
@@ -525,7 +525,7 @@ export default {
     },
     getMyOrders: function() {
       axios
-        .get(process.env.VITE_VUE_APP_MMBOTURL + '/getOrders')
+        .get(import.meta.env.VITE_VUE_APP_MMBOTURL + '/getOrders')
         .then(response => {
           // if response.data.result == "success"
           // console.log(response.data);
@@ -555,7 +555,7 @@ export default {
     console.log(this.appName + " Created");
     this.getMyOrders();
     axios
-      .get(process.env.VITE_VUE_APP_MMBOTURL + '/coinsenabled')
+      .get(import.meta.env.VITE_VUE_APP_MMBOTURL + '/coinsenabled')
       .then(response => {
         // console.log(response.data);
         // JSON responses are automatically parsed.
