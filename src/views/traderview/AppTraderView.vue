@@ -176,6 +176,7 @@ export default {
       trade: { base: "", rel: "", price: "", amount: "0" },
       appName: "VueCryptoTrader",
       customerrors: [],
+      usdPrice : ref(null),
       headers: [
         {
           text: "Price",
@@ -484,7 +485,22 @@ console.log("Looking for match in MOTM: " + orderTemplate.uuid )
         { ticker: "KMD", balance: 11 },
         { ticker: "DOGE", balance: 123 }
       ];
-    }
+    },
+    async fetchUSDPrice() {
+      try {
+        const response = await axios.get('https://api.coingecko.com/api/v3/simple/price', {
+          params: {
+            ids: 'komodo', // Add more IDs as needed
+            vs_currencies: 'usd',
+          },
+        });
+        this.usdPrice = response.data.komodo.usd;
+        console.log("Komodo To USD Price: " + this.usdPrice) // Replace 'komodo' with the desired coin ID
+        // You can add more properties for other coins and display them as needed
+      } catch (error) {
+        console.error('Error fetching USD price:', error);
+      }
+    },
   },
   created: function() {
     console.log(this.appName + " Created");
@@ -494,9 +510,16 @@ console.log("Looking for match in MOTM: " + orderTemplate.uuid )
     this.handleMyOrders()
     this.handleRefreshBalances()
     this.handleRefreshFiat()
+    this.fetchUSDPrice();
+    // Refresh the price every 60 seconds
+    this.interval = setInterval(this.fetchUSDPrice, 60000);
 // this is now handled in MyOrders promise
 //    this.handleRefreshMarket()
     console.log(this.appName + " Finished Created");
+  },
+  beforeUnmount() {
+    // Clear the interval to stop fetching data when the component is destroyed
+    clearInterval(this.interval);
   },
   beforeRouteUpdate(to, from, next) {
     // just use `this`
