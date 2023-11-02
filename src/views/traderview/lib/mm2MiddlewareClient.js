@@ -253,17 +253,17 @@
 
 
 import axios from 'axios'
-import { Client, Functions} from 'appwrite'
+//import { Client, Functions} from 'appwrite'
 
 const BASE_DOMAIN = import.meta.env.VUE_APP_MMBOTURL
 const BASE_URL = BASE_DOMAIN 
 const apiEndpoint = 'https://api.coingecko.com/api/v3';
-const userpass = '7TgkO2FPOZfxGAEi1'
-const client = new Client();
-client
-    .setEndpoint('https://helsinki.cakeshop.dev/v1')
-    .setProject('651b194c4dc7f8e93cf9');
-const func = new Functions(client);
+// const userpass = '7TgkO2FPOZfxGAEi1'
+// const client = new Client();
+// client
+//     .setEndpoint('https://helsinki.cakeshop.dev/v1')
+//     .setProject('651b194c4dc7f8e93cf9');
+// const func = new Functions(client);
 
 export function cancelAllOrders() {
       console.log("Cancel All Orders");
