@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { Client, Functions} from 'appwrite';
+import { Client, Functions} from 'appwrite-cli';
 
 const userpass = '7TgkO2FPOZfxGAEi1'
 const client = new Client();
