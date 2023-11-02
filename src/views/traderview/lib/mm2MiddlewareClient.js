@@ -256,6 +256,7 @@ import axios from 'axios'
 
 const BASE_DOMAIN = import.meta.env.VUE_APP_MMBOTURL
 const BASE_URL = BASE_DOMAIN 
+const apiEndpoint = 'https://api.coingecko.com/api/v3';
 
 export function cancelAllOrders() {
       console.log("Cancel All Orders");
