@@ -6,6 +6,7 @@
 </template>
 <script>
 import axios from 'axios'
+import {ref} from 'vue'
 export default {
   components: {
     // CurrentStrategies
@@ -14,12 +15,12 @@ export default {
   data: function() {
     return {
       currentStrategyInfo: "ONLY BUY KMD, 1.8% SPREAD WITH 10% ORDER SIZE",
-      overlay: false,
+      overlay: ref(false),
       // base: '',
       // rel: '',
       fiat: 'usd',
       market: { base: { ticker: "RICK", price: 'none'} , rel: { ticker: "MORTY", price: "none" } },
-      customerrors: []
+      customerrors: ref([])
     };
   },
   methods: {

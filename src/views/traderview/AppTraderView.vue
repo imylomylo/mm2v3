@@ -158,13 +158,13 @@ export default {
           ticker: "base1",
           balance: 0,
           address: 'loading...',
-          fiat: 'NONE'
+          fiat: ref('')
         },
         rel: {
           ticker: "rel1",
           balance: 0,
           address: 'loading...',
-          fiat: 'NONE'
+          fiat: ref('')
         }
       },
       ammdisabled: ref(true),
@@ -308,15 +308,25 @@ export default {
     handleCancelAllOrders: function() {
       console.log("AppTraderView.handleCancelAllOrders")
     },
+
+
     handleRefreshFiat: function() {
       console.log("AppTraderView.handleRefreshFiat")
-      let refreshFiatBase = mm2.getFiatCoinGecko(this.wallets.base.ticker).then( response => {
-        this.wallets.base.fiat = response.data.current_prices.usd
+      mm2.getFiatCoinGecko(this.wallets.base.ticker).then( response => {
+        this.wallets.base.fiat = response
+        if(response !== null)
+        {
+          console.log(response)
+        }
       }).catch((reason) => {
         console.log(reason)
       })
-      let refreshFiatRel = mm2.getFiatCoinGecko(this.wallets.rel.ticker).then( response => {
-        this.wallets.rel.fiat = response.data.current_prices.usd
+      mm2.getFiatCoinGecko(this.wallets.rel.ticker).then( response => {
+        this.wallets.rel.fiat = response
+        if(response !== null)
+        {
+          console.log(response)
+        }
       }).catch((reason) => {
         console.log("caught: " + reason)
       })

@@ -115,9 +115,9 @@ export default {
         }
       },
       mmccoins: ["KMD", "BTC", "DGB", "DOGE", "LTC", "BAT", "RICK", "MORTY"],
-      takerDialog: false,
-      makerDialog: false,
-      activeCoins: [],
+      takerDialog: ref(false),
+      makerDialog: ref(false),
+      activeCoins: ref([]),
       walletBalance: { base: 0, rel: 0 },
       marketData: "",
       myOrders: {},
