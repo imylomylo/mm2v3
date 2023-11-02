@@ -1,7 +1,6 @@
 import axios from 'axios'
-import { Client, Functions} from 'appwrite';
+import { Client, Functions} from 'appwrite-cli';
 
-const BASE_DOMAIN = process.env.VITE_VUE_APP_MMBOTURL
 const userpass = '7TgkO2FPOZfxGAEi1'
 const client = new Client();
 const apiEndpoint = 'https://api.coingecko.com/api/v3';
