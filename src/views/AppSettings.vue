@@ -152,7 +152,7 @@ export default {
     },
     getServiceConfig() {
       axios
-        .get("http://" + process.env.VITE_VUE_APP_WEBHOST)
+        .get("http://" + import.meta.env.VITE_VUE_APP_WEBHOST)
         .then(response => {
           if (response.data !== undefined) {
             this.configService = response.data;

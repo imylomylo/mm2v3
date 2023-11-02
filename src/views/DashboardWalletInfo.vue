@@ -136,7 +136,7 @@ export default {
         console.log("Updating [" + index + "]" + item.ticker)
       axios
         .get(
-            process.env.VITE_VUE_APP_MMBOTURL +
+            import.meta.env.VITE_VUE_APP_MMBOTURL +
             "/getBalance?coin=" +
             item.ticker
         )

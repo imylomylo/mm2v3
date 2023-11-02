@@ -67,7 +67,7 @@ export default {
   props: ["myOrders", "myOrdersThisMarket"],
   data: function() {
     return {
-      meName: process.env.VITE_VUE_APP_MENAME,
+      meName: import.meta.env.VITE_VUE_APP_MENAME,
       mePrivate: import.meta.env.VITE_VUE_APP_MEPRIVATE,
       mePublic: import.meta.env.VITE_VUE_APP_MEPUBLIC,
       customerrors: []

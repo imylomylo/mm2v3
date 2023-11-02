@@ -67,7 +67,7 @@ export default {
     },
     getServiceConfig: function() {
       axios
-        .get("http://" + process.env.VITE_VUE_APP_WEBHOST + ":7780/config2")
+        .get("http://" + import.meta.env.VITE_VUE_APP_WEBHOST + ":7780/config2")
         .then(response => {
           // console.log(response.data);
           // JSON responses are automatically parsed.

@@ -115,9 +115,9 @@ export default {
         }
       },
       mmccoins: ["KMD", "BTC", "DGB", "DOGE", "LTC", "BAT", "RICK", "MORTY"],
-      takerDialog: false,
-      makerDialog: false,
-      activeCoins: [],
+      takerDialog: ref(false),
+      makerDialog: ref(false),
+      activeCoins: ref([]),
       walletBalance: { base: 0, rel: 0 },
       marketData: "",
       myOrders: {},
@@ -198,7 +198,7 @@ export default {
       axios
         .get(
           "http://" +
-            process.env.VITE_VUE_APP_WEBHOST +
+            import.meta.env.VITE_VUE_APP_WEBHOST +
             ":7780/getBalance?coin=" +
             base
         )
@@ -213,7 +213,7 @@ export default {
       axios
         .get(
           "http://" +
-            process.env.VITE_VUE_APP_WEBHOST +
+            import.meta.env.VITE_VUE_APP_WEBHOST +
             ":7780/getBalance?coin=" +
             rel
         )
@@ -230,7 +230,7 @@ export default {
       axios
         .post(
           "http://" +
-            process.env.VITE_VUE_APP_WEBHOST +
+            import.meta.env.VITE_VUE_APP_WEBHOST +
             ":7780/doTaker?base=" +
             base +
             "&rel=" +
@@ -258,7 +258,7 @@ export default {
       axios
         .post(
           "http://" +
-            process.env.VITE_VUE_APP_WEBHOST +
+            import.meta.env.VITE_VUE_APP_WEBHOST +
             ":7780/doMaker?base=" +
             base +
             "&rel=" +
@@ -352,7 +352,7 @@ export default {
       axios
         .post(
           "http://" +
-            process.env.VITE_VUE_APP_WEBHOST +
+            import.meta.env.VITE_VUE_APP_WEBHOST +
             ":7780/getMarket?base=" +
             base +
             "&rel=" +
@@ -368,7 +368,7 @@ export default {
     },
     getMyOrders: function() {
       axios
-        .get("http://" + process.env.VITE_VUE_APP_WEBHOST + ":7780/getOrders")
+        .get("http://" + import.meta.env.VITE_VUE_APP_WEBHOST + ":7780/getOrders")
         .then(response => {
           // if response.data.result == "success"
           // console.log(response.data);
@@ -401,7 +401,7 @@ export default {
     console.log(this.appName + " Created");
     // this.getMyOrders();
     axios
-      .get(process.env.VITE_VUE_APP_MMBOTURL + "/coinsenabled")
+      .get(import.meta.env.VITE_VUE_APP_MMBOTURL + "/coinsenabled")
       .then(response => {
         console.log("MYLO" + JSON.stringify(response.data.result));
         // JSON responses are automatically parsed.

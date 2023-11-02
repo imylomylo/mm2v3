@@ -74,13 +74,13 @@ export default {
       axios
         .post(
           "http://" +
-            process.env.VITE_VUE_APP_WEBHOST +
+            import.meta.env.VITE_VUE_APP_WEBHOST +
             ":" +
-            process.env.VITE_VUE_APP_WEBPORT +
+            import.meta.env.VITE_VUE_APP_WEBPORT +
             "/" +
-            process.env.VITE_VUE_APP_MMBOTHOST +
+            import.meta.env.VITE_VUE_APP_MMBOTHOST +
             ":" +
-            process.env.VITE_VUE_APP_MMBOTPORT +
+            import.meta.env.VITE_VUE_APP_MMBOTPORT +
             "/api/v1/legacy/mm2/my_recent_swaps",
             requestData
         )
@@ -94,7 +94,7 @@ export default {
     console.log(this.appName + " Created");
 
     // axios
-    //   .get( "http://" + process.env.VUE_APP_WEBHOST + ":7780/recentswaps")
+    //   .get( "http://" + import.meta.env.VUE_APP_WEBHOST + ":7780/recentswaps")
     //   .then(response => {
     //     // console.log(response.data);
     //     // JSON responses are automatically parsed.
