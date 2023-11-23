@@ -1,5 +1,6 @@
 <template>
     <v-main>
+      <div style="margin-top: 50px;">
         <v-row>
             <v-col md6 lg6 class="flex-grow-1 flex-shrink-1">
                 <v-row class="px-4">
@@ -40,6 +41,7 @@ not sure if something needed from this definition of component, keeping as comme
 -->
             </v-col>
         </v-row>
+        </div>
         <router-view></router-view>
     </v-main>
 </template>
