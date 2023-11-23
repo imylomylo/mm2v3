@@ -2,15 +2,15 @@
     <v-main>
       <div style="margin-top: 50px;">
         <v-row>
-            <v-col md6 lg6 class="flex-grow-1 flex-shrink-1">
-                <v-row class="px-4">
+            <v-col>
+                <v-row>
                     <v-col>
                         <DashboardWalletInfo ref="dashboardWallets" :wallets="allwallets" @update-allwallets="updateAllWallets"/>
                     </v-col>
                 </v-row>
             </v-col>
-            <v-col md6 lg6 class="flex-grow-1 flex-shrink-1">
-                <v-row class="px-4">
+            <v-col>
+                <v-row>
                     <v-col>
                         <AppStrategy/>
                     </v-col>
