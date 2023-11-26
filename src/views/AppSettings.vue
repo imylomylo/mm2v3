@@ -1,5 +1,6 @@
 <template>
   <v-app>
+    <div style="margin-top: 100px;">
     <v-card>
     <div>
       <h2>{{ appName }}</h2>
@@ -77,6 +78,7 @@
       </div>
     </div>
     </v-card>
+    </div>
   </v-app>
 </template>
 
