@@ -1,8 +1,8 @@
 
 
 <template>
-  <v-app>
-    <v-app-bar color="accent">
+  <v-app class="container">
+    <v-app-bar color="green" class="app-bar">
       <v-toolbar-title class="ml-0 pl-4">
         <span class="hidden-sm-and-down">{{ appName }}</span>
       </v-toolbar-title>
@@ -122,3 +122,18 @@ export default {
   
 }
 </script>
+<style scoped>
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+
+.app-bar {
+  background-color: gray;
+  height: 60px;
+ }
+
+</style>

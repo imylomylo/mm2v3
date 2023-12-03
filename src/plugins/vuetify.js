@@ -10,8 +10,8 @@ export default createVuetify(
       dark: false, // or true if you want a dark theme
       themes: {
         light: {
-          primary: '#3f51b5', // your primary color
-          secondary: '#b0bec5', // your secondary color
+          red: '#FF101F', // your primary color
+          green: '#399E5A', // your secondary color
           accent: '#8c9eff', // your accent color
         },
       }
