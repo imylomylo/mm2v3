@@ -1,0 +1,3 @@
+[submodule "src/views/verus/verusd-rpc-ts-client"]
+	path = src/views/verus/verusd-rpc-ts-client
+	url = https://github.com/VerusCoin/verusd-rpc-ts-client
