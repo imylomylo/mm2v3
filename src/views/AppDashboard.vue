@@ -1,6 +1,6 @@
 <template>
     <v-main>
-      <div>
+      <v-container>
         <v-row>
             <v-col>
                 <v-row>
@@ -15,12 +15,12 @@
                         <AppStrategy/>
                     </v-col>
                 </v-row>
-                <v-row class="px-4">
+                <v-row>
                     <v-col>
                         <AppExport v-bind:swapHistory="recentSwaps" v-on:get-swap-history="handleGetSwapHistory" v-on:hide-swap-history="handleHideSwapHistory" v-on:save-json="handleSaveJSON"/>
                     </v-col>
                 </v-row>
-                <v-row class="px-4">
+                <v-row>
                     <v-col>
                         <!--
 not sure if something needed from this definition of component, keeping as comment for now
@@ -41,8 +41,7 @@ not sure if something needed from this definition of component, keeping as comme
 -->
             </v-col>
         </v-row>
-        </div>
-        <router-view></router-view>
+        </v-container>
     </v-main>
 </template>
 <script>

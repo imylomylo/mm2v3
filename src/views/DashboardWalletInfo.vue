@@ -1,11 +1,10 @@
 <template>
 <v-main>
- <v-card>
+  <v-container>
     <v-toolbar>
       <v-toolbar-title>
         <span class="subheading">Wallets</span>
       </v-toolbar-title>
-      <div class="flex-grow-1"></div>
       <span class="ma-5 mt-11"><v-checkbox v-model="hideZero" :disabled="hideZeroDisable" label="Hide Zero Balance" ></v-checkbox></span>
       <v-chip
         class="ma-2"
@@ -95,7 +94,7 @@
       </div>
       <v-btn color="success" @click="hideDepositOverlay(false)">Dismiss</v-btn>
     </v-overlay>
-  </v-card>
+  </v-container>
   </v-main>
 </template>
 <script>
