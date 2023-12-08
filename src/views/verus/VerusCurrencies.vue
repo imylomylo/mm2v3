@@ -7,9 +7,12 @@
   </template>
 <script>
 
+import {VerusdRpcInterface} from './verusd-rpc-ts-client/src/index'
+
 export default{
     name: 'VerusCurrencies',
     mounted() {
+        
     }
 
 }
