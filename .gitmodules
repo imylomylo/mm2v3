@@ -1,3 +1,0 @@
-[submodule "src/views/verus/--force"]
-	path = src/views/verus/--force
-	url = https://github.com/VerusCoin/verus-typescript-primitives
