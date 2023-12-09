@@ -1,3 +1,6 @@
 [submodule "src/views/verus/verus-typescript-primitives"]
 	path = src/views/verus/verus-typescript-primitives
 	url = https://github.com/VerusCoin/verus-typescript-primitives/
+[submodule "src/views/verus/verusd-rpc-ts-client"]
+	path = src/views/verus/verusd-rpc-ts-client
+	url = https://github.com/VerusCoin/verusd-rpc-ts-client
