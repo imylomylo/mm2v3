@@ -19,7 +19,7 @@
     </v-toolbar>
     <v-divider class="mx-4"></v-divider>
     <div>
-    <v-table style="max-width: 700px;" fixed-header bordered>
+    <v-table style="max-width: 700px;" bordered>
       <thead>
         <tr>
           <th>TICKER</th>

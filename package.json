@@ -23,7 +23,8 @@
     "vue": "^3.2.47",
     "vue-router": "^4.1.6",
     "vuetify": "npm:@vuetify/nightly@next",
-    "webfontloader": "^1.0.0"
+    "webfontloader": "^1.0.0",
+    "verusd-rpc-ts-client": "git+https://github.com/VerusCoin/verusd-rpc-ts-client.git"
   },
   "devDependencies": {
     "@mdi/font": "^7.2.96",

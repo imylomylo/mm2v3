@@ -124,16 +124,5 @@ export default {
 </script>
 <style>
 
-.container {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  width: 100%;
-}
-
-.app-bar {
-  background-color: gray;
-  height: 60px;
- }
 
 </style>

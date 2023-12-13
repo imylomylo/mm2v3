@@ -1,5 +1,6 @@
 <template>
-  <v-app>
+  <v-main>
+    <v-container>
     <div>
     <v-card>
     <div>
@@ -79,7 +80,8 @@
     </div>
     </v-card>
     </div>
-  </v-app>
+    </v-container>
+  </v-main>
 </template>
 
 <script>
