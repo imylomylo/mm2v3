@@ -7,6 +7,8 @@ import 'vuetify/styles'
 import { createVuetify } from 'vuetify'
 import * as components from 'vuetify/components'
 import * as directives from 'vuetify/directives'
+import store from '@/stores/store'
+
 
 const vuetify = createVuetify({
   components,
@@ -17,4 +19,5 @@ loadFonts()
 createApp(App)
   .use(router)
   .use(vuetify)
+  .use(store)
   .mount('#app')
