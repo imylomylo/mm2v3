@@ -5,7 +5,7 @@
   "scripts": {
     "serve": "vite preview",
     "build": "vite build",
-    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore",
+    "lint": "eslint . --ext .vue,.js,.ts,.jsx,.cjs,.mjs --fix --ignore-path .gitignore",
     "dev": "vite",
     "host": "vite --host",
     "format": "prettier --write src/",
@@ -20,11 +20,13 @@
     "pinia": "^2.0.32",
     "qrcode.vue": "^3.3.4",
     "roboto-fontface": "*",
+    "verusd-rpc-ts-client": "git+https://github.com/VerusCoin/verusd-rpc-ts-client.git",
+    "vite-plugin-node-polyfills": "^0.17.0",
     "vue": "^3.2.47",
     "vue-router": "^4.1.6",
     "vuetify": "npm:@vuetify/nightly@next",
-    "webfontloader": "^1.0.0",
-    "verusd-rpc-ts-client": "git+https://github.com/VerusCoin/verusd-rpc-ts-client.git"
+    "vuex": "^4.1.0",
+    "webfontloader": "^1.0.0"
   },
   "devDependencies": {
     "@mdi/font": "^7.2.96",

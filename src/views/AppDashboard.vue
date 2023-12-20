@@ -1,4 +1,5 @@
 <template>
+      <Loading v-if="loading" />
     <v-main>
       <v-container>
         <v-row>
@@ -53,18 +54,22 @@ import AppExport from "./AppExport.vue"
 import MyOrders from "./traderview/MyOrders.vue"
 import RecentSwaps from "./RecentSwaps.vue"
 import AppTraderViewVue from "./traderview/AppTraderView.vue"
+import Loading from '../Loading.vue'
+import {ref} from 'vue'
+
 
 export default {
   components: { 
-    DashboardWalletInfo, AppStrategy, AppExport, MyOrders, RecentSwaps, AppTraderViewVue
+    DashboardWalletInfo, AppStrategy, AppExport, MyOrders, RecentSwaps, AppTraderViewVue, Loading
   },
   data: function() {
     return {
       appName: "dashboard",
-      recentSwaps: [],
-      customerrors: [],
-      allwallets: [],
-      myOrders: []
+      recentSwaps: ref([]),
+      customerrors: ref([]),
+      allwallets: ref([]),
+      myOrders: ref([]),
+      loading: ref(false),
     };
   },
   methods: {

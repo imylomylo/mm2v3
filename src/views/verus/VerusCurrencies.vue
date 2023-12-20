@@ -3,30 +3,40 @@
     <h1 style="margin-top: 100px;">
         Verus Currencies
     </h1>
+    <h2> {{ currencies.at(1) }}</h2>
     </v-main>
   </template>
 <script>
+import { fetchInfo, fetchConversion } from "./utils/proxyGet"; 
+import {ref} from 'vue'
 
-// import {VerusdRpcInterface} from 'verusd-rpc-ts-client'
+export default {
+  data(){
+    return{
+      currencies : ref([])
+    }
+  },
+  name: 'VerusCurrencies',
+  async mounted() {
+    await this.getConsole();
+  },
+  methods: {
+    async getConsole() {
+      try {
+        //const res = await fetchCurrency("Bridge.vEth");
+        const info = await fetchInfo();
+        const getCon = await fetchConversion();
+ 
+        //console.log(res);
+        console.log(info);
+        console.log(getCon);
+        this.currencies = getCon.currencies
+      } catch (error) {
+        // Handle errors if needed
+        console.log("Cannot get data")
+      }
+    },
+  }
+}
 
-// const verusd = VerusdRpcInterface("iJhCezBExJHvtyH3fGhNnt2NhU4Ztkf2yq", "http://localhost:5173")
-
-// export default{
-//     name: 'VerusCurrencies',
-//     async mounted() 
-//     {
-//         await fetchConversion()
-//     },
-//     methods()
-//     {
-//         const fetchConversion = async () => {
-//         const res = await verusd.getCurrency('bridge.veth')
-//         const info = await verusd.getInfo()
-//         const block = info.result.longestchain
-
-//         console.log(res)
-//         console.log(info)
-//         console.log(block)
-//     }}
-// }
 </script>

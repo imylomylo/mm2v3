@@ -65,12 +65,14 @@
 
 <script>
 import AppMarkets from './views/AppMarkets.vue'
-import {ref} from 'vue'
+import {ref, onMounted} from 'vue'
+
 
 export default {
   name: 'App',
   components: {
       AppMarkets,
+
   },
   props: {
     source: String
@@ -119,6 +121,7 @@ export default {
       { icon: "phonelink", text: "App downloads" }
     ]
   }),
+  
   
 }
 </script>

@@ -278,8 +278,7 @@
           headers: headers,
           data: data
         });
-      }
-      
+      }    
     },
     mounted()
     {
