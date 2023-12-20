@@ -69,7 +69,7 @@ export default {
       customerrors: ref([]),
       allwallets: ref([]),
       myOrders: ref([]),
-      loading: ref(true),
+      loading: ref(false),
     };
   },
   methods: {
