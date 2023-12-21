@@ -1,16 +1,15 @@
 <template>
- <v-card>
-    <v-row>
-      <!-- <v-btn color="success" class="mt-12" @click="overlay = !overlay">Show Overlay</v-btn> -->
+ <v-main>
+  <v-container>
+    <v-card>
 
       <v-overlay :absolute="true" :model-value="overlay" contained persistent class="align-center justify-center">
         <v-btn color="warning" @click="setOverlay(false)">No Automation</v-btn>
       </v-overlay>
-    </v-row>
 
-    <v-toolbar flat dense>
+    <v-toolbar>
       <v-toolbar-title>
-        Active Strategies
+        <span class="subheading">Active Strategies</span>
       </v-toolbar-title>
     </v-toolbar>
     <v-table fixed-header>
@@ -35,7 +34,9 @@
         </tr>
       </tbody>
     </v-table>
-  </v-card>
+    </v-card>
+  </v-container>
+  </v-main>
 </template>
 <script>
 import axios from 'axios'

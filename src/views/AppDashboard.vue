@@ -1,7 +1,6 @@
 <template>
       <Loading v-if="loading" />
     <v-main>
-      <v-container>
         <v-row>
             <v-col>
                 <v-row>
@@ -42,7 +41,6 @@ not sure if something needed from this definition of component, keeping as comme
 -->
             </v-col>
         </v-row>
-        </v-container>
     </v-main>
 </template>
 <script>
