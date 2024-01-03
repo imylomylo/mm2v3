@@ -56,9 +56,9 @@
           :items="items"
         ></v-list>
       </v-navigation-drawer>
-    <v-content>
-      <router-view></router-view>
-    </v-content>
+      <Loading v-if="loading"></Loading>
+      <router-view v-else>
+      </router-view>
   </v-app>
 </template>
 
@@ -66,16 +66,24 @@
 <script>
 import AppMarkets from './views/AppMarkets.vue'
 import {ref, onMounted} from 'vue'
+import Loading from './Loading.vue'
 
 
 export default {
   name: 'App',
   components: {
-      AppMarkets,
-
-  },
+    AppMarkets,
+    Loading
+},
   props: {
     source: String
+  },
+  setup() {
+    const loading = ref(false);
+    
+    return {
+      loading,
+    };
   },
   methods: {
     gotoHome() {
