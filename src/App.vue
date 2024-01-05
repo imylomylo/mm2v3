@@ -65,7 +65,7 @@
 
 <script>
 import AppMarkets from './views/AppMarkets.vue'
-import {ref, onMounted} from 'vue'
+import {ref, onMounted, onBeforeMount} from 'vue'
 import Loading from './Loading.vue'
 
 
@@ -79,12 +79,17 @@ export default {
     source: String
   },
   setup() {
-    const loading = ref(false);
-    
+    const loading = ref(true);
+    onMounted(() => {
+      setTimeout(() => {
+        loading.value = false;
+      }, 2000);
+  });
     return {
       loading,
     };
   },
+
   methods: {
     gotoHome() {
       this.$router.push('/')
