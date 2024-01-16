@@ -47,5 +47,10 @@
     "vite": "^4.1.4",
     "vite-plugin-vuetify": "^1.0.0-alpha.12",
     "vue-cli-plugin-vuetify": "~2.5.8"
+  },
+  "resolutions": {
+    "verus-typescript-primitives": "file:../verus-typescript-primitives",
+    "verusd-rpc-ts-client": "file:../verusd-rpc-ts-client",
+    "verusid-ts-client": "file:../verusid-ts-client"
   }
 }

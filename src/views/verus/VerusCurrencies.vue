@@ -198,6 +198,7 @@ return bridgeReserve.toFixed(6);
     // Fetch data on component creation
     onMounted(async () => {
       await getConversionData();
+      await getMempoolData();
     });
 
     const renderedCurrencies = computed(() => {
@@ -209,20 +210,21 @@ return bridgeReserve.toFixed(6);
 
     const getMempoolData = async () => {
     try {
-      const mempoolResponse = await verusd.getrawmempool();
+  const mempoolResponse = await verusd.getMempoolData();
       const mempoolTransactions = mempoolResponse.result;
 
-      // Filter VRSC transactions
-      const vrscMempool = mempoolTransactions.filter((tx) => {
-        // Check if the transaction involves VRSC
-        return tx.vout.some((output) => output.scriptPubKey?.asset === 'VRSC');
-      });
+      // // Filter VRSC transactions
+      // const vrscMempool = mempoolTransactions.filter((tx) => {
+      //   // Check if the transaction involves VRSC
+      //   return tx.vout.some((output) => output.scriptPubKey?.asset === 'VRSC');
+      // });
 
-      // Extract transaction IDs
-      const vrscTxIds = vrscMempool.map((tx) => tx.txid);
+      // // Extract transaction IDs
+      // const vrscTxIds = vrscMempool.map((tx) => tx.txid);
 
-      // Update mempool_res
-      mempool_res.value = vrscTxIds;
+      // // Update mempool_res
+      // mempool_res.value = vrscTxIds;
+      console.log(mempoolTransactions)
     } catch (error) {
       console.error('Error fetching mempool data:', error);
     }};
