@@ -1,5 +1,5 @@
 <template>
-    <v-app>
+    <v-container>
       <v-card style="margin-top: 100px;">
         <v-tabs v-model="activeTab" fixed-tabs>
           <v-tab value="verus-staking">Verus Staking</v-tab>
@@ -19,7 +19,7 @@
           <VerusCurrencies/>
         </v-tab-item>
       </v-card>
-    </v-app>
+    </v-container>
   </template>
   
   <script>
