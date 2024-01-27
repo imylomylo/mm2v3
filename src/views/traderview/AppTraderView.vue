@@ -1,10 +1,5 @@
 <template>
     <v-main>
-        <div>
-            <div>
-                <!-- <Description v-on:mmenable="mmenable()" v-bind="wallets" /> -->
-                <div>
-                    <div>
                         <v-row no-gutters>
                             <v-toolbar flat>
                                 <h2 class="ma-2">Trading</h2>
@@ -36,7 +31,7 @@
                                 <v-app-bar-nav-icon></v-app-bar-nav-icon>
                             </v-toolbar>
                         </v-row>
-                    </div>
+
                     <v-card-text>
                         <div>
                             CURRENT STRATEGY: {{ currentStrategyInfo}}
@@ -46,7 +41,7 @@
           <p class="display-1 text--primary">{{currentStrategyInfo}}</p>-->
                     </v-card-text>
                     <!-- <CurrentStrategies /> -->
-                </div>
+
                 <v-divider class="mx-4 pb-5"></v-divider>
                 <v-row>
                     <v-col md6 lg6 class="flex-grow-1 flex-shrink-1">
@@ -112,8 +107,7 @@
           </v-row>
         </v-flex>-->
                 </v-row>
-            </div>
-        </div>
+
     </v-main>
     <router-view></router-view>
 </template>
