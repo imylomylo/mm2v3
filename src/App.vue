@@ -76,7 +76,9 @@ export default {
     Loading
 },
   props: {
-    source: String
+    source: String,
+    base: String,
+    rel: String
   },
   setup() {
     const loading = ref(true);
