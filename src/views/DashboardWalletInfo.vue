@@ -129,33 +129,38 @@ export default {
       }
     },
     updateBalances: function() {
-      this.hideZeroDisable = true
-      let lastticker=this.allwallets[this.allwallets.length-1].ticker
-      this.allwallets.forEach(function(item, index) {
-        console.log("Updating [" + index + "]" + item.ticker)
-      axios
-        .get(
-            import.meta.env.VITE_VUE_APP_MMBOTURL +
-            "/getBalance?coin=" +
-            item.ticker
-        )
-        .then((response) => {
-          item.balance = response.data.balance;
-          item.address = response.data.address;
-          this.allwallets[index].balance = item.balance
-          console.log(JSON.stringify(this.allwallets[index], null, 2))
-          if( lastticker == item.ticker ){
-            console.log("All updated")
-            this.hideZeroDisable = false
-          }
-        })
-        .catch(function(e) {
-          console.log("update balance error" + e)
-        })
-      }.bind(this))
-      this.$forceUpdate()
-      //this.hideZeroDisable = false
-    },
+  this.hideZeroDisable = true;
+  let lastTicker = this.allwallets[this.allwallets.length - 1].ticker;
+  const requests = this.allwallets.map((item, index) => {
+    return axios.get(
+      import.meta.env.VITE_VUE_APP_MMBOTURL +
+      "/getBalance?coin=" +
+      item.ticker
+    );
+  });
+
+  Promise.all(requests)
+    .then((responses) => {
+      responses.forEach((response, index) => {
+        const item = this.allwallets[index];
+        item.balance = response.data.balance;
+        item.address = response.data.address;
+        this.allwallets[index].balance = item.balance;
+        console.log(JSON.stringify(this.allwallets[index], null, 2));
+      });
+
+      if (lastTicker === this.allwallets[this.allwallets.length - 1].ticker) {
+        console.log("All updated");
+        this.hideZeroDisable = false;
+      }
+    })
+    .catch((error) => {
+      console.log("update balance error" + error);
+    })
+    .finally(() => {
+      this.$forceUpdate();
+    });
+},
     hideDepositOverlay: function(v) {
       (this.depositOverlay = v),
         (this.depositTicker = ""),
