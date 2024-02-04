@@ -1,10 +1,10 @@
 <template>
-  <v-card class="mx-auto" max-width="max-width" outlined>
+  <v-card outlined>
     <v-row justify="center">
       <!-- <v-btn color="success" class="mt-12" @click="overlay = !overlay">Show Overlay</v-btn> -->
 
       <v-overlay :absolute="true" :model-value="overlay" contained persistent class="align-center justify-center">
-        <v-btn color="success" @click="setOverlay(false)">Enable Automation</v-btn>
+        <v-btn color="success" @click="setOverlay(true)">Enable Automation</v-btn>
       </v-overlay>
     </v-row>
     <div>
@@ -36,8 +36,8 @@
             </v-fade-transition>
           </v-col>
           <v-col class="text-right">
-            <v-btn rounded dark depressed @click="toggle()">
-              <v-icon :class="{ 'mdi-play': !isPlaying, 'mdi-pause': isPlaying }" @click="toggle()"></v-icon>
+            <v-btn icon color="indigo" @click="toggle()">
+              <v-icon>mdi-play</v-icon>
             </v-btn>
           </v-col>
         </v-row>
@@ -78,29 +78,30 @@
 </template>
 <script>
 import CurrentStrategies from "./CurrentStrategies.vue";
-import { ref } from 'vue'
+import { ref } from 'vue';
 
 export default {
   components: {
     CurrentStrategies
   },
-  data: function() {
+  setup() {
+    const spread = ref(50);
+    const ordersize = ref(10);
+    const overlay = ref(true);
+    const isPlaying = ref(false);
+
     return {
-      selection: 1,
-      spread: 50,
-      ordersize: 10,
-      overlay: ref(true),
-      interval: null,
-      isPlaying: ref(false),
+      spread,
+      ordersize,
+      overlay,
+      isPlaying,
       mmcolor: "indigo"
     };
   },
   computed: {
-    mmcolor: function() {
-      // if (this.spread / 100 + this.ordersize < 30) return "teal";
+    mmcolor() {
       if (this.spread / 100 + this.ordersize < 50) return "indigo";
-      if (this.spread / 100 + this.ordersize < 80 || this.spread < 170)
-        return "deep-orange";
+      if (this.spread / 100 + this.ordersize < 80 || this.spread < 170) return "deep-orange";
       return "purple";
     },
     animationDuration() {
@@ -108,28 +109,28 @@ export default {
     }
   },
   methods: {
-    setOverlay: function(v){
-      this.overlay = v
+    setOverlay(v) {
+      this.overlay = v;
     },
-    enable: function(change) {
+    enable(change) {
       this.overlay = change;
-      this.$emit("toggleAMM", change)
+      this.$emit("toggleAMM", change);
     },
     toggle() {
       this.isPlaying = !this.isPlaying;
     },
-    onlybuyrel: function(rel) {
+    onlybuyrel(rel) {
       console.log("Only buy rel: " + rel);
     }
   },
   computed: {
-    isEnabled: function() {
-      // add more logic here for controlling gui disable overlay
+    isEnabled() {
       return this.overlay;
     }
   }
 };
 </script>
+
 <style scoped>
 @keyframes metronome-example {
   from {
