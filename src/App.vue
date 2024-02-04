@@ -36,13 +36,11 @@
           </v-toolbar-items>
         </v-toolbar>
         <v-list three-line subheader>
-          <v-subheader>Go to markets</v-subheader>
+          <v-list-subheader>Go to markets</v-list-subheader>
           <v-list-item>
-            <v-list-item-content>
               <v-list-item-title>Informational Section</v-list-item-title>
               <v-list-item-subtitle>Please wait for the available market links to load</v-list-item-subtitle>
               <AppMarkets v-on:gotoMarket="gotoMarket" :key="componentKey" />
-            </v-list-item-content>
           </v-list-item>
         </v-list>
       </v-card>
