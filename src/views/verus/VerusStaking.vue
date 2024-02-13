@@ -38,7 +38,7 @@
   export default {
     data() {
       return {
-        processBlocks: import.meta.env.VITE_APP_BLOCKS,
+        processBlocks: 20,
         blocks: ref([]),
         blockRewards : ref([]),
       };
