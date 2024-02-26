@@ -54,9 +54,11 @@
           :items="items"
         ></v-list>
       </v-navigation-drawer>
+      <v-container class="content-container">
       <Loading v-if="loading"></Loading>
       <router-view v-else>
       </router-view>
+      </v-container>
   </v-app>
 </template>
 
@@ -138,7 +140,12 @@ export default {
   
 }
 </script>
-<style>
-
+<style scoped>
+.content-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Ensures the container takes the full height of the viewport */
+}
 
 </style>
